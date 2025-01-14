@@ -2,7 +2,7 @@
 title: Basic Electronics
 date: 2025-01-10T18:08:19+05:30
 lastmod: 2025-01-10T18:08:19+05:30
-author: Niraamay Dileep
+author: ORIGO
 # avatar: /img/author.jpg
 # authorlink: https://author.site
 cover: cover.png
