@@ -2,34 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:53847/ORIGO2K25/posts/basic-electronics/</loc>
+    <loc>http://localhost:1313/ORIGO2K25/tags/arduino/</loc>
     <lastmod>2025-01-10T18:08:19+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:53847/ORIGO2K25/tags/basics/</loc>
+    <loc>http://localhost:1313/ORIGO2K25/posts/arduino/</loc>
     <lastmod>2025-01-10T18:08:19+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:53847/ORIGO2K25/categories/</loc>
+    <loc>http://localhost:1313/ORIGO2K25/posts/basic-electronics/</loc>
     <lastmod>2025-01-10T18:08:19+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:53847/ORIGO2K25/categories/category1/</loc>
+    <loc>http://localhost:1313/ORIGO2K25/tags/basics/</loc>
     <lastmod>2025-01-10T18:08:19+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:53847/ORIGO2K25/tags/electronics/</loc>
+    <loc>http://localhost:1313/ORIGO2K25/categories/</loc>
     <lastmod>2025-01-10T18:08:19+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:53847/ORIGO2K25/tags/handout/</loc>
+    <loc>http://localhost:1313/ORIGO2K25/categories/category1/</loc>
     <lastmod>2025-01-10T18:08:19+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:53847/ORIGO2K25/</loc>
+    <loc>http://localhost:1313/ORIGO2K25/tags/electronics/</loc>
     <lastmod>2025-01-10T18:08:19+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:53847/ORIGO2K25/posts/</loc>
+    <loc>http://localhost:1313/ORIGO2K25/tags/handout/</loc>
     <lastmod>2025-01-10T18:08:19+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:53847/ORIGO2K25/tags/rignitc/</loc>
+    <loc>http://localhost:1313/ORIGO2K25/</loc>
     <lastmod>2025-01-10T18:08:19+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:53847/ORIGO2K25/tags/</loc>
+    <loc>http://localhost:1313/ORIGO2K25/posts/</loc>
+    <lastmod>2025-01-10T18:08:19+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/ORIGO2K25/tags/python/</loc>
+    <lastmod>2025-01-10T18:08:19+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/ORIGO2K25/posts/python/</loc>
+    <lastmod>2025-01-10T18:08:19+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/ORIGO2K25/tags/rignitc/</loc>
+    <lastmod>2025-01-10T18:08:19+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/ORIGO2K25/tags/</loc>
     <lastmod>2025-01-10T18:08:19+05:30</lastmod>
   </url>
 </urlset>

@@ -2,7 +2,7 @@
 title: Basic Electronics
 date: 2025-01-10T18:08:19+05:30
 lastmod: 2025-01-10T18:08:19+05:30
-author: Niraamay Dileep
+author: ORIGO
 # avatar: /img/author.jpg
 # authorlink: https://author.site
 cover: cover.png
@@ -165,13 +165,10 @@ This detailed exploration bridges the basics of electronics with the advanced sy
 
 ---
 
-## External References for Further Learning 
+## External References for Further Learning
 
-Websites: 
+- [Basic Electronics - Instructables](https://www.instructables.com/Basic-Electronics/)  
+- [Electronics Tutorials](https://www.electronics-tutorials.ws/)  
+- [Troubleshooting Electronic Motors - eCampusOntario](https://ecampusontario.pressbooks.pub/btec315biomedicalinstrumenttroubleshooting/chapter/troubleshooting-electronic-motors/)  
 
-https://www.instructables.com/Basic-Electronics/ 
-
-https://www.electronics-tutorials.ws/ 
-
-https://ecampusontario.pressbooks.pub/btec315biomedicalinstrumenttroubleshooting/chapter/troubleshooting-electronic-motors/ 
 
