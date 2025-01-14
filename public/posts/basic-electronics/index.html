@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head><script src="/ORIGO2K25/livereload.js?mindelay=10&amp;v=2&amp;port=53847&amp;path=ORIGO2K25/livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Electronics | ORIGO RESOURCES</title>
+
+    
+<link href="/ORIGO2K25/favicon.ico" rel="icon" type="image/x-icon" />
+
+
+<link rel="canonical" href="http://localhost:53847/ORIGO2K25/posts/basic-electronics/" />
+
+
+
+<meta name="author" content="Niraamay Dileep" />
+<meta name="description" content=" Basic Electronics for Robotics
+" />
+
+
+<meta name="keywords" content="Electronics,Basics,Handout,Rignitc">
+
+
+
+<meta name="generator" content="Hugo 0.140.2">
+
+
+<meta property="og:url" content="http://localhost:53847/ORIGO2K25/posts/basic-electronics/">
+  <meta property="og:site_name" content="ORIGO RESOURCES">
+  <meta property="og:title" content="Basic Electronics">
+  <meta property="og:description" content="Basic Electronics for Robotics">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-10T18:08:19+05:30">
+    <meta property="article:modified_time" content="2025-01-10T18:08:19+05:30">
+    <meta property="article:tag" content="Electronics">
+    <meta property="article:tag" content="Basics">
+    <meta property="article:tag" content="Handout">
+    <meta property="article:tag" content="Rignitc">
+    <meta property="og:image" content="http://localhost:53847/ORIGO2K25/posts/basic-electronics/cover.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:53847/ORIGO2K25/posts/basic-electronics/cover.png">
+  <meta name="twitter:title" content="Basic Electronics">
+  <meta name="twitter:description" content="Basic Electronics for Robotics">
+
+
+
+
+<link rel="stylesheet" href="/ORIGO2K25/css/output.css" />
+
+
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav x-data="{ isSticky: false }"
+  x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 30 })"
+  class="sticky top-0 z-30 mt-4 lg:mt-8 py-4"
+  :class="{ 'bg-base-100 shadow-lg dark:border-b dark:border-base-content/30': isSticky }">
+
+  
+  <div class="container flex justify-between px-4">
+  
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
+        <div class="h-10 rounded-full">
+          <img src="/ORIGO2K25/img/avatar.png" alt="ORIGO2K25" />
+        </div>
+      </div>
+
+      
+      <div>
+        
+        <a href="http://localhost:53847/ORIGO2K25/" class="text-lg font-semibold cursor-pointer">
+          ORIGO2K25
+        </a>
+        
+        
+        <div class="text-base-content/60 text-sm">Because all we do is robotics</div>
+        
+      </div>
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="About">
+    <ion-icon name="information-circle"></ion-icon>About</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="https://github.com/rignitc" target="_blank" title="GitHub">
+    
+    <ion-icon name="logo-github"></ion-icon>
+    
+    GitHub
+  </a>
+</li>
+
+
+
+  
+
+  
+    
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="series" target="" title="Series">
+    
+    <ion-icon name="planet"></ion-icon>
+    
+    Series
+  </a>
+</li>
+
+
+
+  
+
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0"
+        class="text-sm font-semibold cursor-pointer hover:underline"
+        @click="flip = !flip"
+        title="About"
+      >About</div>
+      
+      
+
+      
+      
+
+      
+
+      
+      
+
+
+
+
+
+      
+      
+
+
+
+
+
+      
+      
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/posts" title="Archives">
+  <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
+</a>
+
+
+      
+      
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/categories" title="All Categories">
+  <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
+</a>
+
+
+      
+      
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/tags" title="All Tags">
+  <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
+</a>
+
+
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+  
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://github.com/rignitc" target="_blank" title="GitHub">
+    <ion-icon class="group-hover:text-primary-content" name="logo-github"></ion-icon>
+  </a>
+  
+
+
+
+  
+
+  
+    
+
+
+
+  
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="series" target="" title="Series">
+    <ion-icon class="group-hover:text-primary-content" name="planet"></ion-icon>
+  </a>
+  
+
+
+
+  
+
+
+      
+
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="lg:grid lg:grid-cols-4 gap-4 mt-4 px-4">
+  <div class="hidden lg:block"></div>
+
+  <div class="lg:col-span-2">
+    <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
+      
+  <meta itemprop="name" content="Basic Electronics">
+  <meta itemprop="description" content="Basic Electronics for Robotics">
+  <meta itemprop="datePublished" content="2025-01-10T18:08:19+05:30">
+  <meta itemprop="dateModified" content="2025-01-10T18:08:19+05:30">
+  <meta itemprop="wordCount" content="987">
+  <meta itemprop="image" content="http://localhost:53847/ORIGO2K25/posts/basic-electronics/cover.png">
+  <meta itemprop="keywords" content="Electronics,Basics,Handout,Rignitc">
+
+      <header>
+        <h1 itemprop="headline">Basic Electronics</h1>
+        <p class="text-sm">
+          
+            Friday, Jan 10, 2025
+          
+
+          | <span>5 minute read</span>
+
+          
+          | <span>Updated at
+            
+              Friday, Jan 10, 2025
+            </span>
+          
+        </p>
+        <div class="flex justify-between">
+          <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+  
+    
+      <span itemprop="name">Niraamay Dileep</span>
+    
+  
+  </span>
+</div>
+
+
+          <div class="flex items-center gap-2">
+  
+  
+
+  
+  
+  
+  
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://x.com/intent/post?text=Basic%20Electronics&amp;url=http://localhost:53847/ORIGO2K25/posts/basic-electronics/" target="_blank" rel="noopener noreferrer"
+      title="Share on X">
+      <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://facebook.com/sharer/sharer.php?u=http://localhost:53847/ORIGO2K25/posts/basic-electronics/" target="_blank" rel="noopener noreferrer"
+      title="Share on Facebook">
+      <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://wa.me/?text=Basic%20Electronics%20http://localhost:53847/ORIGO2K25/posts/basic-electronics/" target="_blank" rel="noopener noreferrer"
+      title="Share on WhatsApp">
+      <ion-icon class="group-hover:text-primary-content" name="logo-whatsapp"></ion-icon>
+    </a>
+  
+
+  
+  
+</div>
+
+        </div>
+      </header>
+
+      <section id="dream-single-post-content" itemprop="articleBody">
+        
+
+        <!-- raw HTML omitted -->
+<p>Basic Electronics for Robotics</p>
+<h1 id="basic-electronics-for-robotics">Basic Electronics for Robotics</h1>
+<p>Electronics plays a crucial role in robotics, as robots rely on electronic systems to sense, process, and act in their environment. Robotics combines principles of electronics, mechanics, and software to create machines that can perform tasks autonomously or semi-autonomously. This section explores essential electronic components and concepts that form the backbone of robotic systems.</p>
+<hr>
+<h2 id="key-components-in-robotics-electronics">Key Components in Robotics Electronics</h2>
+<p>Robotic systems consist of several core electronic components that enable sensing, computation, and actuation. These include resistors, capacitors, diodes, transistors, sensors, motors, and motor drivers. Let&rsquo;s explore these components in the context of their use in robotics.</p>
+<hr>
+<h3 id="resistor">Resistor</h3>
+<p>Resistors limit the flow of electrical current, ensuring circuits operate safely and within design parameters. In robotics, resistors are used for:</p>
+<ul>
+<li><strong>Current Limitation</strong>: Protect sensitive components like LEDs and sensors.</li>
+<li><strong>Voltage Division</strong>: Create specific voltage levels using resistor networks, critical for analog sensor interfacing with microcontrollers.</li>
+<li><strong>Signal Conditioning</strong>: Smooth electrical signals in circuits.</li>
+</ul>
+<p><strong>Example in Robotics</strong>: Resistors are essential in pull-up or pull-down configurations to stabilize digital signals in microcontrollers.</p>
+<hr>
+<h3 id="capacitor">Capacitor</h3>
+<p>Capacitors store and release electrical energy, playing a vital role in:</p>
+<ul>
+<li><strong>Power Supply Stability</strong>: Filtering noise and maintaining steady voltage in power systems.</li>
+<li><strong>Timing Circuits</strong>: Working with resistors in oscillators or delay circuits for timed actions in robots.</li>
+<li><strong>Signal Coupling</strong>: Blocking DC components and allowing AC signals in communication circuits.</li>
+</ul>
+<p><strong>Example in Robotics</strong>: Capacitors smooth voltage fluctuations in motor driver circuits, preventing signal interference from motor noise.</p>
+<hr>
+<h3 id="diode">Diode</h3>
+<p>Diodes ensure current flows in a single direction, preventing damage from reverse currents. Specialized diodes like <strong>Schottky diodes</strong> and <strong>Zener diodes</strong> are used for:</p>
+<ul>
+<li><strong>Flyback Protection</strong>: Protecting circuits from voltage spikes caused by inductive loads like motors.</li>
+<li><strong>Voltage Regulation</strong>: Stabilizing power supplies in sensitive circuits.</li>
+</ul>
+<p><strong>Example in Robotics</strong>: Diodes are integral to motor driver circuits to prevent back EMF from damaging control electronics.</p>
+<hr>
+<h3 id="transistor">Transistor</h3>
+<p>Transistors serve as switches or amplifiers in robotics. They enable:</p>
+<ul>
+<li><strong>Actuation Control</strong>: Switching high-current loads like motors and relays using low-power signals from microcontrollers.</li>
+<li><strong>Signal Amplification</strong>: Boosting weak sensor signals for processing.</li>
+<li><strong>Logic Gates</strong>: Forming the building blocks of digital logic circuits.</li>
+</ul>
+<p><strong>Example in Robotics</strong>: MOSFETs (a type of transistor) are widely used for controlling DC motors due to their high efficiency and fast switching.</p>
+<hr>
+<h3 id="sensors">Sensors</h3>
+<p>Sensors are critical for robots to perceive and interact with their environment. They convert physical quantities into electrical signals. Some common sensors in robotics include:</p>
+<ul>
+<li><strong>Proximity Sensors</strong>: Detect nearby objects using infrared, ultrasonic, or capacitive methods.</li>
+<li><strong>Temperature Sensors</strong>: Monitor heat levels to protect electronic components or ensure process accuracy.</li>
+<li><strong>IMUs (Inertial Measurement Units)</strong>: Provide acceleration and orientation data for navigation and stability.</li>
+<li><strong>Encoders</strong>: Measure rotational position or speed for motor feedback.</li>
+<li><strong>Cameras and LiDAR</strong>: Enable visual and spatial perception for advanced tasks like object detection and mapping.</li>
+</ul>
+<p><strong>Example in Robotics</strong>: Infrared sensors are used for obstacle avoidance in line-following robots, while encoders ensure precise motor positioning in robotic arms.</p>
+<hr>
+<h3 id="motors">Motors</h3>
+<p>Motors are the primary actuators in robotics, converting electrical energy into mechanical motion. Types of motors used in robotics include:</p>
+<ul>
+<li><strong>Brushed DC Motors</strong>: Simple and cost-effective, ideal for basic robotic applications.</li>
+<li><strong>Brushless DC Motors</strong>: More efficient and durable, commonly used in drones and high-performance robots.</li>
+<li><strong>Stepper Motors</strong>: Provide precise positional control, often used in CNC machines and 3D printers.</li>
+<li><strong>Servo Motors</strong>: Combine a motor with a feedback system for accurate position control, ideal for robotic arms and humanoid robots.</li>
+</ul>
+<p><strong>Example in Robotics</strong>: A robotic gripper may use a servo motor for precise opening and closing, while the robot&rsquo;s wheels may use brushless motors for efficient movement.</p>
+<hr>
+<h3 id="motor-drivers">Motor Drivers</h3>
+<p>Motor drivers manage the power and control signals needed to operate motors safely and efficiently. Common motor drivers include:</p>
+<ul>
+<li><strong>L293D IC</strong>: A popular motor driver IC for low-power robotics applications, capable of driving DC and stepper motors.</li>
+<li><strong>H-Bridge Circuits</strong>: Enable bidirectional control of motors by reversing voltage polarity.</li>
+<li><strong>MOSFET-Based Drivers</strong>: Provide high efficiency and are suitable for high-current applications.</li>
+</ul>
+<p><strong>Example in Robotics</strong>: An H-bridge circuit is used to control the direction and speed of a robotic car&rsquo;s wheels.</p>
+<hr>
+<h3 id="pwm-pulse-width-modulation">PWM (Pulse Width Modulation)</h3>
+<p>PWM is a key technique in robotics to control power delivery. By varying the duty cycle of a signal, PWM allows fine control of motor speed, light intensity, and servo position.</p>
+<p><strong>Applications in Robotics</strong>:</p>
+<ul>
+<li><strong>Motor Speed Control</strong>: Adjust the duty cycle to vary motor speed without wasting energy.</li>
+<li><strong>Servo Positioning</strong>: Generate PWM signals to control the angle of servo motors.</li>
+<li><strong>Power Efficiency</strong>: Efficiently manage power to reduce heat generation in circuits.</li>
+</ul>
+<hr>
+<h3 id="microcontrollers">Microcontrollers</h3>
+<p>Microcontrollers (MCUs) are the brains of most robots, processing sensor data, executing control algorithms, and sending actuation commands. Popular microcontrollers include:</p>
+<ul>
+<li><strong>Arduino</strong>: A beginner-friendly platform for prototyping robots.</li>
+<li><strong>Raspberry Pi</strong>: A single-board computer for advanced robotics with image processing.</li>
+<li><strong>ESP32</strong>: A microcontroller with integrated Wi-Fi and Bluetooth for IoT robotics.</li>
+</ul>
+<p><strong>Example in Robotics</strong>: An Arduino Nano might control a line-following robot, while a Raspberry Pi runs computer vision algorithms for a robot detecting objects.</p>
+<hr>
+<h2 id="advanced-robotics-concepts">Advanced Robotics Concepts</h2>
+<h3 id="feedback-control-systems">Feedback Control Systems</h3>
+<p>Robotics often relies on closed-loop systems where sensors provide feedback to adjust motor actions dynamically. For example:</p>
+<ul>
+<li><strong>PID Control</strong>: Proportional-Integral-Derivative control ensures accurate motor positioning or speed regulation.</li>
+<li><strong>Kalman Filters</strong>: Used for sensor fusion, combining data from IMUs and GPS for smooth navigation.</li>
+</ul>
+<h3 id="communication-systems">Communication Systems</h3>
+<p>Robots communicate internally and externally using protocols like:</p>
+<ul>
+<li><strong>I2C, SPI, UART</strong>: For interfacing sensors and modules with microcontrollers.</li>
+<li><strong>Wi-Fi, Bluetooth, ZigBee</strong>: For wireless communication in IoT robots.</li>
+<li><strong>CAN Bus</strong>: Common in autonomous vehicles for robust communication between control units.</li>
+</ul>
+<h3 id="power-systems">Power Systems</h3>
+<p>Robots require stable and reliable power sources, typically using:</p>
+<ul>
+<li><strong>Li-ion or Li-Po Batteries</strong>: Lightweight and energy-dense, ideal for mobile robots.</li>
+<li><strong>Power Distribution Boards</strong>: Distribute power to various components safely.</li>
+</ul>
+<hr>
+<p>This detailed exploration bridges the basics of electronics with the advanced systems and concepts essential for building effective robotic systems. From sensors and actuators to microcontrollers and motor drivers, these components form the foundation of robotic innovation.</p>
+<hr>
+<h2 id="external-references-for-further-learning">External References for Further Learning</h2>
+<p>Websites:</p>
+<p><a href="https://www.instructables.com/Basic-Electronics/" target="_blank">https://www.instructables.com/Basic-Electronics/</a>
+</p>
+<p><a href="https://www.electronics-tutorials.ws/" target="_blank">https://www.electronics-tutorials.ws/</a>
+</p>
+<p><a href="https://ecampusontario.pressbooks.pub/btec315biomedicalinstrumenttroubleshooting/chapter/troubleshooting-electronic-motors/" target="_blank">https://ecampusontario.pressbooks.pub/btec315biomedicalinstrumenttroubleshooting/chapter/troubleshooting-electronic-motors/</a>
+</p>
+      </section>
+
+      
+
+      
+    </article>
+  </div>
+
+  <div class="hidden lg:flex lg:flex-col lg:items-end">
+    
+
+    
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#key-components-in-robotics-electronics">Key Components in Robotics Electronics</a>
+      <ul>
+        <li><a href="#resistor">Resistor</a></li>
+        <li><a href="#capacitor">Capacitor</a></li>
+        <li><a href="#diode">Diode</a></li>
+        <li><a href="#transistor">Transistor</a></li>
+        <li><a href="#sensors">Sensors</a></li>
+        <li><a href="#motors">Motors</a></li>
+        <li><a href="#motor-drivers">Motor Drivers</a></li>
+        <li><a href="#pwm-pulse-width-modulation">PWM (Pulse Width Modulation)</a></li>
+        <li><a href="#microcontrollers">Microcontrollers</a></li>
+      </ul>
+    </li>
+    <li><a href="#advanced-robotics-concepts">Advanced Robotics Concepts</a>
+      <ul>
+        <li><a href="#feedback-control-systems">Feedback Control Systems</a></li>
+        <li><a href="#communication-systems">Communication Systems</a></li>
+        <li><a href="#power-systems">Power Systems</a></li>
+      </ul>
+    </li>
+    <li><a href="#external-references-for-further-learning">External References for Further Learning</a></li>
+  </ul>
+</nav>
+    
+  </div>
+</div>
+
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>
+    © 2025 ORIGO RESOURCES
+  </p>
+  
+
+  
+  <p>🤖 Powered by pure love for robotics</p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            
+            <div class="dream-grid dream-grid-about">
+  
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">About US</div>
+
+        <div class="prose dark:prose-invert">
+          <p>RIGNITC is the Robotics Interest Group of the National Institute of Technology Calicut.</p>
+<p>We represent the official robotics club of our college, driven by a shared passion for robotics.</p>
+<p>The team at the Robotics Interest Group, also known as RIG, consists of undergraduate students from various disciplines, including Mechanical, Electrical, Electronics, and Computer Science, spanning sophomores to final-year students. We are actively involved in a variety of projects, which will be detailed shortly, as well as numerous competitions.</p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Social Links</div>
+
+        <ul class="menu menu-horizontal flex-wrap w-full px-0 [&_ion-icon]:text-lg">
+  
+
+  
+  <li>
+    <a href="https://www.linkedin.com/company/rignitc" target="_blank" title="Linkedin">
+      <ion-icon name="logo-linkedin"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/rignitc" target="_blank" title="GitHub">
+      <ion-icon name="logo-github"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://www.instagram.com/rig_nitc/" target="_blank" title="Instagram">
+      <ion-icon name="logo-instagram"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://x.com/rignitc" target="_blank" title="X">
+      <ion-icon name="logo-x"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://www.facebook.com/rignitc/" target="_blank" title="Facebook">
+      <ion-icon name="logo-facebook"></ion-icon>
+    </a>
+  </li>
+  
+</ul>
+
+      </div>
+    </article>
+  </div>
+  
+
+  
+</div>
+
+            
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>
+    © 2025 ORIGO RESOURCES
+  </p>
+  
+
+  
+  <p>🤖 Powered by pure love for robotics</p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+
+  
+  
+  <script src="/ORIGO2K25/js/grid.js"></script>
+
+
+
+
+<script src="/ORIGO2K25/js/main.js"></script>
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
