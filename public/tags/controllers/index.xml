@@ -9,11 +9,11 @@
     <lastBuildDate>Fri, 10 Jan 2025 18:08:19 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/ORIGO2K25/tags/controllers/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Wheeeeeeels</title>
+      <title>Controllers</title>
       <link>http://localhost:1313/ORIGO2K25/posts/controllers/</link>
       <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
       <guid>http://localhost:1313/ORIGO2K25/posts/controllers/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Understanding Wheels and Drives in Robotics and Vehicles&lt;/p&gt;</description>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Understanding Controllers in Systems&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

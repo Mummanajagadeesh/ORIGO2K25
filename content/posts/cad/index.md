@@ -1,5 +1,5 @@
 ---
-title: CAD && PCB Designing
+title: CAD & PCB Designing
 date: 2025-01-10T18:08:19+05:30
 lastmod: 2025-01-10T18:08:19+05:30
 author: ORIGO
@@ -26,6 +26,7 @@ draft: false
 CAD and PCB Designing
 
 <!--more-->
+
 ### Comprehensive Guide to CAD and PCB Design
 
 ---

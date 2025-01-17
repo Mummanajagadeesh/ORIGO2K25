@@ -9,11 +9,11 @@
     <lastBuildDate>Fri, 10 Jan 2025 18:08:19 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/ORIGO2K25/tags/arduino/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Arduino and More</title>
+      <title>Microcontrollers and More</title>
       <link>http://localhost:1313/ORIGO2K25/posts/arduino/</link>
       <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
       <guid>http://localhost:1313/ORIGO2K25/posts/arduino/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Getting Started with Arduino&lt;/p&gt;</description>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Getting Started with Microcontroller Programming&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

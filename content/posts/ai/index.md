@@ -1,5 +1,5 @@
 ---
-title: AIML and Yolo
+title: AI, ML and YOLO
 date: 2025-01-10T18:08:19+05:30
 lastmod: 2025-01-10T18:08:19+05:30
 author: ORIGO

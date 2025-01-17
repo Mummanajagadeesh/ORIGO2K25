@@ -9,6 +9,13 @@
     <lastBuildDate>Fri, 10 Jan 2025 18:08:19 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/ORIGO2K25/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Aiml</title>
+      <link>http://localhost:1313/ORIGO2K25/tags/aiml/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/tags/aiml/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Arduino</title>
       <link>http://localhost:1313/ORIGO2K25/tags/arduino/</link>
       <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
@@ -30,6 +37,20 @@
       <description></description>
     </item>
     <item>
+      <title>Communication</title>
+      <link>http://localhost:1313/ORIGO2K25/tags/communication/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/tags/communication/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Controllers</title>
+      <link>http://localhost:1313/ORIGO2K25/tags/controllers/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/tags/controllers/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Design</title>
       <link>http://localhost:1313/ORIGO2K25/tags/design/</link>
       <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
@@ -44,6 +65,20 @@
       <description></description>
     </item>
     <item>
+      <title>Esp32</title>
+      <link>http://localhost:1313/ORIGO2K25/tags/esp32/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/tags/esp32/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Esp8266</title>
+      <link>http://localhost:1313/ORIGO2K25/tags/esp8266/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/tags/esp8266/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Handout</title>
       <link>http://localhost:1313/ORIGO2K25/tags/handout/</link>
       <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
@@ -51,10 +86,31 @@
       <description></description>
     </item>
     <item>
+      <title>Microcontroller</title>
+      <link>http://localhost:1313/ORIGO2K25/tags/microcontroller/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/tags/microcontroller/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Networking</title>
+      <link>http://localhost:1313/ORIGO2K25/tags/networking/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/tags/networking/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Pcb</title>
       <link>http://localhost:1313/ORIGO2K25/tags/pcb/</link>
       <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
       <guid>http://localhost:1313/ORIGO2K25/tags/pcb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pid</title>
+      <link>http://localhost:1313/ORIGO2K25/tags/pid/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/tags/pid/</guid>
       <description></description>
     </item>
     <item>
@@ -69,6 +125,20 @@
       <link>http://localhost:1313/ORIGO2K25/tags/rignitc/</link>
       <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
       <guid>http://localhost:1313/ORIGO2K25/tags/rignitc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Wheels</title>
+      <link>http://localhost:1313/ORIGO2K25/tags/wheels/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/tags/wheels/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Yolo</title>
+      <link>http://localhost:1313/ORIGO2K25/tags/yolo/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/tags/yolo/</guid>
       <description></description>
     </item>
   </channel>

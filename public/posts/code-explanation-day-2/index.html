@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head><script src="/ORIGO2K25/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=ORIGO2K25/livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Explanation Day 02 | ORIGO RESOURCES</title>
+
+    
+<link href="/ORIGO2K25/favicon.ico" rel="icon" type="image/x-icon" />
+
+
+<link rel="canonical" href="http://localhost:1313/ORIGO2K25/posts/code-explanation-day-2/" />
+
+
+
+<meta name="author" content="ORIGO" />
+<meta name="description" content=" Day 02: Building a Person-Following Robot with YOLO and PID Control
+" />
+
+
+<meta name="keywords" content="Yolo,Code,Python,Basics,Handout,Rignitc">
+
+
+
+<meta name="generator" content="Hugo 0.140.2">
+
+
+<meta property="og:url" content="http://localhost:1313/ORIGO2K25/posts/code-explanation-day-2/">
+  <meta property="og:site_name" content="ORIGO RESOURCES">
+  <meta property="og:title" content="Code Explanation Day 02">
+  <meta property="og:description" content="Day 02: Building a Person-Following Robot with YOLO and PID Control">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-10T18:08:19+05:30">
+    <meta property="article:modified_time" content="2025-01-10T18:08:19+05:30">
+    <meta property="article:tag" content="Yolo">
+    <meta property="article:tag" content="Code">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Basics">
+    <meta property="article:tag" content="Handout">
+    <meta property="article:tag" content="Rignitc">
+    <meta property="og:image" content="http://localhost:1313/ORIGO2K25/posts/code-explanation-day-2/cover.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/ORIGO2K25/posts/code-explanation-day-2/cover.png">
+  <meta name="twitter:title" content="Code Explanation Day 02">
+  <meta name="twitter:description" content="Day 02: Building a Person-Following Robot with YOLO and PID Control">
+
+
+
+
+<link rel="stylesheet" href="/ORIGO2K25/css/output.css" />
+
+
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav x-data="{ isSticky: false }"
+  x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 30 })"
+  class="sticky top-0 z-30 mt-4 lg:mt-8 py-4"
+  :class="{ 'bg-base-100 shadow-lg dark:border-b dark:border-base-content/30': isSticky }">
+
+  
+  <div class="container flex justify-between px-4">
+  
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
+        <div class="h-10 rounded-full">
+          <img src="/ORIGO2K25/img/avatar.png" alt="ORIGO2K25" />
+        </div>
+      </div>
+
+      
+      <div>
+        
+        <a href="http://localhost:1313/ORIGO2K25/" class="text-lg font-semibold cursor-pointer">
+          ORIGO2K25
+        </a>
+        
+        
+        <div class="text-base-content/60 text-sm">Because all we do is robotics</div>
+        
+      </div>
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="About">
+    <ion-icon name="information-circle"></ion-icon>About</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="https://github.com/rignitc" target="_blank" title="GitHub">
+    
+    <ion-icon name="logo-github"></ion-icon>
+    
+    GitHub
+  </a>
+</li>
+
+
+
+  
+
+  
+    
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="https://rignitc.github.io/blogs/" target="_blank" title="Blog">
+    
+    <ion-icon name="planet"></ion-icon>
+    
+    Blog
+  </a>
+</li>
+
+
+
+  
+
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0"
+        class="text-sm font-semibold cursor-pointer hover:underline"
+        @click="flip = !flip"
+        title="About"
+      >About</div>
+      
+      
+
+      
+      
+
+      
+
+      
+      
+
+
+
+
+
+      
+      
+
+
+
+
+
+      
+      
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/posts" title="Archives">
+  <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
+</a>
+
+
+      
+      
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/categories" title="All Categories">
+  <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
+</a>
+
+
+      
+      
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/tags" title="All Tags">
+  <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
+</a>
+
+
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+  
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://github.com/rignitc" target="_blank" title="GitHub">
+    <ion-icon class="group-hover:text-primary-content" name="logo-github"></ion-icon>
+  </a>
+  
+
+
+
+  
+
+  
+    
+
+
+
+  
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://rignitc.github.io/blogs/" target="_blank" title="Blog">
+    <ion-icon class="group-hover:text-primary-content" name="planet"></ion-icon>
+  </a>
+  
+
+
+
+  
+
+
+      
+
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="lg:grid lg:grid-cols-4 gap-4 mt-4 px-4">
+  <div class="hidden lg:block"></div>
+
+  <div class="lg:col-span-2">
+    <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
+      
+  <meta itemprop="name" content="Code Explanation Day 02">
+  <meta itemprop="description" content="Day 02: Building a Person-Following Robot with YOLO and PID Control">
+  <meta itemprop="datePublished" content="2025-01-10T18:08:19+05:30">
+  <meta itemprop="dateModified" content="2025-01-10T18:08:19+05:30">
+  <meta itemprop="wordCount" content="1654">
+  <meta itemprop="image" content="http://localhost:1313/ORIGO2K25/posts/code-explanation-day-2/cover.png">
+  <meta itemprop="keywords" content="Yolo,Code,Python,Basics,Handout,Rignitc">
+
+      <header>
+        <h1 itemprop="headline">Code Explanation Day 02</h1>
+        <p class="text-sm">
+          
+            Friday, Jan 10, 2025
+          
+
+          | <span>8 minute read</span>
+
+          
+          | <span>Updated at
+            
+              Friday, Jan 10, 2025
+            </span>
+          
+        </p>
+        <div class="flex justify-between">
+          <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+  
+    
+      <span itemprop="name">ORIGO</span>
+    
+  
+  </span>
+</div>
+
+
+          <div class="flex items-center gap-2">
+  
+  
+
+  
+  
+  
+  
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://x.com/intent/post?text=Code%20Explanation%20Day%2002&amp;url=http://localhost:1313/ORIGO2K25/posts/code-explanation-day-2/" target="_blank" rel="noopener noreferrer"
+      title="Share on X">
+      <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://facebook.com/sharer/sharer.php?u=http://localhost:1313/ORIGO2K25/posts/code-explanation-day-2/" target="_blank" rel="noopener noreferrer"
+      title="Share on Facebook">
+      <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://wa.me/?text=Code%20Explanation%20Day%2002%20http://localhost:1313/ORIGO2K25/posts/code-explanation-day-2/" target="_blank" rel="noopener noreferrer"
+      title="Share on WhatsApp">
+      <ion-icon class="group-hover:text-primary-content" name="logo-whatsapp"></ion-icon>
+    </a>
+  
+
+  
+  
+</div>
+
+        </div>
+      </header>
+
+      <section id="dream-single-post-content" itemprop="articleBody">
+        
+
+        <!-- raw HTML omitted -->
+<p>Day 02: Building a Person-Following Robot with YOLO and PID Control</p>
+<h1 id="code-explanation---day-2">CODE EXPLANATION - DAY 2</h1>
+<p>We are going to integrate YOLO into our robot so that it can detect a person and follow them around.</p>
+<p>We are going to accomplish this in this way:</p>
+<ul>
+<li>Place our phone on the robot and use its camera to get video feed</li>
+<li>Identify a person in the video stream using YOLO and get their position</li>
+<li>Rotate the robot so that the center of the robot (i.e center of the video feed) coincides with the position of the person detected</li>
+<li>Once the center coincides, move forward</li>
+</ul>
+<p>So we need to:</p>
+<ol>
+<li>Get video stream from our phone</li>
+<li>Get position of person using YOLO</li>
+<li>Use a PID Controller to get the required PWM signals needed to rotate the wheels so as to make the center of the video feed and the position of the person coincident.</li>
+</ol>
+<h2 id="running-the-code">Running the code</h2>
+<ol>
+<li>Start Hotspot on your laptop and connect your phone to it. Make sure the network band is set to 2.4 Ghz.</li>
+<li>Add the WiFi credential to the NodeMCU .ino file and upload it.</li>
+<li>Start the NodeMCU and wait for it to connect to your hotspot.</li>
+<li>Note down the IP shown in the serial monitor and edit the <code>ESP_IP</code> in the <code>person_detection.py</code> file to this IP.</li>
+<li>Start video server in IPWebcam.</li>
+<li>Note down the IPv4 address shown and change the <code>VIDSTREAM</code> in <code>person_detection.py</code> file to this address + &lsquo;/video&rsquo;</li>
+<li>Start the .py file with <code>py person_detection.py</code></li>
+</ol>
+<h2 id="code-explanation">Code Explanation</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">import</span> cv2
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> json
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> socket
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> signal
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> simple_pid <span style="color:#f92672">import</span> PID
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> torch
+</span></span></code></pre></div><ul>
+<li>cv2: OpenCV - For capturing the video stream and displaying it.</li>
+<li>json: For converting dictionaries into JSON (will be explained later)</li>
+<li>socket: For establishing TCP communication</li>
+<li>signal, sys: In our case, only used to ensure clean exit</li>
+<li>simple_pid: Easy to use PID library</li>
+<li>torch: A ML Library to use the YOLO model</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>model <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>hub<span style="color:#f92672">.</span>load(<span style="color:#e6db74">&#39;ultralytics/yolov5&#39;</span>, <span style="color:#e6db74">&#39;yolov5s&#39;</span>)  
+</span></span></code></pre></div><p>YOLO is an deep learning-based object detection model. PyTorch is a machine learning library used to build, train and deploy deep learning models. So we use PyTorch to actually use the YOLO model.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>ESP_IP <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;192.168.137.57&#34;</span>  
+</span></span><span style="display:flex;"><span>ESP_PORT <span style="color:#f92672">=</span> <span style="color:#ae81ff">80</span>         
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>client_socket <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket(socket<span style="color:#f92672">.</span>AF_INET, socket<span style="color:#f92672">.</span>SOCK_STREAM)
+</span></span><span style="display:flex;"><span>client_socket<span style="color:#f92672">.</span>connect((ESP_IP, ESP_PORT))   
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Connected to ESP at </span><span style="color:#e6db74">{</span>ESP_IP<span style="color:#e6db74">}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{</span>ESP_PORT<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)   
+</span></span></code></pre></div><p>This is used to establish TCP communication between the NodeMCU and our laptop.
+<code>ESP_IP</code> should be set according to the IP Of the NodeMCU connection.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">send_over_socket</span>(param_dict): 
+</span></span><span style="display:flex;"><span>    json_data <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>dumps(param_dict) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>
+</span></span><span style="display:flex;"><span>    encoded_data <span style="color:#f92672">=</span> json_data<span style="color:#f92672">.</span>encode()
+</span></span><span style="display:flex;"><span>    client_socket<span style="color:#f92672">.</span>sendall(encoded_data)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Sent: </span><span style="color:#e6db74">{</span>json_data<span style="color:#f92672">.</span>strip()<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>This is a helper function to send data over TCP. We cannot send data directly from dictionary format through TCP. Only bytes can be sent.</p>
+
+
+
+  <blockquote>
+    <p>DICTIONARY &gt; JSON &gt; BYTE &gt; TCP</p>
+
+  </blockquote>
+
+<h4 id="json">JSON?</h4>
+<p>JSON is Javascript Object Notation. It&rsquo;s a text-based data format for representing structured data, widely used for data exchange between systems. It is a universal format that can be understood by any language. JSON is stored as a <strong>string</strong>.</p>
+<p>We can only send bytes over TCP. Dictionaries cannot be directly encoded to bytes. But strings can be. Since JSON is stored as a string we can encode that into bytes and send it over using TCP.</p>
+<p><code>json.dumps()</code> is used to convert a dictionary into json. We add the new line character <code>\n</code> to this so that we can identify end of the message which receive the bytes in the NodeMCU.</p>
+<p><code>json_data.encode()</code> is used to convert the JSON string into bytes</p>
+<p><code>client_socket.sendall()</code> is used to actually send the data across the TCP connection.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">signal_handler</span>(signal, frame):
+</span></span><span style="display:flex;"><span>    send_over_socket({<span style="color:#e6db74">&#34;pwmR&#34;</span>: <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;pwmL&#34;</span>: <span style="color:#ae81ff">0</span>})
+</span></span><span style="display:flex;"><span>    sys<span style="color:#f92672">.</span>exit(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>signal<span style="color:#f92672">.</span>signal(signal<span style="color:#f92672">.</span>SIGINT, signal_handler) 
+</span></span></code></pre></div><p>This is a function that is run when the program exits (which is represented by <code>signal.SIGINT</code> i.e Signal Interrupt). It just tells the robot to stop moving when the server (python file in our laptop) stops since we don&rsquo;t want the robot to move even when we have shutdown our python file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#75715e"># Initialize PID controller</span>
+</span></span><span style="display:flex;"><span>pid <span style="color:#f92672">=</span> PID(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, setpoint<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Slider functions for PID tuning</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">slider_kp</span>(val):
+</span></span><span style="display:flex;"><span>    pid<span style="color:#f92672">.</span>Kp <span style="color:#f92672">=</span> round(val <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">slider_ki</span>(val):
+</span></span><span style="display:flex;"><span>    pid<span style="color:#f92672">.</span>Ki <span style="color:#f92672">=</span> round(val <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">slider_kd</span>(val):
+</span></span><span style="display:flex;"><span>    pid<span style="color:#f92672">.</span>Kd <span style="color:#f92672">=</span> round(val <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a window with trackbars for PID tuning</span>
+</span></span><span style="display:flex;"><span>Winname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;PID Slider&#39;</span>
+</span></span><span style="display:flex;"><span>cv2<span style="color:#f92672">.</span>namedWindow(Winname)
+</span></span><span style="display:flex;"><span>cv2<span style="color:#f92672">.</span>createTrackbar(<span style="color:#e6db74">&#39;Kp&#39;</span>, Winname, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">100</span>, slider_kp)
+</span></span><span style="display:flex;"><span>cv2<span style="color:#f92672">.</span>createTrackbar(<span style="color:#e6db74">&#39;Ki&#39;</span>, Winname, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">100</span>, slider_ki)
+</span></span><span style="display:flex;"><span>cv2<span style="color:#f92672">.</span>createTrackbar(<span style="color:#e6db74">&#39;Kd&#39;</span>, Winname, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">100</span>, slider_kd)
+</span></span></code></pre></div><p>This initializes the PID Controller. Also, it defines the sliders neccessary to adjust the gains.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#75715e"># For video capture</span>
+</span></span><span style="display:flex;"><span>VIDSTREAM <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://192.168.137.154:8080/video&#34;</span>
+</span></span><span style="display:flex;"><span>cap <span style="color:#f92672">=</span> cv2<span style="color:#f92672">.</span>VideoCapture(VIDSTREAM)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If there is video available</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> cap<span style="color:#f92672">.</span>isOpened():
+</span></span><span style="display:flex;"><span>    width <span style="color:#f92672">=</span> int(cap<span style="color:#f92672">.</span>get(cv2<span style="color:#f92672">.</span>CAP_PROP_FRAME_WIDTH))
+</span></span><span style="display:flex;"><span>    height <span style="color:#f92672">=</span> int(cap<span style="color:#f92672">.</span>get(cv2<span style="color:#f92672">.</span>CAP_PROP_FRAME_HEIGHT))
+</span></span><span style="display:flex;"><span>    pid<span style="color:#f92672">.</span>setpoint <span style="color:#f92672">=</span> width <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span> <span style="color:#75715e"># Set the setpoint to the center of the frame</span>
+</span></span><span style="display:flex;"><span>    pid<span style="color:#f92672">.</span>output_limits <span style="color:#f92672">=</span> (<span style="color:#f92672">-</span><span style="color:#ae81ff">250</span>, <span style="color:#ae81ff">250</span>)
+</span></span></code></pre></div><p>This starts the capture of video from our phone. Then we calculate the width and height of the image.</p>
+<p>The PID setpoint is set as the center of the frame. This is because we want to rotate the robot until the position of the person detected coincides with the center of the video frame.</p>
+<p>We set the PID output limits as -250, 250 since the output is PWM values and it has a maximum of 255. We are not going for 255 since it is not that good for the safe working of the motors.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> cap<span style="color:#f92672">.</span>isOpened():
+</span></span><span style="display:flex;"><span>    success , frame <span style="color:#f92672">=</span> cap<span style="color:#f92672">.</span>read() <span style="color:#75715e"># Get the video frame</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> success:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># YOLOv5 inference</span>
+</span></span><span style="display:flex;"><span>    results <span style="color:#f92672">=</span> model(frame)
+</span></span></code></pre></div><p>With this we are reading each frame of the video and getting the results of the YOLO model for each of those frames.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    labels, coords <span style="color:#f92672">=</span> results<span style="color:#f92672">.</span>xyxyn[<span style="color:#ae81ff">0</span>][:, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>], results<span style="color:#f92672">.</span>xyxyn[<span style="color:#ae81ff">0</span>][:, :<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span></code></pre></div><p>What exactly does this <code>results.xyxyn</code> return. <code>xyxyn</code> denotes the <strong>normalized coordinates</strong> of the bounding boxes of the objects detected by the model.</p>
+<p>What are normalized coordinates? We can define it as coordinates that have been scaled down to be between  0 and 1.
+For example, let&rsquo;s say we are considering a frame of 1000 pixels width and 500 pixels height. Let&rsquo;s consider a point denoted by the pixel coordinates (500,100). This would be denoted in normalized coordinates as (0.5,0.2) since 500 is 0.5*1000 and 100 is 0.2*500.</p>
+<p>Why do we use <code>results.xyxyn[0]</code>? Actually, we can give multiple frames at a time in <code>model(frame)</code>. But since in our case, we have given only one frame, we want to access only that first (0 index) frame.</p>
+<p><code>results.xyxyn[0]</code> is of a form:</p>
+<pre tabindex="0"><code>[ [x1, y1, x2, y2, conf, class], # For the first object detected
+  [x1, y1, x2, y2, conf, class], # For the second object detected 
+  ...
+  ]
+</code></pre><p>where <code>x1, y1</code> represents the normalized coordinates of the top left of the bounding box and <code>x2, y2</code> represents the bottom right point.
+<code>conf</code> represents the confidence of the YOLO model&rsquo;s prediction.
+<code>class</code> denotes what sort of object YOLO thinks it is i.e the label of the object.</p>
+<p>So when we access <code>results.xyxyn[0]</code> with [:,-1], we getting the labels/classes of all the objects that were detected and with [:,:-1] we are getting everything except the last element (the class) of all the objects.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(labels)):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> labels[i] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:  
+</span></span><span style="display:flex;"><span>            x1, y1, x2, y2, conf <span style="color:#f92672">=</span> coords[i] 
+</span></span><span style="display:flex;"><span>            x1, y1, x2, y2 <span style="color:#f92672">=</span> int(x1 <span style="color:#f92672">*</span> width), int(y1 <span style="color:#f92672">*</span> height), int(x2 <span style="color:#f92672">*</span> width), int(y2 <span style="color:#f92672">*</span> height)
+</span></span><span style="display:flex;"><span>            cx, cy <span style="color:#f92672">=</span> (x1 <span style="color:#f92672">+</span> x2) <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>, (y1 <span style="color:#f92672">+</span> y2) <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            cv2<span style="color:#f92672">.</span>rectangle(frame, (x1, y1), (x2, y2), color, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>            cv2<span style="color:#f92672">.</span>circle(frame, (cx, cy), <span style="color:#ae81ff">5</span>, color, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>            cv2<span style="color:#f92672">.</span>putText(frame, <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Person (</span><span style="color:#e6db74">{</span>conf<span style="color:#e6db74">}</span><span style="color:#e6db74">)&#34;</span>, (x1, y1 <span style="color:#f92672">-</span> <span style="color:#ae81ff">10</span>), cv2<span style="color:#f92672">.</span>FONT_HERSHEY_SIMPLEX, <span style="color:#ae81ff">0.9</span>, color, <span style="color:#ae81ff">2</span>)
+</span></span></code></pre></div><p>We are looping through all the objects detected and checking if they are a person (since the label of a person = 0 in the pre-trained YOLOv5 model we are using).
+We are converting the normalized coordinates into pixel coordinates of the bounding box and calculating its center. We are drawing the box, its center and adding text showing its confidence level.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (width<span style="color:#f92672">//</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">100</span> <span style="color:#f92672">&lt;</span> cx <span style="color:#f92672">&lt;</span> (width<span style="color:#f92672">//</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">+</span><span style="color:#ae81ff">100</span>:
+</span></span><span style="display:flex;"><span>                param_dict[<span style="color:#e6db74">&#34;pwmL&#34;</span>] <span style="color:#f92672">=</span> param_dict[<span style="color:#e6db74">&#34;pwmR&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">255</span>
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                pwm <span style="color:#f92672">=</span> int(pid(cx))
+</span></span><span style="display:flex;"><span>                param_dict[<span style="color:#e6db74">&#34;pwmL&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>pwm
+</span></span><span style="display:flex;"><span>                param_dict[<span style="color:#e6db74">&#34;pwmR&#34;</span>] <span style="color:#f92672">=</span> pwm
+</span></span></code></pre></div><p><code>(width//2)-100 &lt; cx &lt; (width//2)+100</code> basically tells the robot that if the center of the person detected is at the center of the image (with a passable error of about 100 pixels to the left and right), the robot should move forward at full speed.</p>
+<p>If it is not at the center, we use PID to set the rotation of the robot. Based on the center of the person detected, the PID controller gives an output pwm (based on the gains we had chosen) and we give one motor positive pwm and the other negative pwm to rotate it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>            threshold <span style="color:#f92672">=</span> <span style="color:#ae81ff">150</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> pwm <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>                pwm <span style="color:#f92672">+=</span> threshold
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>: 
+</span></span><span style="display:flex;"><span>                pwm <span style="color:#f92672">-=</span> threshold
+</span></span></code></pre></div><p>We have to give a minimun threshold to the motors since all non-high end motors will have the issue of not rotating at low PWM values.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># If nothing is detected</span>
+</span></span><span style="display:flex;"><span>        param_dict[<span style="color:#e6db74">&#34;pwmL&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        param_dict[<span style="color:#e6db74">&#34;pwmR&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>This is the case when nothing has been detected. The robot should not move in that situation, hence we are giving the pwm as 0.</p>
+<h2 id="nodemcu-code">NodeMCU Code</h2>
+<p>Most of the code is same as the Day 1 NodeMCU code.</p>
+<p>The difference arises in handing the JSON data. We use a library called <code>ArduinoJSON</code> to handle JSON.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>        String jsonString <span style="color:#f92672">=</span> client.readStringUntil(<span style="color:#e6db74">&#39;\n&#39;</span>);
+</span></span><span style="display:flex;"><span>        jsonString.trim();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        DynamicJsonDocument <span style="color:#a6e22e">doc</span>(<span style="color:#ae81ff">200</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        DeserializationError error <span style="color:#f92672">=</span> deserializeJson(doc, jsonString);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (error) {
+</span></span><span style="display:flex;"><span>          Serial.println(<span style="color:#e6db74">&#34;parseObject() failed&#34;</span>);
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">int</span> pwmL <span style="color:#f92672">=</span> doc[<span style="color:#e6db74">&#34;pwmL&#34;</span>];
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">int</span> pwmR <span style="color:#f92672">=</span> doc[<span style="color:#e6db74">&#34;pwmR&#34;</span>];
+</span></span><span style="display:flex;"><span>          Serial.printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> L - %d , R - %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, pwmL, pwmR); 
+</span></span><span style="display:flex;"><span>          motorL(pwmL);
+</span></span><span style="display:flex;"><span>          motorR(pwmR);
+</span></span><span style="display:flex;"><span>        }
+</span></span></code></pre></div><p><code>client.readStringUntil('\n')</code> is used to read the bytes over TCP until we reach the new line character. And <code>jsonString.trim()</code> is used to remove the newline character.</p>
+<p>We define a <code>DynamicJsonDocument</code>. This acts like the dictionary we use in python.</p>
+<p>We use the<code>deserializeJson</code> function to convert the jsonString into a dictionary. In case there is any error, it is stored in <code>error</code>. Otherwise, the parsed JSON document is stored in <code>doc</code>. Once we get the dictionary in <code>doc</code>, we can access the pwm simply like we did in python itself.</p>
+<p>Once we get the pwm values needed, we give it to the left and right motors.</p>
+<hr>
+      </section>
+
+      
+
+      
+    </article>
+  </div>
+
+  <div class="hidden lg:flex lg:flex-col lg:items-end">
+    
+
+    
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#running-the-code">Running the code</a></li>
+    <li><a href="#code-explanation">Code Explanation</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#nodemcu-code">NodeMCU Code</a></li>
+  </ul>
+</nav>
+    
+  </div>
+</div>
+
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>
+    © 2025 ORIGO RESOURCES
+  </p>
+  
+
+  
+  <p>🤖 Powered by pure love for robotics</p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            
+            <div class="dream-grid dream-grid-about">
+  
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">About US</div>
+
+        <div class="prose dark:prose-invert">
+          <p>RIGNITC is the Robotics Interest Group of the National Institute of Technology Calicut.</p>
+<p>We represent the official robotics club of our college, driven by a shared passion for robotics.</p>
+<p>The team at the Robotics Interest Group, also known as RIG, consists of undergraduate students from various disciplines, including Mechanical, Electrical, Electronics, and Computer Science, spanning sophomores to final-year students. We are actively involved in a variety of projects, which will be detailed shortly, as well as numerous competitions.</p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Social Links</div>
+
+        <ul class="menu menu-horizontal flex-wrap w-full px-0 [&_ion-icon]:text-lg">
+  
+
+  
+  <li>
+    <a href="https://www.linkedin.com/company/rignitc" target="_blank" title="Linkedin">
+      <ion-icon name="logo-linkedin"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/rignitc" target="_blank" title="GitHub">
+      <ion-icon name="logo-github"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://www.instagram.com/rig_nitc/" target="_blank" title="Instagram">
+      <ion-icon name="logo-instagram"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://x.com/rignitc" target="_blank" title="X">
+      <ion-icon name="logo-x"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://www.facebook.com/rignitc/" target="_blank" title="Facebook">
+      <ion-icon name="logo-facebook"></ion-icon>
+    </a>
+  </li>
+  
+</ul>
+
+      </div>
+    </article>
+  </div>
+  
+
+  
+</div>
+
+            
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>
+    © 2025 ORIGO RESOURCES
+  </p>
+  
+
+  
+  <p>🤖 Powered by pure love for robotics</p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+
+  
+  
+  <script src="/ORIGO2K25/js/grid.js"></script>
+
+
+
+
+<script src="/ORIGO2K25/js/main.js"></script>
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
