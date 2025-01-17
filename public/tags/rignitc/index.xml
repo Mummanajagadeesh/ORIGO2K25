@@ -24,10 +24,17 @@
     </item>
     <item>
       <title>CAD &amp; PCB Designing</title>
-      <link>http://localhost:1313/ORIGO2K25/posts/cad/</link>
+      <link>http://localhost:1313/ORIGO2K25/posts/cad-pcb/</link>
       <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
-      <guid>http://localhost:1313/ORIGO2K25/posts/cad/</guid>
+      <guid>http://localhost:1313/ORIGO2K25/posts/cad-pcb/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;CAD and PCB Designing&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Code Explanation Day 02</title>
+      <link>http://localhost:1313/ORIGO2K25/posts/code-explanation-day-2/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/posts/code-explanation-day-2/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Day 02: Building a Person-Following Robot with YOLO and PID Control&lt;/p&gt;</description>
     </item>
     <item>
       <title>Controllers</title>
