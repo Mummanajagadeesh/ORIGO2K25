@@ -29,6 +29,8 @@ Basic Electronics for Robotics
 
 Electronics plays a crucial role in robotics, as robots rely on electronic systems to sense, process, and act in their environment. Robotics combines principles of electronics, mechanics, and software to create machines that can perform tasks autonomously or semi-autonomously. This section explores essential electronic components and concepts that form the backbone of robotic systems.
 
+![](active-passive.jpeg)
+
 ---
 
 ## Key Components in Robotics Electronics  
@@ -44,6 +46,8 @@ Resistors limit the flow of electrical current, ensuring circuits operate safely
 - **Voltage Division**: Create specific voltage levels using resistor networks, critical for analog sensor interfacing with microcontrollers.  
 - **Signal Conditioning**: Smooth electrical signals in circuits.  
 
+![](resistor.png)
+
 **Example in Robotics**: Resistors are essential in pull-up or pull-down configurations to stabilize digital signals in microcontrollers.  
 
 ---
@@ -55,6 +59,8 @@ Capacitors store and release electrical energy, playing a vital role in:
 - **Timing Circuits**: Working with resistors in oscillators or delay circuits for timed actions in robots.  
 - **Signal Coupling**: Blocking DC components and allowing AC signals in communication circuits.  
 
+![](capacitor.jpeg)
+
 **Example in Robotics**: Capacitors smooth voltage fluctuations in motor driver circuits, preventing signal interference from motor noise.  
 
 ---
@@ -64,6 +70,8 @@ Capacitors store and release electrical energy, playing a vital role in:
 Diodes ensure current flows in a single direction, preventing damage from reverse currents. Specialized diodes like **Schottky diodes** and **Zener diodes** are used for:  
 - **Flyback Protection**: Protecting circuits from voltage spikes caused by inductive loads like motors.  
 - **Voltage Regulation**: Stabilizing power supplies in sensitive circuits.  
+
+![](diode.png)
 
 **Example in Robotics**: Diodes are integral to motor driver circuits to prevent back EMF from damaging control electronics.  
 
@@ -75,6 +83,8 @@ Transistors serve as switches or amplifiers in robotics. They enable:
 - **Actuation Control**: Switching high-current loads like motors and relays using low-power signals from microcontrollers.  
 - **Signal Amplification**: Boosting weak sensor signals for processing.  
 - **Logic Gates**: Forming the building blocks of digital logic circuits.  
+
+![](npn-pnp.jpeg)
 
 **Example in Robotics**: MOSFETs (a type of transistor) are widely used for controlling DC motors due to their high efficiency and fast switching.  
 
@@ -89,6 +99,8 @@ Sensors are critical for robots to perceive and interact with their environment.
 - **Encoders**: Measure rotational position or speed for motor feedback.  
 - **Cameras and LiDAR**: Enable visual and spatial perception for advanced tasks like object detection and mapping.  
 
+![](sensors.png)
+
 **Example in Robotics**: Infrared sensors are used for obstacle avoidance in line-following robots, while encoders ensure precise motor positioning in robotic arms.  
 
 ---
@@ -101,6 +113,8 @@ Motors are the primary actuators in robotics, converting electrical energy into 
 - **Stepper Motors**: Provide precise positional control, often used in CNC machines and 3D printers.  
 - **Servo Motors**: Combine a motor with a feedback system for accurate position control, ideal for robotic arms and humanoid robots.  
 
+![](motors.jpeg)
+
 **Example in Robotics**: A robotic gripper may use a servo motor for precise opening and closing, while the robot's wheels may use brushless motors for efficient movement.  
 
 ---
@@ -112,7 +126,11 @@ Motor drivers manage the power and control signals needed to operate motors safe
 - **H-Bridge Circuits**: Enable bidirectional control of motors by reversing voltage polarity.  
 - **MOSFET-Based Drivers**: Provide high efficiency and are suitable for high-current applications.  
 
-**Example in Robotics**: An H-bridge circuit is used to control the direction and speed of a robotic car's wheels.  
+![](l293d.png)
+
+**Example in Robotics**: An H-bridge circuit is used to control the direction and speed of a robotic car's wheels. 
+
+![](h-bridge.png)
 
 ---
 
@@ -125,6 +143,8 @@ PWM is a key technique in robotics to control power delivery. By varying the dut
 - **Servo Positioning**: Generate PWM signals to control the angle of servo motors.  
 - **Power Efficiency**: Efficiently manage power to reduce heat generation in circuits.  
 
+![](pwm.png)
+
 ---
 
 ### Microcontrollers  
@@ -133,6 +153,7 @@ Microcontrollers (MCUs) are the brains of most robots, processing sensor data, e
 - **Arduino**: A beginner-friendly platform for prototyping robots.  
 - **Raspberry Pi**: A single-board computer for advanced robotics with image processing.  
 - **ESP32**: A microcontroller with integrated Wi-Fi and Bluetooth for IoT robotics.  
+
 
 **Example in Robotics**: An Arduino Nano might control a line-following robot, while a Raspberry Pi runs computer vision algorithms for a robot detecting objects.  
 
@@ -165,13 +186,10 @@ This detailed exploration bridges the basics of electronics with the advanced sy
 
 ---
 
-## External References for Further Learning 
+## External References for Further Learning
 
-Websites: 
+- [Basic Electronics - Instructables](https://www.instructables.com/Basic-Electronics/)  
+- [Electronics Tutorials](https://www.electronics-tutorials.ws/)  
+- [Troubleshooting Electronic Motors - eCampusOntario](https://ecampusontario.pressbooks.pub/btec315biomedicalinstrumenttroubleshooting/chapter/troubleshooting-electronic-motors/)  
 
-https://www.instructables.com/Basic-Electronics/ 
-
-https://www.electronics-tutorials.ws/ 
-
-https://ecampusontario.pressbooks.pub/btec315biomedicalinstrumenttroubleshooting/chapter/troubleshooting-electronic-motors/ 
 

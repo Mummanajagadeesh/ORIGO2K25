@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head><script src="/ORIGO2K25/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=ORIGO2K25/livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI, ML and YOLO | ORIGO RESOURCES</title>
+
+    
+<link href="/ORIGO2K25/favicon.ico" rel="icon" type="image/x-icon" />
+
+
+<link rel="canonical" href="http://localhost:1313/ORIGO2K25/posts/ai/" />
+
+
+
+<meta name="author" content="ORIGO" />
+<meta name="description" content=" AI Fundamentals and YOLO
+" />
+
+
+<meta name="keywords" content="Aiml,Yolo,Basics,Handout,Rignitc">
+
+
+
+<meta name="generator" content="Hugo 0.140.2">
+
+
+<meta property="og:url" content="http://localhost:1313/ORIGO2K25/posts/ai/">
+  <meta property="og:site_name" content="ORIGO RESOURCES">
+  <meta property="og:title" content="AI, ML and YOLO">
+  <meta property="og:description" content="AI Fundamentals and YOLO">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-10T18:08:19+05:30">
+    <meta property="article:modified_time" content="2025-01-10T18:08:19+05:30">
+    <meta property="article:tag" content="Aiml">
+    <meta property="article:tag" content="Yolo">
+    <meta property="article:tag" content="Basics">
+    <meta property="article:tag" content="Handout">
+    <meta property="article:tag" content="Rignitc">
+    <meta property="og:image" content="http://localhost:1313/ORIGO2K25/posts/ai/cover.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/ORIGO2K25/posts/ai/cover.png">
+  <meta name="twitter:title" content="AI, ML and YOLO">
+  <meta name="twitter:description" content="AI Fundamentals and YOLO">
+
+
+
+
+<link rel="stylesheet" href="/ORIGO2K25/css/output.css" />
+
+
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav x-data="{ isSticky: false }"
+  x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 30 })"
+  class="sticky top-0 z-30 mt-4 lg:mt-8 py-4"
+  :class="{ 'bg-base-100 shadow-lg dark:border-b dark:border-base-content/30': isSticky }">
+
+  
+  <div class="container flex justify-between px-4">
+  
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
+        <div class="h-10 rounded-full">
+          <img src="/ORIGO2K25/img/avatar.png" alt="ORIGO2K25" />
+        </div>
+      </div>
+
+      
+      <div>
+        
+        <a href="http://localhost:1313/ORIGO2K25/" class="text-lg font-semibold cursor-pointer">
+          ORIGO2K25
+        </a>
+        
+        
+        <div class="text-base-content/60 text-sm">Because all we do is robotics</div>
+        
+      </div>
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="About">
+    <ion-icon name="information-circle"></ion-icon>About</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="https://github.com/rignitc" target="_blank" title="GitHub">
+    
+    <ion-icon name="logo-github"></ion-icon>
+    
+    GitHub
+  </a>
+</li>
+
+
+
+  
+
+  
+    
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="https://rignitc.github.io/blogs/" target="_blank" title="Blog">
+    
+    <ion-icon name="planet"></ion-icon>
+    
+    Blog
+  </a>
+</li>
+
+
+
+  
+
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0"
+        class="text-sm font-semibold cursor-pointer hover:underline"
+        @click="flip = !flip"
+        title="About"
+      >About</div>
+      
+      
+
+      
+      
+
+      
+
+      
+      
+
+
+
+
+
+      
+      
+
+
+
+
+
+      
+      
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/posts" title="Archives">
+  <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
+</a>
+
+
+      
+      
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/categories" title="All Categories">
+  <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
+</a>
+
+
+      
+      
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/tags" title="All Tags">
+  <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
+</a>
+
+
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+  
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://github.com/rignitc" target="_blank" title="GitHub">
+    <ion-icon class="group-hover:text-primary-content" name="logo-github"></ion-icon>
+  </a>
+  
+
+
+
+  
+
+  
+    
+
+
+
+  
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://rignitc.github.io/blogs/" target="_blank" title="Blog">
+    <ion-icon class="group-hover:text-primary-content" name="planet"></ion-icon>
+  </a>
+  
+
+
+
+  
+
+
+      
+
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="lg:grid lg:grid-cols-4 gap-4 mt-4 px-4">
+  <div class="hidden lg:block"></div>
+
+  <div class="lg:col-span-2">
+    <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
+      
+  <meta itemprop="name" content="AI, ML and YOLO">
+  <meta itemprop="description" content="AI Fundamentals and YOLO">
+  <meta itemprop="datePublished" content="2025-01-10T18:08:19+05:30">
+  <meta itemprop="dateModified" content="2025-01-10T18:08:19+05:30">
+  <meta itemprop="wordCount" content="747">
+  <meta itemprop="image" content="http://localhost:1313/ORIGO2K25/posts/ai/cover.png">
+  <meta itemprop="keywords" content="Aiml,Yolo,Basics,Handout,Rignitc">
+
+      <header>
+        <h1 itemprop="headline">AI, ML and YOLO</h1>
+        <p class="text-sm">
+          
+            Friday, Jan 10, 2025
+          
+
+          | <span>4 minute read</span>
+
+          
+          | <span>Updated at
+            
+              Friday, Jan 10, 2025
+            </span>
+          
+        </p>
+        <div class="flex justify-between">
+          <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+  
+    
+      <span itemprop="name">ORIGO</span>
+    
+  
+  </span>
+</div>
+
+
+          <div class="flex items-center gap-2">
+  
+  
+
+  
+  
+  
+  
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://x.com/intent/post?text=AI,%20ML%20and%20YOLO&amp;url=http://localhost:1313/ORIGO2K25/posts/ai/" target="_blank" rel="noopener noreferrer"
+      title="Share on X">
+      <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://facebook.com/sharer/sharer.php?u=http://localhost:1313/ORIGO2K25/posts/ai/" target="_blank" rel="noopener noreferrer"
+      title="Share on Facebook">
+      <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://wa.me/?text=AI,%20ML%20and%20YOLO%20http://localhost:1313/ORIGO2K25/posts/ai/" target="_blank" rel="noopener noreferrer"
+      title="Share on WhatsApp">
+      <ion-icon class="group-hover:text-primary-content" name="logo-whatsapp"></ion-icon>
+    </a>
+  
+
+  
+  
+</div>
+
+        </div>
+      </header>
+
+      <section id="dream-single-post-content" itemprop="articleBody">
+        
+
+        <!-- raw HTML omitted -->
+<p>AI Fundamentals and YOLO</p>
+<p><strong>Artificial Intelligence (AI)</strong> refers to the simulation of human intelligence in machines. AI enables systems to perform tasks that typically require human cognitive abilities, such as reasoning, problem-solving, learning, and understanding natural language. AI systems analyze data, recognize patterns, and make decisions to achieve specific objectives.</p>
+<p><img src="aimldl.png" alt="alt text"></p>
+<hr>
+<h2 id="categories-of-ai"><strong>Categories of AI</strong></h2>
+<ol>
+<li>
+<p><strong>Narrow AI:</strong></p>
+<ul>
+<li>Focused on performing specific tasks effectively.</li>
+<li>Examples: Virtual assistants like Alexa or Siri, and recommendation systems.</li>
+</ul>
+</li>
+<li>
+<p><strong>General AI:</strong></p>
+<ul>
+<li>A theoretical concept where machines can perform any intellectual task that a human can do.</li>
+<li>Still a long-term research goal.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="how-ai-works"><strong>How AI Works</strong></h2>
+<p>AI systems process input data, analyze it, and produce outputs based on programmed objectives. The foundational components of AI include:</p>
+<ul>
+<li><strong>Data:</strong> The raw material for AI, structured (databases) or unstructured (images, videos).</li>
+<li><strong>Algorithms:</strong> Instructions guiding machines in processing data and extracting insights.</li>
+<li><strong>Models:</strong> Representations of patterns in data used for making predictions or decisions.</li>
+<li><strong>Feedback Loops:</strong> Mechanisms for learning from mistakes and improving over time.</li>
+</ul>
+<hr>
+<h3 id="core-ai-techniques"><strong>Core AI Techniques</strong></h3>
+<ol>
+<li><strong>Natural Language Processing (NLP):</strong> Enables machines to understand and generate human language (e.g., chatbots).</li>
+<li><strong>Computer Vision:</strong> Provides machines with the ability to interpret visual data (e.g., object detection).</li>
+<li><strong>Robotics:</strong> Combines AI with hardware to perform automated tasks.</li>
+</ol>
+<hr>
+<h2 id="types-of-machine-learning"><strong>Types of Machine Learning</strong></h2>
+<p>Machine Learning (ML), a subset of AI, focuses on algorithms that allow systems to learn from data and improve their performance over time.</p>
+<h3 id="1-supervised-learning"><strong>1. Supervised Learning</strong></h3>
+<ul>
+<li><strong>Definition:</strong> The algorithm learns from labeled data, where the output is already known.</li>
+<li><strong>Examples:</strong>
+<ul>
+<li>Predicting house prices based on features (e.g., size, location).</li>
+<li>Image classification (e.g., identifying cats vs. dogs).</li>
+</ul>
+</li>
+<li><strong>Common Algorithms:</strong> Linear Regression, Support Vector Machines (SVM), Neural Networks.</li>
+</ul>
+<h3 id="2-unsupervised-learning"><strong>2. Unsupervised Learning</strong></h3>
+<ul>
+<li><strong>Definition:</strong> The algorithm identifies patterns in unlabeled data without predefined outcomes.</li>
+<li><strong>Examples:</strong>
+<ul>
+<li>Customer segmentation for marketing campaigns.</li>
+<li>Anomaly detection in network security.</li>
+</ul>
+</li>
+<li><strong>Common Algorithms:</strong> K-Means Clustering, Principal Component Analysis (PCA), Autoencoders.</li>
+</ul>
+<h3 id="3-reinforcement-learning"><strong>3. Reinforcement Learning</strong></h3>
+<ul>
+<li><strong>Definition:</strong> The algorithm learns by interacting with an environment, receiving rewards or penalties for actions.</li>
+<li><strong>Examples:</strong>
+<ul>
+<li>Game-playing AI like AlphaGo.</li>
+<li>Autonomous vehicle navigation.</li>
+</ul>
+</li>
+<li><strong>Key Concepts:</strong> Agent, Environment, Reward Signal, Policy.</li>
+</ul>
+<h3 id="4-semi-supervised-learning"><strong>4. Semi-Supervised Learning</strong></h3>
+<ul>
+<li><strong>Definition:</strong> A hybrid approach where the algorithm is trained on a small amount of labeled data and a larger amount of unlabeled data.</li>
+<li><strong>Examples:</strong>
+<ul>
+<li>Speech recognition systems.</li>
+<li>Medical diagnosis models.</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-deep-learning-dl"><strong>5. Deep Learning (DL)</strong></h3>
+<ul>
+<li>A specialized subset of ML using neural networks with multiple layers (&ldquo;deep&rdquo; networks).</li>
+<li>Powers advanced applications like voice assistants, image recognition, and natural language processing.</li>
+</ul>
+<hr>
+<h3 id="ai-vs-ml-vs-dl"><strong>AI vs. ML vs. DL</strong></h3>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Feature</strong></th>
+          <th><strong>Artificial Intelligence (AI)</strong></th>
+          <th><strong>Machine Learning (ML)</strong></th>
+          <th><strong>Deep Learning (DL)</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Definition</strong></td>
+          <td>Simulates human intelligence.</td>
+          <td>Learns from data without explicit programming.</td>
+          <td>Utilizes multi-layered neural networks for advanced learning.</td>
+      </tr>
+      <tr>
+          <td><strong>Scope</strong></td>
+          <td>Broad.</td>
+          <td>Narrower, a subset of AI.</td>
+          <td>Narrower still, a subset of ML.</td>
+      </tr>
+      <tr>
+          <td><strong>Examples</strong></td>
+          <td>Robotics, NLP.</td>
+          <td>Recommendation systems, clustering.</td>
+          <td>Image recognition, speech processing.</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="yolo-object-detection"><strong>YOLO: Object Detection</strong></h2>
+<p><strong>YOLO (You Only Look Once)</strong> is an advanced object detection model that processes an entire image in one pass to detect objects with high accuracy and real-time performance.</p>
+<p><img src="yolo.jpeg" alt="alt text"></p>
+<h3 id="key-features-of-yolo"><strong>Key Features of YOLO</strong></h3>
+<ol>
+<li>Processes the entire image at once, enabling real-time detection.</li>
+<li>Simultaneously detects multiple objects in a frame.</li>
+<li>Applications: Autonomous vehicles, surveillance, and robotics.</li>
+</ol>
+<hr>
+<h3 id="yolo-vs-opencv"><strong>YOLO vs. OpenCV</strong></h3>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Feature</strong></th>
+          <th><strong>YOLO</strong></th>
+          <th><strong>OpenCV</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Approach</strong></td>
+          <td>Detects multiple objects in one pass.</td>
+          <td>Processes objects sequentially.</td>
+      </tr>
+      <tr>
+          <td><strong>Speed</strong></td>
+          <td>Extremely fast.</td>
+          <td>Slower for complex tasks.</td>
+      </tr>
+      <tr>
+          <td><strong>Accuracy</strong></td>
+          <td>High for real-time scenarios.</td>
+          <td>Dependent on implementation.</td>
+      </tr>
+      <tr>
+          <td><strong>Applications</strong></td>
+          <td>Advanced tasks like real-time detection.</td>
+          <td>General-purpose image processing tasks.</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h3 id="versions-of-yolo-yoloverse"><strong>Versions of YOLO (YOLOverse)</strong></h3>
+<p>The current leading version is <strong>YOLOv8</strong>, offering improved detection, versatility, and performance compared to earlier iterations.</p>
+<hr>
+<h3 id="training-a-yolo-model"><strong>Training a YOLO Model</strong></h3>
+<ol>
+<li>
+<p><strong>Collect and Organize Data:</strong></p>
+<ul>
+<li>Gather and label high-quality images.</li>
+<li>Split datasets into training, validation, and test sets.</li>
+</ul>
+</li>
+<li>
+<p><strong>Label Images:</strong></p>
+<ul>
+<li>Use tools to define object boundaries.</li>
+<li>Format labels with Class ID, X/Y center, width, and height.</li>
+</ul>
+</li>
+<li>
+<p><strong>Setup Training Environment:</strong></p>
+<ul>
+<li>Use platforms like Google Colab or Kaggle.</li>
+<li>Configure <code>.yaml</code> files with dataset paths.</li>
+</ul>
+</li>
+<li>
+<p><strong>Train the Model:</strong></p>
+<ul>
+<li>Adjust parameters like epochs, batch size, and input size.</li>
+<li>Run the training script.</li>
+</ul>
+</li>
+<li>
+<p><strong>Evaluate and Deploy:</strong></p>
+<ul>
+<li>Validate model performance with metrics like precision, recall, and mAP.</li>
+<li>Deploy trained models (<code>best.pt</code>) for real-world applications.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="key-terminologies"><strong>Key Terminologies</strong></h3>
+<ul>
+<li><strong>Epochs:</strong> Complete passes over the dataset during training.</li>
+<li><strong>Batch Size:</strong> Number of samples processed simultaneously.</li>
+<li><strong>Image Size (imgsz):</strong> Dimensions of input images for training.</li>
+<li><strong>Pre-trained Weights:</strong> Starting models like <code>yolov8n.pt</code> trained on datasets like COCO.</li>
+<li><strong>Custom Weights:</strong> Models like <code>best.pt</code> fine-tuned for specific applications.</li>
+</ul>
+<hr>
+<h3 id="resources-for-yolo-and-ai"><strong>Resources for YOLO and AI</strong></h3>
+<ul>
+<li>GitHub: <a href="https://github.com/ultralytics" target="_blank">Ultralytics</a>
+</li>
+<li>Documentation: <a href="https://docs.ultralytics.com/" target="_blank">Ultralytics Docs</a>
+</li>
+<li>Platforms: <a href="https://roboflow.com/" target="_blank">Roboflow</a>
+, <a href="https://colab.research.google.com/" target="_blank">Google Colab</a>
+.</li>
+</ul>
+<hr>
+<p>This comprehensive guide bridges AI concepts with practical applications, emphasizing machine learning types and advanced tools like YOLO for object detection.</p>
+      </section>
+
+      
+
+      
+    </article>
+  </div>
+
+  <div class="hidden lg:flex lg:flex-col lg:items-end">
+    
+
+    
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#categories-of-ai"><strong>Categories of AI</strong></a></li>
+    <li><a href="#how-ai-works"><strong>How AI Works</strong></a>
+      <ul>
+        <li><a href="#core-ai-techniques"><strong>Core AI Techniques</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#types-of-machine-learning"><strong>Types of Machine Learning</strong></a>
+      <ul>
+        <li><a href="#1-supervised-learning"><strong>1. Supervised Learning</strong></a></li>
+        <li><a href="#2-unsupervised-learning"><strong>2. Unsupervised Learning</strong></a></li>
+        <li><a href="#3-reinforcement-learning"><strong>3. Reinforcement Learning</strong></a></li>
+        <li><a href="#4-semi-supervised-learning"><strong>4. Semi-Supervised Learning</strong></a></li>
+        <li><a href="#5-deep-learning-dl"><strong>5. Deep Learning (DL)</strong></a></li>
+        <li><a href="#ai-vs-ml-vs-dl"><strong>AI vs. ML vs. DL</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#yolo-object-detection"><strong>YOLO: Object Detection</strong></a>
+      <ul>
+        <li><a href="#key-features-of-yolo"><strong>Key Features of YOLO</strong></a></li>
+        <li><a href="#yolo-vs-opencv"><strong>YOLO vs. OpenCV</strong></a></li>
+        <li><a href="#versions-of-yolo-yoloverse"><strong>Versions of YOLO (YOLOverse)</strong></a></li>
+        <li><a href="#training-a-yolo-model"><strong>Training a YOLO Model</strong></a></li>
+        <li><a href="#key-terminologies"><strong>Key Terminologies</strong></a></li>
+        <li><a href="#resources-for-yolo-and-ai"><strong>Resources for YOLO and AI</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    
+  </div>
+</div>
+
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>
+    © 2025 ORIGO RESOURCES
+  </p>
+  
+
+  
+  <p>🤖 Powered by pure love for robotics</p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            
+            <div class="dream-grid dream-grid-about">
+  
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">About US</div>
+
+        <div class="prose dark:prose-invert">
+          <p>RIGNITC is the Robotics Interest Group of the National Institute of Technology Calicut.</p>
+<p>We represent the official robotics club of our college, driven by a shared passion for robotics.</p>
+<p>The team at the Robotics Interest Group, also known as RIG, consists of undergraduate students from various disciplines, including Mechanical, Electrical, Electronics, and Computer Science, spanning sophomores to final-year students. We are actively involved in a variety of projects, which will be detailed shortly, as well as numerous competitions.</p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Social Links</div>
+
+        <ul class="menu menu-horizontal flex-wrap w-full px-0 [&_ion-icon]:text-lg">
+  
+
+  
+  <li>
+    <a href="https://www.linkedin.com/company/rignitc" target="_blank" title="Linkedin">
+      <ion-icon name="logo-linkedin"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/rignitc" target="_blank" title="GitHub">
+      <ion-icon name="logo-github"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://www.instagram.com/rig_nitc/" target="_blank" title="Instagram">
+      <ion-icon name="logo-instagram"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://x.com/rignitc" target="_blank" title="X">
+      <ion-icon name="logo-x"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://www.facebook.com/rignitc/" target="_blank" title="Facebook">
+      <ion-icon name="logo-facebook"></ion-icon>
+    </a>
+  </li>
+  
+</ul>
+
+      </div>
+    </article>
+  </div>
+  
+
+  
+</div>
+
+            
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>
+    © 2025 ORIGO RESOURCES
+  </p>
+  
+
+  
+  <p>🤖 Powered by pure love for robotics</p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+
+  
+  
+  <script src="/ORIGO2K25/js/grid.js"></script>
+
+
+
+
+<script src="/ORIGO2K25/js/main.js"></script>
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>

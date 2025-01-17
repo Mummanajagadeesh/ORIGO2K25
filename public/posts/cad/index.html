@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head><script src="/ORIGO2K25/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=ORIGO2K25/livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Aided Design (CAD) | ORIGO RESOURCES</title>
+
+    
+<link href="/ORIGO2K25/favicon.ico" rel="icon" type="image/x-icon" />
+
+
+<link rel="canonical" href="http://localhost:1313/ORIGO2K25/posts/cad/" />
+
+
+
+<meta name="author" content="ORIGO" />
+<meta name="description" content=" CAD Designing
+" />
+
+
+<meta name="keywords" content="Cad,Design,Basics,Handout,Rignitc">
+
+
+
+<meta name="generator" content="Hugo 0.140.2">
+
+
+<meta property="og:url" content="http://localhost:1313/ORIGO2K25/posts/cad/">
+  <meta property="og:site_name" content="ORIGO RESOURCES">
+  <meta property="og:title" content="Computer Aided Design (CAD)">
+  <meta property="og:description" content="CAD Designing">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-10T18:08:19+05:30">
+    <meta property="article:modified_time" content="2025-01-10T18:08:19+05:30">
+    <meta property="article:tag" content="Cad">
+    <meta property="article:tag" content="Design">
+    <meta property="article:tag" content="Basics">
+    <meta property="article:tag" content="Handout">
+    <meta property="article:tag" content="Rignitc">
+    <meta property="og:image" content="http://localhost:1313/ORIGO2K25/posts/cad/cover.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/ORIGO2K25/posts/cad/cover.png">
+  <meta name="twitter:title" content="Computer Aided Design (CAD)">
+  <meta name="twitter:description" content="CAD Designing">
+
+
+
+
+<link rel="stylesheet" href="/ORIGO2K25/css/output.css" />
+
+
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav x-data="{ isSticky: false }"
+  x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 30 })"
+  class="sticky top-0 z-30 mt-4 lg:mt-8 py-4"
+  :class="{ 'bg-base-100 shadow-lg dark:border-b dark:border-base-content/30': isSticky }">
+
+  
+  <div class="container flex justify-between px-4">
+  
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
+        <div class="h-10 rounded-full">
+          <img src="/ORIGO2K25/img/avatar.png" alt="ORIGO2K25" />
+        </div>
+      </div>
+
+      
+      <div>
+        
+        <a href="http://localhost:1313/ORIGO2K25/" class="text-lg font-semibold cursor-pointer">
+          ORIGO2K25
+        </a>
+        
+        
+        <div class="text-base-content/60 text-sm">Because all we do is robotics</div>
+        
+      </div>
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="About">
+    <ion-icon name="information-circle"></ion-icon>About</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="https://github.com/rignitc" target="_blank" title="GitHub">
+    
+    <ion-icon name="logo-github"></ion-icon>
+    
+    GitHub
+  </a>
+</li>
+
+
+
+  
+
+  
+    
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="https://rignitc.github.io/blogs/" target="_blank" title="Blog">
+    
+    <ion-icon name="planet"></ion-icon>
+    
+    Blog
+  </a>
+</li>
+
+
+
+  
+
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0"
+        class="text-sm font-semibold cursor-pointer hover:underline"
+        @click="flip = !flip"
+        title="About"
+      >About</div>
+      
+      
+
+      
+      
+
+      
+
+      
+      
+
+
+
+
+
+      
+      
+
+
+
+
+
+      
+      
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/posts" title="Archives">
+  <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
+</a>
+
+
+      
+      
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/categories" title="All Categories">
+  <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
+</a>
+
+
+      
+      
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/tags" title="All Tags">
+  <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
+</a>
+
+
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+  
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://github.com/rignitc" target="_blank" title="GitHub">
+    <ion-icon class="group-hover:text-primary-content" name="logo-github"></ion-icon>
+  </a>
+  
+
+
+
+  
+
+  
+    
+
+
+
+  
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://rignitc.github.io/blogs/" target="_blank" title="Blog">
+    <ion-icon class="group-hover:text-primary-content" name="planet"></ion-icon>
+  </a>
+  
+
+
+
+  
+
+
+      
+
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="lg:grid lg:grid-cols-4 gap-4 mt-4 px-4">
+  <div class="hidden lg:block"></div>
+
+  <div class="lg:col-span-2">
+    <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
+      
+  <meta itemprop="name" content="Computer Aided Design (CAD)">
+  <meta itemprop="description" content="CAD Designing">
+  <meta itemprop="datePublished" content="2025-01-10T18:08:19+05:30">
+  <meta itemprop="dateModified" content="2025-01-10T18:08:19+05:30">
+  <meta itemprop="wordCount" content="656">
+  <meta itemprop="image" content="http://localhost:1313/ORIGO2K25/posts/cad/cover.png">
+  <meta itemprop="keywords" content="Cad,Design,Basics,Handout,Rignitc">
+
+      <header>
+        <h1 itemprop="headline">Computer Aided Design (CAD)</h1>
+        <p class="text-sm">
+          
+            Friday, Jan 10, 2025
+          
+
+          | <span>4 minute read</span>
+
+          
+          | <span>Updated at
+            
+              Friday, Jan 10, 2025
+            </span>
+          
+        </p>
+        <div class="flex justify-between">
+          <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+  
+    
+      <span itemprop="name">ORIGO</span>
+    
+  
+  </span>
+</div>
+
+
+          <div class="flex items-center gap-2">
+  
+  
+
+  
+  
+  
+  
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://x.com/intent/post?text=Computer%20Aided%20Design%20%28CAD%29&amp;url=http://localhost:1313/ORIGO2K25/posts/cad/" target="_blank" rel="noopener noreferrer"
+      title="Share on X">
+      <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://facebook.com/sharer/sharer.php?u=http://localhost:1313/ORIGO2K25/posts/cad/" target="_blank" rel="noopener noreferrer"
+      title="Share on Facebook">
+      <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://wa.me/?text=Computer%20Aided%20Design%20%28CAD%29%20http://localhost:1313/ORIGO2K25/posts/cad/" target="_blank" rel="noopener noreferrer"
+      title="Share on WhatsApp">
+      <ion-icon class="group-hover:text-primary-content" name="logo-whatsapp"></ion-icon>
+    </a>
+  
+
+  
+  
+</div>
+
+        </div>
+      </header>
+
+      <section id="dream-single-post-content" itemprop="articleBody">
+        
+
+        <!-- raw HTML omitted -->
+<p>CAD Designing</p>
+<h1 id="what-is-cad"><strong>What is CAD?</strong></h1>
+<p>Computer-Aided Design (CAD) is a technology that allows users to digitally create 2D drawings and 3D models of real-world products. This powerful tool facilitates the design, simulation, and modification of prototypes before they are manufactured. CAD enables seamless collaboration among teams, leading to the development of innovative, high-quality products that can reach the market faster.</p>
+<hr>
+<h2 id="cad-softwaretools"><strong>CAD Software/Tools</strong></h2>
+<p>CAD software provides specialized tools tailored to different industries, such as architecture, industrial design, and electronics. Some CAD tools are versatile and can be used across a variety of fields, while others are industry-specific. Below is a list of widely used CAD tools:</p>
+<ul>
+<li><strong>SolidWorks</strong></li>
+<li><strong>AutoCAD</strong></li>
+<li><strong>Fusion 360</strong></li>
+<li><strong>CATIA</strong></li>
+<li><strong>TinkerCad</strong></li>
+<li><strong>CREO</strong></li>
+<li><strong>Onshape</strong></li>
+<li><strong>SIEMENS NX</strong></li>
+<li><strong>LibreCAD</strong></li>
+<li><strong>DraftSight</strong></li>
+<li><strong>Solid Edge</strong></li>
+<li><strong>Altium Designer</strong></li>
+</ul>
+<p><img src="cad.jpeg" alt=""></p>
+<hr>
+<h2 id="onshape-cloud-based-cad-software"><strong>Onshape: Cloud-Based CAD Software</strong></h2>
+<p><img src="onshape.png" alt=""></p>
+<p>Onshape is a cutting-edge, cloud-based CAD platform. It allows users to collaborate in real time on a single model through web-based servers, making it an ideal choice for industries involved in product design, machine parts, and industrial equipment.</p>
+<h3 id="key-features-of-onshape"><strong>Key Features of Onshape:</strong></h3>
+<ul>
+<li><strong>Collaboration:</strong> Teams can work on the same design simultaneously, streamlining the design process.</li>
+<li><strong>Document Organization:</strong> Instead of native file formats, Onshape stores design data within &ldquo;Documents,&rdquo; which act as project-level containers. These containers hold assemblies, parts, drawings, imported components, and other project-related data.</li>
+<li><strong>Cross-Compatibility:</strong> Supports importing and exporting files in multiple industry-standard formats.</li>
+<li><strong>Cloud-Based Access:</strong> Accessible through compatible web browsers after signing in.</li>
+</ul>
+<h1 id="assembly-guide"><strong>Assembly Guide</strong></h1>
+<hr>
+<h4 id="chassis-drawing-cad-sketch"><strong>Chassis Drawing (CAD Sketch)</strong></h4>
+<p><img src="chassis-drawing.jpg" alt=""></p>
+<h4 id="step-1-accessing-the-assembly-tab"><strong>Step 1: Accessing the Assembly Tab</strong></h4>
+<ol>
+<li>
+<p>After partially creating the chassis, navigate to the <strong>Assembly tab</strong> located at the bottom of the screen by left-clicking on it.</p>
+<ul>
+<li><strong>Note:</strong> The Assembly tab is automatically created when you start a new document.</li>
+</ul>
+<p><img src="Aspose.Words.aaa9702c-b348-4c04-9b37-d09a0c872b0c.001.jpeg" alt=""></p>
+</li>
+</ol>
+<hr>
+<h4 id="step-2-inserting-an-external-assembly"><strong>Step 2: Inserting an External Assembly</strong></h4>
+<ol>
+<li>
+<p>Left-click on <strong>Insert</strong> in the top panel.<br>
+<img src="Aspose.Words.aaa9702c-b348-4c04-9b37-d09a0c872b0c.002.jpeg" alt=""></p>
+</li>
+<li>
+<p>A drop-down menu will appear with the following options: <strong>Current Document</strong>, <strong>Other Documents</strong>, and <strong>Standard Document</strong>.</p>
+</li>
+<li>
+<p>Navigate to <strong>Other Documents.</strong><br>
+<img src="Aspose.Words.aaa9702c-b348-4c04-9b37-d09a0c872b0c.003.jpeg" alt=""></p>
+</li>
+<li>
+<p>Paste the following URL into the provided box:<br>
+<a href="https://cad.onshape.com/documents/692cce191c77a3a06298e5dc/w/aafea05b38b3a608edf34070/e/839bcfdc334e62e3cf4d626e" target="_blank">https://cad.onshape.com/documents/692cce191c77a3a06298e5dc/w/aafea05b38b3a608edf34070/e/839bcfdc334e62e3cf4d626e</a>
+</p>
+<p><strong>OR</strong></p>
+<ul>
+<li>Go to <strong>Public</strong> and search for &ldquo;<strong>Robot_assembly_origo24</strong>.&rdquo;</li>
+<li>Select the appropriate item from the results.<br>
+<img src="Aspose.Words.aaa9702c-b348-4c04-9b37-d09a0c872b0c.004.jpeg" alt=""></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="step-3-adding-the-assembly"><strong>Step 3: Adding the Assembly</strong></h4>
+<ol>
+<li>
+<p>In the selected file, locate <strong>Part Studios</strong> and <strong>Assemblies.</strong></p>
+<ul>
+<li><strong>Note:</strong> Part Studios will be empty since the file is an assembly. Click on <strong>Assemblies.</strong><br>
+<img src="Aspose.Words.aaa9702c-b348-4c04-9b37-d09a0c872b0c.005.png" alt=""></li>
+</ul>
+</li>
+<li>
+<p>Select <strong>Assembly 1.</strong> Move your cursor to the workspace and left-click to place the assembly where desired.<br>
+<img src="Aspose.Words.aaa9702c-b348-4c04-9b37-d09a0c872b0c.006.jpeg" alt=""></p>
+</li>
+<li>
+<p>Click the <strong>green tick</strong> at the top to confirm placement.</p>
+</li>
+</ol>
+<hr>
+<h3 id="assembly-instructions"><strong>Assembly Instructions</strong></h3>
+<hr>
+<h4 id="motor-joints"><strong>Motor Joints</strong></h4>
+<ol>
+<li>
+<p>Hover the cursor over the chassis without left-clicking. The chassis will display yellow borders.</p>
+<ul>
+<li>
+<p>Right-click and select <strong>Fix</strong> from the menu.<br>
+<img src="Aspose.Words.aaa9702c-b348-4c04-9b37-d09a0c872b0c.007.png" alt=""></p>
+<p><strong>Note:</strong> If you accidentally left-clicked, press <strong>Esc</strong> to deselect. Fixing the chassis is crucial to visualize joints properly.</p>
+</li>
+</ul>
+<p><img src="Aspose.Words.aaa9702c-b348-4c04-9b37-d09a0c872b0c.008.jpeg" alt=""></p>
+</li>
+<li>
+<p>Select <strong>Fastened Mate</strong> from the toolbar.<br>
+<img src="Aspose.Words.aaa9702c-b348-4c04-9b37-d09a0c872b0c.009.png" alt=""></p>
+</li>
+<li>
+<p>Click on the top hole of the motor&rsquo;s surface. A <strong>Mate Connector</strong> will appear.</p>
+</li>
+<li>
+<p>Rotate the view to locate the top hole on the T-shaped fastener. Click on it. The motor will align with the location.</p>
+</li>
+<li>
+<p>Confirm by clicking the <strong>green tick.</strong><br>
+<img src="Aspose.Words.aaa9702c-b348-4c04-9b37-d09a0c872b0c.010.png" alt=""></p>
+<p><strong>Reference Video:</strong> <a href="https://drive.google.com/file/d/117BkUs9KKydtb5tudTVtzojljx1_O2rk/view?usp=drive_link" target="_blank">Motor Joint Tutorial</a>
+</p>
+</li>
+<li>
+<p>Repeat the same process for the second motor joint.</p>
+<p><strong>Reference Video:</strong> <a href="https://drive.google.com/file/d/1UAaUDlgTTc8Y-Yq2M6ygimkj-jqVIfSn/view?usp=drive_link" target="_blank">Second Motor Joint</a>
+</p>
+</li>
+<li>
+<p>To exit the Fastened Mate tool, click the <strong>X</strong> or press <strong>Esc.</strong></p>
+</li>
+</ol>
+<hr>
+<h4 id="castor-wheel-joint"><strong>Castor Wheel Joint</strong></h4>
+<ol>
+<li>
+<p>Reorient the castor wheel:</p>
+<ul>
+<li>Left-click the wheel to activate a <strong>triad.</strong><br>
+<img src="Aspose.Words.aaa9702c-b348-4c04-9b37-d09a0c872b0c.011.png" alt=""></li>
+<li>Rotate the wheel along two axes to align its holes with the chassis.</li>
+</ul>
+<p><strong>Reference Video:</strong> <a href="https://drive.google.com/file/d/1c-h8V48cOshhsTSpIC_m6ByOCCTrVB5d/view?usp=sharing" target="_blank">Castor Wheel Alignment</a>
+</p>
+</li>
+<li>
+<p>Create a joint between one hole on the castor wheel and one on the chassis using <strong>Fastened Mate</strong> (same technique as the motor joint).</p>
+<p><strong>Reference Video:</strong> <a href="https://drive.google.com/file/d/1JIQZ1hrnKRWTfHGBJsfkvYBlZ5m8z95F/view?usp=sharing" target="_blank">Castor Wheel Joint</a>
+</p>
+</li>
+</ol>
+<hr>
+<h4 id="revolute-joint"><strong>Revolute Joint</strong></h4>
+<ol>
+<li>
+<p>Select <strong>Revolute Mate</strong> from the toolbar. This mate requires two points of selection.<br>
+<img src="Aspose.Words.aaa9702c-b348-4c04-9b37-d09a0c872b0c.012.png" alt=""></p>
+</li>
+<li>
+<p>First, click the <strong>center of the tire.</strong> Ensure accuracy in selection to avoid misaligned orientations.</p>
+</li>
+<li>
+<p>Next, select the <strong>center point</strong> from the three points available on the motor shaft&rsquo;s inner surface.<br>
+<img src="Aspose.Words.aaa9702c-b348-4c04-9b37-d09a0c872b0c.013.jpeg" alt=""></p>
+</li>
+<li>
+<p>Click the <strong>green tick</strong> to confirm the joint.</p>
+<p><strong>Reference Video:</strong> <a href="https://drive.google.com/file/d/1pvm8jDB6_F1Fptup9NNgstpbMKHzCYdO/view?usp=drive_link" target="_blank">Revolute Joint</a>
+</p>
+</li>
+<li>
+<p>Repeat this process for the second wheel.</p>
+</li>
+</ol>
+<hr>
+<h3 id="final-check"><strong>Final Check</strong></h3>
+<p>Verify that your project functions as intended by testing the joints:<br>
+<a href="https://drive.google.com/file/d/1DmE0_3EmAdQ4izTXCALSD3Vh3-dphu2t/view?usp=drive_link" target="_blank">Project Test</a>
+</p>
+<h4 id="completed-chassis-3d-model"><strong>Completed Chassis (3D Model)</strong></h4>
+<p><img src="chassis.jpeg" alt=""></p>
+      </section>
+
+      
+
+      
+    </article>
+  </div>
+
+  <div class="hidden lg:flex lg:flex-col lg:items-end">
+    
+
+    
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#cad-softwaretools"><strong>CAD Software/Tools</strong></a></li>
+    <li><a href="#onshape-cloud-based-cad-software"><strong>Onshape: Cloud-Based CAD Software</strong></a>
+      <ul>
+        <li><a href="#key-features-of-onshape"><strong>Key Features of Onshape:</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#assembly-instructions"><strong>Assembly Instructions</strong></a></li>
+        <li><a href="#final-check"><strong>Final Check</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    
+  </div>
+</div>
+
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>
+    © 2025 ORIGO RESOURCES
+  </p>
+  
+
+  
+  <p>🤖 Powered by pure love for robotics</p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            
+            <div class="dream-grid dream-grid-about">
+  
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">About US</div>
+
+        <div class="prose dark:prose-invert">
+          <p>RIGNITC is the Robotics Interest Group of the National Institute of Technology Calicut.</p>
+<p>We represent the official robotics club of our college, driven by a shared passion for robotics.</p>
+<p>The team at the Robotics Interest Group, also known as RIG, consists of undergraduate students from various disciplines, including Mechanical, Electrical, Electronics, and Computer Science, spanning sophomores to final-year students. We are actively involved in a variety of projects, which will be detailed shortly, as well as numerous competitions.</p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Social Links</div>
+
+        <ul class="menu menu-horizontal flex-wrap w-full px-0 [&_ion-icon]:text-lg">
+  
+
+  
+  <li>
+    <a href="https://www.linkedin.com/company/rignitc" target="_blank" title="Linkedin">
+      <ion-icon name="logo-linkedin"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/rignitc" target="_blank" title="GitHub">
+      <ion-icon name="logo-github"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://www.instagram.com/rig_nitc/" target="_blank" title="Instagram">
+      <ion-icon name="logo-instagram"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://x.com/rignitc" target="_blank" title="X">
+      <ion-icon name="logo-x"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://www.facebook.com/rignitc/" target="_blank" title="Facebook">
+      <ion-icon name="logo-facebook"></ion-icon>
+    </a>
+  </li>
+  
+</ul>
+
+      </div>
+    </article>
+  </div>
+  
+
+  
+</div>
+
+            
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>
+    © 2025 ORIGO RESOURCES
+  </p>
+  
+
+  
+  <p>🤖 Powered by pure love for robotics</p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+
+  
+  
+  <script src="/ORIGO2K25/js/grid.js"></script>
+
+
+
+
+<script src="/ORIGO2K25/js/main.js"></script>
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>

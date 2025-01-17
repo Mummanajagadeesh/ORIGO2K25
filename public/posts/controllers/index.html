@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head><script src="/ORIGO2K25/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=ORIGO2K25/livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controllers | ORIGO RESOURCES</title>
+
+    
+<link href="/ORIGO2K25/favicon.ico" rel="icon" type="image/x-icon" />
+
+
+<link rel="canonical" href="http://localhost:1313/ORIGO2K25/posts/controllers/" />
+
+
+
+<meta name="author" content="ORIGO" />
+<meta name="description" content=" Understanding Controllers in Systems
+" />
+
+
+<meta name="keywords" content="Controllers,Pid,Basics,Handout,Rignitc">
+
+
+
+<meta name="generator" content="Hugo 0.140.2">
+
+
+<meta property="og:url" content="http://localhost:1313/ORIGO2K25/posts/controllers/">
+  <meta property="og:site_name" content="ORIGO RESOURCES">
+  <meta property="og:title" content="Controllers">
+  <meta property="og:description" content="Understanding Controllers in Systems">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-10T18:08:19+05:30">
+    <meta property="article:modified_time" content="2025-01-10T18:08:19+05:30">
+    <meta property="article:tag" content="Controllers">
+    <meta property="article:tag" content="Pid">
+    <meta property="article:tag" content="Basics">
+    <meta property="article:tag" content="Handout">
+    <meta property="article:tag" content="Rignitc">
+    <meta property="og:image" content="http://localhost:1313/ORIGO2K25/posts/controllers/cover.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/ORIGO2K25/posts/controllers/cover.png">
+  <meta name="twitter:title" content="Controllers">
+  <meta name="twitter:description" content="Understanding Controllers in Systems">
+
+
+
+
+<link rel="stylesheet" href="/ORIGO2K25/css/output.css" />
+
+
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav x-data="{ isSticky: false }"
+  x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 30 })"
+  class="sticky top-0 z-30 mt-4 lg:mt-8 py-4"
+  :class="{ 'bg-base-100 shadow-lg dark:border-b dark:border-base-content/30': isSticky }">
+
+  
+  <div class="container flex justify-between px-4">
+  
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
+        <div class="h-10 rounded-full">
+          <img src="/ORIGO2K25/img/avatar.png" alt="ORIGO2K25" />
+        </div>
+      </div>
+
+      
+      <div>
+        
+        <a href="http://localhost:1313/ORIGO2K25/" class="text-lg font-semibold cursor-pointer">
+          ORIGO2K25
+        </a>
+        
+        
+        <div class="text-base-content/60 text-sm">Because all we do is robotics</div>
+        
+      </div>
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="About">
+    <ion-icon name="information-circle"></ion-icon>About</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="https://github.com/rignitc" target="_blank" title="GitHub">
+    
+    <ion-icon name="logo-github"></ion-icon>
+    
+    GitHub
+  </a>
+</li>
+
+
+
+  
+
+  
+    
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="https://rignitc.github.io/blogs/" target="_blank" title="Blog">
+    
+    <ion-icon name="planet"></ion-icon>
+    
+    Blog
+  </a>
+</li>
+
+
+
+  
+
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0"
+        class="text-sm font-semibold cursor-pointer hover:underline"
+        @click="flip = !flip"
+        title="About"
+      >About</div>
+      
+      
+
+      
+      
+
+      
+
+      
+      
+
+
+
+
+
+      
+      
+
+
+
+
+
+      
+      
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/posts" title="Archives">
+  <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
+</a>
+
+
+      
+      
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/categories" title="All Categories">
+  <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
+</a>
+
+
+      
+      
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/tags" title="All Tags">
+  <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
+</a>
+
+
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+  
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://github.com/rignitc" target="_blank" title="GitHub">
+    <ion-icon class="group-hover:text-primary-content" name="logo-github"></ion-icon>
+  </a>
+  
+
+
+
+  
+
+  
+    
+
+
+
+  
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://rignitc.github.io/blogs/" target="_blank" title="Blog">
+    <ion-icon class="group-hover:text-primary-content" name="planet"></ion-icon>
+  </a>
+  
+
+
+
+  
+
+
+      
+
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="lg:grid lg:grid-cols-4 gap-4 mt-4 px-4">
+  <div class="hidden lg:block"></div>
+
+  <div class="lg:col-span-2">
+    <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
+      
+  <meta itemprop="name" content="Controllers">
+  <meta itemprop="description" content="Understanding Controllers in Systems">
+  <meta itemprop="datePublished" content="2025-01-10T18:08:19+05:30">
+  <meta itemprop="dateModified" content="2025-01-10T18:08:19+05:30">
+  <meta itemprop="wordCount" content="749">
+  <meta itemprop="image" content="http://localhost:1313/ORIGO2K25/posts/controllers/cover.png">
+  <meta itemprop="keywords" content="Controllers,Pid,Basics,Handout,Rignitc">
+
+      <header>
+        <h1 itemprop="headline">Controllers</h1>
+        <p class="text-sm">
+          
+            Friday, Jan 10, 2025
+          
+
+          | <span>4 minute read</span>
+
+          
+          | <span>Updated at
+            
+              Friday, Jan 10, 2025
+            </span>
+          
+        </p>
+        <div class="flex justify-between">
+          <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+  
+    
+      <span itemprop="name">ORIGO</span>
+    
+  
+  </span>
+</div>
+
+
+          <div class="flex items-center gap-2">
+  
+  
+
+  
+  
+  
+  
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://x.com/intent/post?text=Controllers&amp;url=http://localhost:1313/ORIGO2K25/posts/controllers/" target="_blank" rel="noopener noreferrer"
+      title="Share on X">
+      <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://facebook.com/sharer/sharer.php?u=http://localhost:1313/ORIGO2K25/posts/controllers/" target="_blank" rel="noopener noreferrer"
+      title="Share on Facebook">
+      <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://wa.me/?text=Controllers%20http://localhost:1313/ORIGO2K25/posts/controllers/" target="_blank" rel="noopener noreferrer"
+      title="Share on WhatsApp">
+      <ion-icon class="group-hover:text-primary-content" name="logo-whatsapp"></ion-icon>
+    </a>
+  
+
+  
+  
+</div>
+
+        </div>
+      </header>
+
+      <section id="dream-single-post-content" itemprop="articleBody">
+        
+
+        <!-- raw HTML omitted -->
+<p>Understanding Controllers in Systems</p>
+<p>Control systems are an integral part of modern engineering, enabling precise regulation of various processes and systems. This guide covers the key concepts, components, and types of controllers, emphasizing their applications and importance in achieving optimal system performance.</p>
+<hr>
+<h2 id="key-definitions"><strong>Key Definitions</strong></h2>
+<h3 id="1-system"><strong>1. System</strong></h3>
+<p>A <strong>system</strong> is a combination of physical components working together to achieve a specific goal.<br>
+<strong>Example:</strong> A vehicle is a system designed for the transportation of passengers or goods.</p>
+<hr>
+<h3 id="2-control"><strong>2. Control</strong></h3>
+<p><strong>Control</strong> refers to the act of commanding, directing, or regulating a system to ensure it performs as intended.<br>
+<strong>Example:</strong> Adjusting a motor&rsquo;s input voltage to regulate its speed.</p>
+<hr>
+<h3 id="3-plant-or-process"><strong>3. Plant or Process</strong></h3>
+<p>The <strong>plant</strong> or <strong>process</strong> is the part of the system that requires control.<br>
+<strong>Example:</strong> In a heating system, the plant is the heater that changes the temperature.</p>
+<hr>
+<h3 id="4-input-and-output"><strong>4. Input and Output</strong></h3>
+<ul>
+<li><strong>Input:</strong> The signal or excitation supplied to a control system.<br>
+<strong>Example:</strong> The desired room temperature in a thermostat-controlled heating system.</li>
+<li><strong>Output:</strong> The actual response of the system.<br>
+<strong>Example:</strong> The current room temperature in the same system.</li>
+</ul>
+<hr>
+<h3 id="5-error"><strong>5. Error</strong></h3>
+<p>The <strong>error</strong> in a control system is the difference between the desired output (setpoint) and the actual output.<br>
+[ \text{Error (e(t))} = \text{Desired Output} - \text{Actual Output} ]</p>
+<hr>
+<h3 id="6-controller"><strong>6. Controller</strong></h3>
+<p>A <strong>controller</strong> is a device that compares the system&rsquo;s output with the desired output and adjusts the input to minimize the error.<br>
+<strong>Example:</strong> A thermostat regulating a heater.</p>
+<hr>
+<h3 id="7-stability"><strong>7. Stability</strong></h3>
+<p><strong>Stability</strong> determines whether a system can consistently follow an input command without producing unbounded or uncontrollable outputs.</p>
+<hr>
+<h3 id="8-actuator"><strong>8. Actuator</strong></h3>
+<p>An <strong>actuator</strong> converts the controller’s commands into mechanical actions to influence the plant.<br>
+<strong>Example:</strong> A motor controlling a valve in a water pipeline.</p>
+<hr>
+<h3 id="9-design"><strong>9. Design</strong></h3>
+<p><strong>Design</strong> involves creating the forms, parts, and details of a system to achieve specific objectives, such as optimizing a control system for a power plant.</p>
+<hr>
+<h3 id="10-block-diagrams-and-signal-flow-graphs-sfg"><strong>10. Block Diagrams and Signal Flow Graphs (SFG)</strong></h3>
+<ul>
+<li><strong>Block Diagram:</strong> Graphically represents system components and their transfer functions using blocks.</li>
+<li><strong>Signal Flow Graph (SFG):</strong> Depicts the flow of signals between components with nodes and directed branches.</li>
+</ul>
+<hr>
+<h3 id="11-optimization"><strong>11. Optimization</strong></h3>
+<p><strong>Optimization</strong> adjusts system parameters to achieve the best possible performance.<br>
+<strong>Example:</strong> Reducing energy consumption in a cooling system.</p>
+<hr>
+<h3 id="12-feedback-signal"><strong>12. Feedback Signal</strong></h3>
+<p>A <strong>feedback signal</strong> is the system&rsquo;s output used to adjust the input for achieving the desired performance. Negative feedback is commonly used for stabilization.</p>
+<hr>
+<h2 id="open-loop-vs-closed-loop-systems"><strong>Open-Loop vs. Closed-Loop Systems</strong></h2>
+<h3 id="open-loop-control-system"><strong>Open-Loop Control System</strong></h3>
+<p>Operates based on a fixed input without considering the output.<br>
+<strong>Example:</strong> A washing machine with a timer.</p>
+<p><img src="openloop.png" alt="alt text"></p>
+<hr>
+<h3 id="closed-loop-control-system"><strong>Closed-Loop Control System</strong></h3>
+<p>Uses feedback from the output to adjust the input, providing higher accuracy and adaptability.<br>
+<strong>Example:</strong> An automatic temperature control system.</p>
+<p><img src="closeloop.png" alt="alt text"></p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Open-Loop Control System</th>
+          <th>Closed-Loop Control System</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Feedback</strong></td>
+          <td>No feedback.</td>
+          <td>Feedback is present.</td>
+      </tr>
+      <tr>
+          <td><strong>Intelligence</strong></td>
+          <td>Cannot be intelligent.</td>
+          <td>Intelligent controlling action.</td>
+      </tr>
+      <tr>
+          <td><strong>System Oscillation (Hunting)</strong></td>
+          <td>No possibility of oscillation.</td>
+          <td>Possible oscillation due to feedback.</td>
+      </tr>
+      <tr>
+          <td><strong>Output Variability for Constant Input</strong></td>
+          <td>Output remains constant (if parameters are stable).</td>
+          <td>Output may vary due to feedback.</td>
+      </tr>
+      <tr>
+          <td><strong>Response to Parameter Changes</strong></td>
+          <td>Sensitive to parameter variations.</td>
+          <td>Less sensitive to parameter variations.</td>
+      </tr>
+      <tr>
+          <td><strong>Error Detection</strong></td>
+          <td>Error detection is not present.</td>
+          <td>Error detection is present.</td>
+      </tr>
+      <tr>
+          <td><strong>Bandwidth</strong></td>
+          <td>Small bandwidth.</td>
+          <td>Large bandwidth.</td>
+      </tr>
+      <tr>
+          <td><strong>Stability</strong></td>
+          <td>More stable.</td>
+          <td>Less stable or prone to instability.</td>
+      </tr>
+      <tr>
+          <td><strong>Effect of Non-linearities</strong></td>
+          <td>Affected by non-linearities.</td>
+          <td>Less affected by non-linearities.</td>
+      </tr>
+      <tr>
+          <td><strong>Sensitivity</strong></td>
+          <td>Very sensitive.</td>
+          <td>Less sensitive to disturbances.</td>
+      </tr>
+      <tr>
+          <td><strong>Design Complexity</strong></td>
+          <td>Simple design.</td>
+          <td>Complex design.</td>
+      </tr>
+      <tr>
+          <td><strong>Cost</strong></td>
+          <td>Cheaper.</td>
+          <td>More expensive.</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="pid-controller"><strong>PID Controller</strong></h2>
+<p>A <strong>PID Controller</strong> (Proportional-Integral-Derivative Controller) is a sophisticated control mechanism designed to dynamically minimize error and enhance system performance.</p>
+<h3 id="components-of-a-pid-controller"><strong>Components of a PID Controller</strong></h3>
+<ol>
+<li>
+<p><strong>Proportional (P):</strong> Reacts to the current error.</p>
+<ul>
+<li>Provides output proportional to the error magnitude.</li>
+<li>Larger errors lead to stronger corrective actions.<br>
+<strong>Example:</strong> Driving faster when farther from the destination.</li>
+</ul>
+</li>
+<li>
+<p><strong>Integral (I):</strong> Considers the accumulation of past errors.</p>
+<ul>
+<li>Eliminates steady-state errors by addressing persistent deviations.<br>
+<strong>Example:</strong> Gradually increasing speed if consistently moving too slowly.</li>
+</ul>
+</li>
+<li>
+<p><strong>Derivative (D):</strong> Responds to the rate of error change.</p>
+<ul>
+<li>Predicts future errors and smooths the system&rsquo;s response.<br>
+<strong>Example:</strong> Slowing down early when approaching a destination rapidly.</li>
+</ul>
+</li>
+</ol>
+<p><img src="pid3.png" alt="alt text"></p>
+<hr>
+<h3 id="how-pid-components-work-together"><strong>How PID Components Work Together</strong></h3>
+<ul>
+<li><strong>P:</strong> Provides immediate response to error.</li>
+<li><strong>I:</strong> Corrects long-term deviations.</li>
+<li><strong>D:</strong> Prevents sudden changes and stabilizes the system.</li>
+</ul>
+<h3 id="benefits-of-pid-controllers"><strong>Benefits of PID Controllers</strong></h3>
+<ul>
+<li>Combines the strengths of proportional, integral, and derivative actions.</li>
+<li>Provides fast response and steady performance.</li>
+<li>Minimizes overshoot, oscillations, and steady-state error.</li>
+</ul>
+<hr>
+<h2 id="external-references-for-further-learning"><strong>External References for Further Learning</strong></h2>
+<h3 id="websites">Websites:</h3>
+<ul>
+<li><a href="https://www.tutorialspoint.com/control_systems/index.htm" target="_blank">TutorialsPoint: Control Systems</a>
+</li>
+<li><a href="https://www.geeksforgeeks.org/control-system/" target="_blank">GeeksforGeeks: Control Systems</a>
+</li>
+<li><a href="https://www.srecwarangal.ac.in/ece-itl/CS%20SUMMARY.pdf" target="_blank">SREC Warangal: Control Systems Summary</a>
+</li>
+</ul>
+<h3 id="youtube-videos">YouTube Videos:</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=HcLYoCmWOjI&amp;list=PLBlnK6fEyqRhqzJT87LsdQKYZBC93ezDo" target="_blank">Control Systems Series</a>
+</li>
+<li><a href="https://www.youtube.com/watch?v=fv6dLTEvl74" target="_blank">Introduction to PID Controllers</a>
+</li>
+</ul>
+<p>By understanding these concepts, you can design, analyze, and optimize control systems effectively to meet various application requirements.</p>
+      </section>
+
+      
+
+      
+    </article>
+  </div>
+
+  <div class="hidden lg:flex lg:flex-col lg:items-end">
+    
+
+    
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#key-definitions"><strong>Key Definitions</strong></a>
+      <ul>
+        <li><a href="#1-system"><strong>1. System</strong></a></li>
+        <li><a href="#2-control"><strong>2. Control</strong></a></li>
+        <li><a href="#3-plant-or-process"><strong>3. Plant or Process</strong></a></li>
+        <li><a href="#4-input-and-output"><strong>4. Input and Output</strong></a></li>
+        <li><a href="#5-error"><strong>5. Error</strong></a></li>
+        <li><a href="#6-controller"><strong>6. Controller</strong></a></li>
+        <li><a href="#7-stability"><strong>7. Stability</strong></a></li>
+        <li><a href="#8-actuator"><strong>8. Actuator</strong></a></li>
+        <li><a href="#9-design"><strong>9. Design</strong></a></li>
+        <li><a href="#10-block-diagrams-and-signal-flow-graphs-sfg"><strong>10. Block Diagrams and Signal Flow Graphs (SFG)</strong></a></li>
+        <li><a href="#11-optimization"><strong>11. Optimization</strong></a></li>
+        <li><a href="#12-feedback-signal"><strong>12. Feedback Signal</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#open-loop-vs-closed-loop-systems"><strong>Open-Loop vs. Closed-Loop Systems</strong></a>
+      <ul>
+        <li><a href="#open-loop-control-system"><strong>Open-Loop Control System</strong></a></li>
+        <li><a href="#closed-loop-control-system"><strong>Closed-Loop Control System</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#pid-controller"><strong>PID Controller</strong></a>
+      <ul>
+        <li><a href="#components-of-a-pid-controller"><strong>Components of a PID Controller</strong></a></li>
+        <li><a href="#how-pid-components-work-together"><strong>How PID Components Work Together</strong></a></li>
+        <li><a href="#benefits-of-pid-controllers"><strong>Benefits of PID Controllers</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#external-references-for-further-learning"><strong>External References for Further Learning</strong></a>
+      <ul>
+        <li><a href="#websites">Websites:</a></li>
+        <li><a href="#youtube-videos">YouTube Videos:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    
+  </div>
+</div>
+
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>
+    © 2025 ORIGO RESOURCES
+  </p>
+  
+
+  
+  <p>🤖 Powered by pure love for robotics</p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            
+            <div class="dream-grid dream-grid-about">
+  
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">About US</div>
+
+        <div class="prose dark:prose-invert">
+          <p>RIGNITC is the Robotics Interest Group of the National Institute of Technology Calicut.</p>
+<p>We represent the official robotics club of our college, driven by a shared passion for robotics.</p>
+<p>The team at the Robotics Interest Group, also known as RIG, consists of undergraduate students from various disciplines, including Mechanical, Electrical, Electronics, and Computer Science, spanning sophomores to final-year students. We are actively involved in a variety of projects, which will be detailed shortly, as well as numerous competitions.</p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Social Links</div>
+
+        <ul class="menu menu-horizontal flex-wrap w-full px-0 [&_ion-icon]:text-lg">
+  
+
+  
+  <li>
+    <a href="https://www.linkedin.com/company/rignitc" target="_blank" title="Linkedin">
+      <ion-icon name="logo-linkedin"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/rignitc" target="_blank" title="GitHub">
+      <ion-icon name="logo-github"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://www.instagram.com/rig_nitc/" target="_blank" title="Instagram">
+      <ion-icon name="logo-instagram"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://x.com/rignitc" target="_blank" title="X">
+      <ion-icon name="logo-x"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://www.facebook.com/rignitc/" target="_blank" title="Facebook">
+      <ion-icon name="logo-facebook"></ion-icon>
+    </a>
+  </li>
+  
+</ul>
+
+      </div>
+    </article>
+  </div>
+  
+
+  
+</div>
+
+            
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>
+    © 2025 ORIGO RESOURCES
+  </p>
+  
+
+  
+  <p>🤖 Powered by pure love for robotics</p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+
+  
+  
+  <script src="/ORIGO2K25/js/grid.js"></script>
+
+
+
+
+<script src="/ORIGO2K25/js/main.js"></script>
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>

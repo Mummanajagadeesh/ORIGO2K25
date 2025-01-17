@@ -2,18 +2,81 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rignitc on ORIGO RESOURCES</title>
-    <link>http://localhost:53847/ORIGO2K25/tags/rignitc/</link>
+    <link>http://localhost:1313/ORIGO2K25/tags/rignitc/</link>
     <description>Recent content in Rignitc on ORIGO RESOURCES</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 10 Jan 2025 18:08:19 +0530</lastBuildDate>
-    <atom:link href="http://localhost:53847/ORIGO2K25/tags/rignitc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/ORIGO2K25/tags/rignitc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI, ML and YOLO</title>
+      <link>http://localhost:1313/ORIGO2K25/posts/ai/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/posts/ai/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;AI Fundamentals and YOLO&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Basic Electronics</title>
-      <link>http://localhost:53847/ORIGO2K25/posts/basic-electronics/</link>
+      <link>http://localhost:1313/ORIGO2K25/posts/basic-electronics/</link>
       <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
-      <guid>http://localhost:53847/ORIGO2K25/posts/basic-electronics/</guid>
+      <guid>http://localhost:1313/ORIGO2K25/posts/basic-electronics/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Basic Electronics for Robotics&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Code Explanation Day 02</title>
+      <link>http://localhost:1313/ORIGO2K25/posts/code-explanation-day-2/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/posts/code-explanation-day-2/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Day 02: Building a Person-Following Robot with YOLO and PID Control&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Computer Aided Design (CAD)</title>
+      <link>http://localhost:1313/ORIGO2K25/posts/cad/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/posts/cad/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;CAD Designing&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Controllers</title>
+      <link>http://localhost:1313/ORIGO2K25/posts/controllers/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/posts/controllers/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Understanding Controllers in Systems&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Microcontrollers and More</title>
+      <link>http://localhost:1313/ORIGO2K25/posts/arduino/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/posts/arduino/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Getting Started with Microcontroller Programming&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Networking and Communication</title>
+      <link>http://localhost:1313/ORIGO2K25/posts/networking/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/posts/networking/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Networking and Serial Communications&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Printed Circuit Board (PCB)</title>
+      <link>http://localhost:1313/ORIGO2K25/posts/pcb/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/posts/pcb/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;PCB Designing&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Python Programming</title>
+      <link>http://localhost:1313/ORIGO2K25/posts/python/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/posts/python/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Python For Beginners&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Wheeeeeeels</title>
+      <link>http://localhost:1313/ORIGO2K25/posts/wheels/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/posts/wheels/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Understanding Wheels and Drives in Robotics and Vehicles&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

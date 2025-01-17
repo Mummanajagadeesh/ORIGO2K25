@@ -59,7 +59,7 @@ showTableOfContents = true
 # reorderShares = ["x", "facebook", "whatsapp"]
 
 [params.navItems]
-series = { href = "series", icon = "planet", title = "Series" }
+series = { href = "https://rignitc.github.io/blogs/", target = "_blank", icon = "planet", title = "Blog" }
 github = { href = "https://github.com/rignitc", target = "_blank", icon = "logo-github", title = "GitHub" }
 
 # [params.advanced]

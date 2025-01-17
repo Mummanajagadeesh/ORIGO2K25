@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pid on ORIGO RESOURCES</title>
+    <link>http://localhost:1313/ORIGO2K25/tags/pid/</link>
+    <description>Recent content in Pid on ORIGO RESOURCES</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 10 Jan 2025 18:08:19 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/ORIGO2K25/tags/pid/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Controllers</title>
+      <link>http://localhost:1313/ORIGO2K25/posts/controllers/</link>
+      <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
+      <guid>http://localhost:1313/ORIGO2K25/posts/controllers/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Understanding Controllers in Systems&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
