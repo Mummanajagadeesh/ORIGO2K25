@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head><script src="/ORIGO2K25/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=ORIGO2K25/livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Explanation Day 01 | ORIGO RESOURCES</title>
+
+    
+<link href="/ORIGO2K25/favicon.ico" rel="icon" type="image/x-icon" />
+
+
+<link rel="canonical" href="http://localhost:1313/ORIGO2K25/posts/code-explanation-day-1/" />
+
+
+
+<meta name="author" content="ORIGO" />
+<meta name="description" content=" Day 01: Gesture Controlled Robot with OpenCV and ESP
+" />
+
+
+<meta name="keywords" content="Opencv,Code,Python,Basics,Handout,Rignitc">
+
+
+
+<meta name="generator" content="Hugo 0.140.2">
+
+
+<meta property="og:url" content="http://localhost:1313/ORIGO2K25/posts/code-explanation-day-1/">
+  <meta property="og:site_name" content="ORIGO RESOURCES">
+  <meta property="og:title" content="Code Explanation Day 01">
+  <meta property="og:description" content="Day 01: Gesture Controlled Robot with OpenCV and ESP">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-10T18:08:19+05:30">
+    <meta property="article:modified_time" content="2025-01-10T18:08:19+05:30">
+    <meta property="article:tag" content="Opencv">
+    <meta property="article:tag" content="Code">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Basics">
+    <meta property="article:tag" content="Handout">
+    <meta property="article:tag" content="Rignitc">
+    <meta property="og:image" content="http://localhost:1313/ORIGO2K25/posts/code-explanation-day-1/cover.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/ORIGO2K25/posts/code-explanation-day-1/cover.png">
+  <meta name="twitter:title" content="Code Explanation Day 01">
+  <meta name="twitter:description" content="Day 01: Gesture Controlled Robot with OpenCV and ESP">
+
+
+
+
+<link rel="stylesheet" href="/ORIGO2K25/css/output.css" />
+
+
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav x-data="{ isSticky: false }"
+  x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 30 })"
+  class="sticky top-0 z-30 mt-4 lg:mt-8 py-4"
+  :class="{ 'bg-base-100 shadow-lg dark:border-b dark:border-base-content/30': isSticky }">
+
+  
+  <div class="container flex justify-between px-4">
+  
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
+        <div class="h-10 rounded-full">
+          <img src="/ORIGO2K25/img/avatar.png" alt="ORIGO2K25" />
+        </div>
+      </div>
+
+      
+      <div>
+        
+        <a href="http://localhost:1313/ORIGO2K25/" class="text-lg font-semibold cursor-pointer">
+          ORIGO2K25
+        </a>
+        
+        
+        <div class="text-base-content/60 text-sm">Because all we do is robotics</div>
+        
+      </div>
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="About">
+    <ion-icon name="information-circle"></ion-icon>About</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="https://github.com/rignitc" target="_blank" title="GitHub">
+    
+    <ion-icon name="logo-github"></ion-icon>
+    
+    GitHub
+  </a>
+</li>
+
+
+
+  
+
+  
+    
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="https://rignitc.github.io/blogs/" target="_blank" title="Blog">
+    
+    <ion-icon name="planet"></ion-icon>
+    
+    Blog
+  </a>
+</li>
+
+
+
+  
+
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0"
+        class="text-sm font-semibold cursor-pointer hover:underline"
+        @click="flip = !flip"
+        title="About"
+      >About</div>
+      
+      
+
+      
+      
+
+      
+
+      
+      
+
+
+
+
+
+      
+      
+
+
+
+
+
+      
+      
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/posts" title="Archives">
+  <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
+</a>
+
+
+      
+      
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/categories" title="All Categories">
+  <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
+</a>
+
+
+      
+      
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/tags" title="All Tags">
+  <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
+</a>
+
+
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+  
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://github.com/rignitc" target="_blank" title="GitHub">
+    <ion-icon class="group-hover:text-primary-content" name="logo-github"></ion-icon>
+  </a>
+  
+
+
+
+  
+
+  
+    
+
+
+
+  
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://rignitc.github.io/blogs/" target="_blank" title="Blog">
+    <ion-icon class="group-hover:text-primary-content" name="planet"></ion-icon>
+  </a>
+  
+
+
+
+  
+
+
+      
+
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="lg:grid lg:grid-cols-4 gap-4 mt-4 px-4">
+  <div class="hidden lg:block"></div>
+
+  <div class="lg:col-span-2">
+    <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
+      
+  <meta itemprop="name" content="Code Explanation Day 01">
+  <meta itemprop="description" content="Day 01: Gesture Controlled Robot with OpenCV and ESP">
+  <meta itemprop="datePublished" content="2025-01-10T18:08:19+05:30">
+  <meta itemprop="dateModified" content="2025-01-10T18:08:19+05:30">
+  <meta itemprop="wordCount" content="693">
+  <meta itemprop="image" content="http://localhost:1313/ORIGO2K25/posts/code-explanation-day-1/cover.png">
+  <meta itemprop="keywords" content="Opencv,Code,Python,Basics,Handout,Rignitc">
+
+      <header>
+        <h1 itemprop="headline">Code Explanation Day 01</h1>
+        <p class="text-sm">
+          
+            Friday, Jan 10, 2025
+          
+
+          | <span>4 minute read</span>
+
+          
+          | <span>Updated at
+            
+              Friday, Jan 10, 2025
+            </span>
+          
+        </p>
+        <div class="flex justify-between">
+          <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+  
+    
+      <span itemprop="name">ORIGO</span>
+    
+  
+  </span>
+</div>
+
+
+          <div class="flex items-center gap-2">
+  
+  
+
+  
+  
+  
+  
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://x.com/intent/post?text=Code%20Explanation%20Day%2001&amp;url=http://localhost:1313/ORIGO2K25/posts/code-explanation-day-1/" target="_blank" rel="noopener noreferrer"
+      title="Share on X">
+      <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://facebook.com/sharer/sharer.php?u=http://localhost:1313/ORIGO2K25/posts/code-explanation-day-1/" target="_blank" rel="noopener noreferrer"
+      title="Share on Facebook">
+      <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://wa.me/?text=Code%20Explanation%20Day%2001%20http://localhost:1313/ORIGO2K25/posts/code-explanation-day-1/" target="_blank" rel="noopener noreferrer"
+      title="Share on WhatsApp">
+      <ion-icon class="group-hover:text-primary-content" name="logo-whatsapp"></ion-icon>
+    </a>
+  
+
+  
+  
+</div>
+
+        </div>
+      </header>
+
+      <section id="dream-single-post-content" itemprop="articleBody">
+        
+
+        <!-- raw HTML omitted -->
+<p>Day 01: Gesture Controlled Robot with OpenCV and ESP</p>
+<h1 id="gesture-controlled-robot"><strong>Gesture-Controlled Robot</strong></h1>
+<p>This Python script captures hand gestures using MediaPipe, classifies them using a custom-trained model, and sends the gesture index to an ESP device over a TCP socket connection.</p>
+<p>The robot is gesture-controlled, meaning it performs specific actions based on the hand gestures detected by a camera. It uses an ESP-based microcontroller to receive commands over Wi-Fi. The ESP processes these commands (gesture indices) and controls the robot&rsquo;s movements or actions accordingly.</p>
+<hr>
+<h2 id="how-it-works"><strong>How It Works</strong></h2>
+<ol>
+<li>
+<p><strong>Hand Gesture Detection:</strong></p>
+<ul>
+<li>Uses MediaPipe Hands to detect hand landmarks (e.g., fingertips, knuckles).</li>
+<li>These landmarks are processed by a pre-trained model (<code>KeyPointClassifier</code>) to classify the current gesture.</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Transmission:</strong></p>
+<ul>
+<li>The recognized gesture index (a number representing the gesture) is sent to the ESP microcontroller over a TCP socket connection.</li>
+</ul>
+</li>
+<li>
+<p><strong>ESP Response:</strong></p>
+<ul>
+<li>The ESP processes the received index and controls the robot based on the predefined gesture mappings.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="libraries-and-tools"><strong>Libraries and Tools</strong></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> cv2
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> mediapipe <span style="color:#66d9ef">as</span> mp 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> socket 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> model <span style="color:#f92672">import</span> KeyPointClassifier 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> landmark_utils <span style="color:#66d9ef">as</span> u
+</span></span></code></pre></div><h3 id="key-libraries"><strong>Key Libraries:</strong></h3>
+<ul>
+<li><code>cv2</code>: OpenCV library for video capture and image processing.</li>
+<li><code>mediapipe</code>: Library for detecting and tracking hand landmarks.</li>
+<li><code>socket</code>: Provides support for network communication to send data to the ESP device.</li>
+<li><code>KeyPointClassifier</code>: A custom model that classifies hand gestures.</li>
+<li><code>landmark_utils</code>: A custom utility module to process hand landmarks into the required format for classification.</li>
+</ul>
+<hr>
+<h2 id="gesture-mappings"><strong>Gesture Mappings</strong></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>gestures <span style="color:#f92672">=</span> { 
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0</span>: <span style="color:#e6db74">&#34;Open Hand&#34;</span>, 
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">1</span>: <span style="color:#e6db74">&#34;Thumb up&#34;</span>, 
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">2</span>: <span style="color:#e6db74">&#34;OK&#34;</span>, 
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">3</span>: <span style="color:#e6db74">&#34;Peace&#34;</span>, 
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">4</span>: <span style="color:#e6db74">&#34;No Hand Detected&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Maps numerical gesture indices (output of <code>KeyPointClassifier</code>) to readable gesture names.</li>
+<li>Defaults to <code>4</code> (&ldquo;No Hand Detected&rdquo;) if no hand is detected.</li>
+</ul>
+<hr>
+<h2 id="connection-setup"><strong>Connection Setup</strong></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ESP_IP <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;192.168.137.89&#34;</span>  <span style="color:#75715e"># Replace with your ESP&#39;s IP address</span>
+</span></span><span style="display:flex;"><span>ESP_PORT <span style="color:#f92672">=</span> <span style="color:#ae81ff">80</span>  <span style="color:#75715e"># Replace with your ESP&#39;s listening port</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>client_socket <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket(socket<span style="color:#f92672">.</span>AF_INET, socket<span style="color:#f92672">.</span>SOCK_STREAM)
+</span></span><span style="display:flex;"><span>client_socket<span style="color:#f92672">.</span>connect((ESP_IP, ESP_PORT))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Connected to ESP at </span><span style="color:#e6db74">{</span>ESP_IP<span style="color:#e6db74">}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{</span>ESP_PORT<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><ul>
+<li>Sets up a TCP socket for communication with the ESP microcontroller.</li>
+<li>Replace <code>ESP_IP</code> and <code>ESP_PORT</code> with your ESP&rsquo;s IP address and port.</li>
+</ul>
+<hr>
+<h2 id="hand-detection-and-gesture-classification"><strong>Hand Detection and Gesture Classification</strong></h2>
+<h3 id="initialize-mediapipe-hands"><strong>Initialize MediaPipe Hands</strong></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>mp_drawing <span style="color:#f92672">=</span> mp<span style="color:#f92672">.</span>solutions<span style="color:#f92672">.</span>drawing_utils
+</span></span><span style="display:flex;"><span>mp_drawing_styles <span style="color:#f92672">=</span> mp<span style="color:#f92672">.</span>solutions<span style="color:#f92672">.</span>drawing_styles
+</span></span><span style="display:flex;"><span>mp_hands <span style="color:#f92672">=</span> mp<span style="color:#f92672">.</span>solutions<span style="color:#f92672">.</span>hands
+</span></span><span style="display:flex;"><span>cap <span style="color:#f92672">=</span> cv2<span style="color:#f92672">.</span>VideoCapture(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> mp_hands<span style="color:#f92672">.</span>Hands(
+</span></span><span style="display:flex;"><span>    model_complexity<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    min_detection_confidence<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>,
+</span></span><span style="display:flex;"><span>    min_tracking_confidence<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">as</span> hands:
+</span></span></code></pre></div><ul>
+<li><code>mp_hands.Hands</code>: Detects hands in the video feed.</li>
+<li>Parameters:
+<ul>
+<li><code>model_complexity</code>: Determines model complexity (lower = faster).</li>
+<li><code>min_detection_confidence</code>: Threshold for detecting a hand.</li>
+<li><code>min_tracking_confidence</code>: Threshold for tracking detected hands.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="process-video-feed"><strong>Process Video Feed</strong></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> cap<span style="color:#f92672">.</span>isOpened():
+</span></span><span style="display:flex;"><span>    success, frame <span style="color:#f92672">=</span> cap<span style="color:#f92672">.</span>read()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> success:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Ignoring empty camera frame.&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    image<span style="color:#f92672">.</span>flags<span style="color:#f92672">.</span>writeable <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>    rgb_frame <span style="color:#f92672">=</span> cv2<span style="color:#f92672">.</span>cvtColor(frame, cv2<span style="color:#f92672">.</span>COLOR_BGR2RGB)
+</span></span><span style="display:flex;"><span>    results <span style="color:#f92672">=</span> hands<span style="color:#f92672">.</span>process(rgb_frame)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    frame<span style="color:#f92672">.</span>flags<span style="color:#f92672">.</span>writeable <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>    bgr_frame <span style="color:#f92672">=</span> cv2<span style="color:#f92672">.</span>cvtColor(rgb_frame, cv2<span style="color:#f92672">.</span>COLOR_RGB2BGR)
+</span></span><span style="display:flex;"><span>    gesture_index <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>  <span style="color:#75715e"># Default to &#34;No Hand Detected&#34;</span>
+</span></span></code></pre></div><ul>
+<li>Reads frames from the webcam.</li>
+<li>Converts each frame to RGB format and processes it with MediaPipe.</li>
+<li>Initializes <code>gesture_index</code> as <code>4</code> (No Hand Detected).</li>
+</ul>
+<hr>
+<h3 id="detect-and-classify-gestures"><strong>Detect and Classify Gestures</strong></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> results<span style="color:#f92672">.</span>multi_hand_landmarks:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> hand_landmarks <span style="color:#f92672">in</span> results<span style="color:#f92672">.</span>multi_hand_landmarks:
+</span></span><span style="display:flex;"><span>            landmark_list <span style="color:#f92672">=</span> u<span style="color:#f92672">.</span>calc_landmark_list(bgr_frame, hand_landmarks)
+</span></span><span style="display:flex;"><span>            keypoints <span style="color:#f92672">=</span> u<span style="color:#f92672">.</span>pre_process_landmark(landmark_list)
+</span></span><span style="display:flex;"><span>            gesture_index <span style="color:#f92672">=</span> kpclf(keypoints)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            mp_drawing<span style="color:#f92672">.</span>draw_landmarks(
+</span></span><span style="display:flex;"><span>                bgr_frame,
+</span></span><span style="display:flex;"><span>                hand_landmarks,
+</span></span><span style="display:flex;"><span>                mp_hands<span style="color:#f92672">.</span>HAND_CONNECTIONS,
+</span></span><span style="display:flex;"><span>                mp_drawing_styles<span style="color:#f92672">.</span>get_default_hand_landmarks_style(),
+</span></span><span style="display:flex;"><span>                mp_drawing_styles<span style="color:#f92672">.</span>get_default_hand_connections_style()
+</span></span><span style="display:flex;"><span>            )
+</span></span></code></pre></div><ul>
+<li>
+<p><strong>Landmark Processing:</strong></p>
+<ul>
+<li><code>calc_landmark_list</code>: Extracts landmark coordinates.</li>
+<li><code>pre_process_landmark</code>: Prepares data for the classifier.</li>
+<li><code>kpclf</code>: Classifies the landmarks into gestures.</li>
+</ul>
+</li>
+<li>
+<p>Draws landmarks and connections on the video feed.</p>
+</li>
+</ul>
+<hr>
+<h3 id="send-gesture-to-esp"><strong>Send Gesture to ESP</strong></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Detected Gesture Index: </span><span style="color:#e6db74">{</span>gesture_index<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    gesture_data <span style="color:#f92672">=</span> (str(gesture_index) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)<span style="color:#f92672">.</span>encode()
+</span></span><span style="display:flex;"><span>    client_socket<span style="color:#f92672">.</span>sendall(gesture_data)
+</span></span></code></pre></div><ul>
+<li>Prints the detected gesture index.</li>
+<li>Sends the index to the ESP device via the TCP socket.</li>
+</ul>
+<hr>
+<h3 id="display-video-feed"><strong>Display Video Feed</strong></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    final <span style="color:#f92672">=</span> cv2<span style="color:#f92672">.</span>flip(bgr_frame, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    cv2<span style="color:#f92672">.</span>putText(final, gestures[gesture_index],
+</span></span><span style="display:flex;"><span>                (<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">30</span>), cv2<span style="color:#f92672">.</span>FONT_HERSHEY_DUPLEX, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">255</span>)
+</span></span><span style="display:flex;"><span>    cv2<span style="color:#f92672">.</span>imshow(<span style="color:#e6db74">&#39;MediaPipe Hands&#39;</span>, final)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> cv2<span style="color:#f92672">.</span>waitKey(<span style="color:#ae81ff">5</span>) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0xFF</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">27</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>
+</span></span></code></pre></div><ul>
+<li>Flips the frame horizontally for a selfie view.</li>
+<li>Displays the gesture name on the frame.</li>
+<li>Terminates the loop when the <strong>Esc</strong> key is pressed.</li>
+</ul>
+<hr>
+<h2 id="cleanup"><strong>Cleanup</strong></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>cap<span style="color:#f92672">.</span>release()
+</span></span><span style="display:flex;"><span>client_socket<span style="color:#f92672">.</span>close()
+</span></span><span style="display:flex;"><span>cv2<span style="color:#f92672">.</span>destroyAllWindows()
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Connection closed.&#34;</span>)
+</span></span></code></pre></div><ul>
+<li>Releases the camera and closes the socket connection.</li>
+<li>Destroys all OpenCV windows.</li>
+</ul>
+<hr>
+<h2 id="instructions-for-running-the-code"><strong>Instructions for Running the Code</strong></h2>
+<ol>
+<li>
+<p><strong>Turn On Hotspot:</strong></p>
+<ul>
+<li>Enable your device&rsquo;s hotspot.</li>
+<li>Set the SSID and PASSWORD.</li>
+</ul>
+</li>
+<li>
+<p><strong>Set Hotspot Bandwidth:</strong></p>
+<ul>
+<li>Use the 2.4GHz band for NodeMCU communication.</li>
+</ul>
+</li>
+<li>
+<p><strong>Update the Arduino Code:</strong></p>
+<ul>
+<li>Open the Arduino code in the Gesture folder.</li>
+<li>Replace placeholder SSID and PASSWORD with your credentials.</li>
+</ul>
+</li>
+<li>
+<p><strong>Navigate to the Correct Folder:</strong></p>
+<ul>
+<li>Ensure you&rsquo;re inside the <code>Gesture_control</code> folder for accessing the <code>KeyPointClassifier</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Run the Python Code:</strong></p>
+<ul>
+<li>Execute the Python script for gesture detection.</li>
+</ul>
+</li>
+<li>
+<p><strong>Perform Hand Gestures:</strong></p>
+<ul>
+<li>Supported gestures:
+<ul>
+<li>Thumbs up</li>
+<li>Open hand</li>
+<li>Peace sign</li>
+<li>OK sign</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Control the Robot:</strong></p>
+<ul>
+<li>The robot responds to your gestures as per the predefined mappings.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<pre tabindex="0"><code></code></pre>
+      </section>
+
+      
+
+      
+    </article>
+  </div>
+
+  <div class="hidden lg:flex lg:flex-col lg:items-end">
+    
+
+    
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#how-it-works"><strong>How It Works</strong></a></li>
+    <li><a href="#libraries-and-tools"><strong>Libraries and Tools</strong></a>
+      <ul>
+        <li><a href="#key-libraries"><strong>Key Libraries:</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#gesture-mappings"><strong>Gesture Mappings</strong></a></li>
+    <li><a href="#connection-setup"><strong>Connection Setup</strong></a></li>
+    <li><a href="#hand-detection-and-gesture-classification"><strong>Hand Detection and Gesture Classification</strong></a>
+      <ul>
+        <li><a href="#initialize-mediapipe-hands"><strong>Initialize MediaPipe Hands</strong></a></li>
+        <li><a href="#process-video-feed"><strong>Process Video Feed</strong></a></li>
+        <li><a href="#detect-and-classify-gestures"><strong>Detect and Classify Gestures</strong></a></li>
+        <li><a href="#send-gesture-to-esp"><strong>Send Gesture to ESP</strong></a></li>
+        <li><a href="#display-video-feed"><strong>Display Video Feed</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#cleanup"><strong>Cleanup</strong></a></li>
+    <li><a href="#instructions-for-running-the-code"><strong>Instructions for Running the Code</strong></a></li>
+  </ul>
+</nav>
+    
+  </div>
+</div>
+
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>
+    © 2025 ORIGO RESOURCES
+  </p>
+  
+
+  
+  <p>🤖 Powered by pure love for robotics</p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            
+            <div class="dream-grid dream-grid-about">
+  
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">About US</div>
+
+        <div class="prose dark:prose-invert">
+          <p>RIGNITC is the Robotics Interest Group of the National Institute of Technology Calicut.</p>
+<p>We represent the official robotics club of our college, driven by a shared passion for robotics.</p>
+<p>The team at the Robotics Interest Group, also known as RIG, consists of undergraduate students from various disciplines, including Mechanical, Electrical, Electronics, and Computer Science, spanning sophomores to final-year students. We are actively involved in a variety of projects, which will be detailed shortly, as well as numerous competitions.</p>
+
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Social Links</div>
+
+        <ul class="menu menu-horizontal flex-wrap w-full px-0 [&_ion-icon]:text-lg">
+  
+
+  
+  <li>
+    <a href="https://www.linkedin.com/company/rignitc" target="_blank" title="Linkedin">
+      <ion-icon name="logo-linkedin"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/rignitc" target="_blank" title="GitHub">
+      <ion-icon name="logo-github"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://www.instagram.com/rig_nitc/" target="_blank" title="Instagram">
+      <ion-icon name="logo-instagram"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://x.com/rignitc" target="_blank" title="X">
+      <ion-icon name="logo-x"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://www.facebook.com/rignitc/" target="_blank" title="Facebook">
+      <ion-icon name="logo-facebook"></ion-icon>
+    </a>
+  </li>
+  
+</ul>
+
+      </div>
+    </article>
+  </div>
+  
+
+  
+</div>
+
+            
+
+            
+<footer class="flex justify-between items-center gap-2 px-4 py-12">
+
+  <div>
+  
+  <p>
+    © 2025 ORIGO RESOURCES
+  </p>
+  
+
+  
+  <p>🤖 Powered by pure love for robotics</p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+
+  
+  
+  <script src="/ORIGO2K25/js/grid.js"></script>
+
+
+
+
+<script src="/ORIGO2K25/js/main.js"></script>
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
