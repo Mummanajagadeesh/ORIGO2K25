@@ -51,6 +51,8 @@ Designing a PCB involves several steps:
 
 ### **What is CircuitMaker?**
 
+![](circmaker.jpeg)
+
 **CircuitMaker** is a powerful and user-friendly PCB design and simulation software. It is widely used in electronics for designing, simulating, and analyzing circuits. Acting as a virtual laboratory, CircuitMaker helps designers identify and rectify errors before manufacturing.
 
 #### **Why Use CircuitMaker?**

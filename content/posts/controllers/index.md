@@ -29,6 +29,7 @@ Understanding Controllers in Systems
 
 Control systems are an integral part of modern engineering, enabling precise regulation of various processes and systems. This guide covers the key concepts, components, and types of controllers, emphasizing their applications and importance in achieving optimal system performance.
 
+
 ---
 
 ## **Key Definitions**
@@ -62,6 +63,7 @@ The **plant** or **process** is the part of the system that requires control.
 ### **5. Error**
 The **error** in a control system is the difference between the desired output (setpoint) and the actual output.  
 \[ \text{Error (e(t))} = \text{Desired Output} - \text{Actual Output} \]
+
 
 ---
 
@@ -110,11 +112,16 @@ A **feedback signal** is the system's output used to adjust the input for achiev
 Operates based on a fixed input without considering the output.  
 **Example:** A washing machine with a timer.
 
+![alt text](openloop.png)
+
 ---
 
 ### **Closed-Loop Control System**
 Uses feedback from the output to adjust the input, providing higher accuracy and adaptability.  
 **Example:** An automatic temperature control system.
+
+![alt text](closeloop.png)
+
 
 | Feature                              | Open-Loop Control System                            | Closed-Loop Control System                          |
 |--------------------------------------|----------------------------------------------------|----------------------------------------------------|
@@ -150,6 +157,9 @@ A **PID Controller** (Proportional-Integral-Derivative Controller) is a sophisti
 3. **Derivative (D):** Responds to the rate of error change.
    - Predicts future errors and smooths the system's response.  
    **Example:** Slowing down early when approaching a destination rapidly.
+
+
+![alt text](pid3.png)
 
 ---
 

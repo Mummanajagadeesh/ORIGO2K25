@@ -48,7 +48,9 @@ Microcontrollers are essential for embedded systems in appliances, vehicles, and
 1. **Hardware:** A physical board like the Arduino UNO.  
 2. **Arduino IDE:** An easy-to-use development environment for programming boards.  
 
-Arduino is widely used in IoT, robotics, and automation projects.  
+Arduino is widely used in IoT, robotics, and automation projects. 
+
+![](arduino.png)
 
 ---
 
@@ -143,7 +145,11 @@ void loop() {
 
 ---
 
+![](ide.png)
+
 ## ESP8266 Microcontroller  
+
+![](esp8266.png)
 
 ### Key Features  
 - **Processor:** 32-bit Tensilica L106 (80 MHz)  
@@ -178,6 +184,8 @@ void loop() {
 ---
 
 ## ESP32 Microcontroller  
+
+![](esp32.png)
 
 ### Key Features  
 - **Processor:** Dual-core Tensilica Xtensa LX6 (up to 240 MHz)  

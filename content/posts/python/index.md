@@ -29,6 +29,8 @@ Python For Beginners
 
 Python is a high-level, general-purpose programming language. It is known for its simplicity and readability. Python is ideal for beginners and widely used in various fields like web development, data science, and automation.
 
+![](python.png)
+
 ---
 
 ## What is Python Coding?
@@ -273,6 +275,8 @@ def hello():
     print("Welcome to ORIGO")
     return 1
 ```
+
+![](func.jpeg)
 
 ---
 

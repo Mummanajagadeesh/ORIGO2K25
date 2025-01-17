@@ -29,6 +29,8 @@ AI Fundamentals and YOLO
 
 **Artificial Intelligence (AI)** refers to the simulation of human intelligence in machines. AI enables systems to perform tasks that typically require human cognitive abilities, such as reasoning, problem-solving, learning, and understanding natural language. AI systems analyze data, recognize patterns, and make decisions to achieve specific objectives.
 
+![alt text](aimldl.png)
+
 ---
 
 ## **Categories of AI**
@@ -106,6 +108,8 @@ Machine Learning (ML), a subset of AI, focuses on algorithms that allow systems 
 
 ## **YOLO: Object Detection**
 **YOLO (You Only Look Once)** is an advanced object detection model that processes an entire image in one pass to detect objects with high accuracy and real-time performance.
+
+![alt text](yolo.jpeg)
 
 ### **Key Features of YOLO**
 1. Processes the entire image at once, enabling real-time detection.  

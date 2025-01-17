@@ -28,6 +28,8 @@ Networking and Serial Communications
 
 Networking and serial communications form the backbone of modern data systems, enabling devices to communicate and exchange data efficiently. This document outlines the core concepts of networking, delves into the types and protocols of serial communications, and explores their applications.
 
+![alt text](network.jpeg)
+
 ---
 
 ## **What is a Network?**
@@ -52,7 +54,10 @@ A **network** consists of two or more computers or devices linked together to sh
 ---
 
 ## **Serial Communications**
+
 **Serial communication** is a method of transmitting data sequentially, one bit at a time, over a communication channel. It is widely used in embedded systems, industrial automation, and low-cost data exchange setups.
+
+![alt text](commprotoc.jpeg)
 
 ### **Types of Serial Communication**
 1. **Asynchronous Serial Communication:**

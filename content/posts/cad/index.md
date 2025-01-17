@@ -50,9 +50,13 @@ CAD software provides specialized tools tailored to different industries, such a
 - **Solid Edge**
 - **Altium Designer**
 
+![](cad.jpeg)
+
 ---
 
 ## **Onshape: Cloud-Based CAD Software**
+
+![](onshape.png)
 
 Onshape is a cutting-edge, cloud-based CAD platform. It allows users to collaborate in real time on a single model through web-based servers, making it an ideal choice for industries involved in product design, machine parts, and industrial equipment. 
 

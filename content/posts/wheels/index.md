@@ -37,17 +37,23 @@ Traction wheels are designed to maximize grip and stability. Their tread pattern
 - **Tire Pressure:** Affects grip and durability.
 - **Dynamic Load Distribution:** Maintains balance and enhances performance under varying loads.
 
+![alt text](wheel.png)
+
 ### **2. Omni Wheels**
 Omni wheels are advanced wheels that allow multidirectional movement. Their unique design includes rollers along the circumference, enabling:
 - **Forward and Backward Movement:** While providing lateral slide capabilities.
 - **Multidirectional Control:** Achieved by coordinating the rotation of multiple wheels.
 Omni wheels are widely used in robotics for precise movement and are particularly suited for environments requiring high maneuverability.
 
+![alt text](omni.png)
+
 ### **3. Mecanum Wheels**
 Mecanum wheels, a type of omnidirectional wheel, feature rollers positioned at a 45-degree angle to the wheel’s axis. These rollers allow:
 - **Diagonal and Lateral Movement:** Without changing the orientation of the vehicle.
 - **Exceptional Flexibility:** Ideal for precise robotic applications.
 The angled rollers generate forces that combine to enable smooth motion in any direction, making mecanum wheels a preferred choice in industrial robotics and competition scenarios.
+
+![alt text](mecanum.png)
 
 ---
 
@@ -62,17 +68,23 @@ A differential drive system uses two independently powered wheels, typically mou
 - **In-Place Pivoting**
 Differential drives are simple and efficient, making them suitable for various robotic applications.
 
+![alt text](diff.png)
+
 ### **2. Holonomic Drive**
 Holonomic drive systems, such as those using omni or mecanum wheels, offer unmatched freedom of movement. Key capabilities include:
 - **Simultaneous Translation and Rotation:** Independent control of movement along X, Y, and Z axes.
 - **Enhanced Agility:** Perfect for tight spaces and applications requiring precise motion.
 Holonomic drives are ideal for robots that need to navigate complex environments.
 
+![alt text](omnidrive.png)
+
 ### **3. Mecanum Drive**
 A specialized form of holonomic drive, the mecanum drive uses four wheels with angled rollers. This design allows:
 - **Omnidirectional Movement:** Forward, backward, sideways, diagonally, and in-place rotation.
 - **Exceptional Maneuverability:** Ideal for industrial tasks and robotics competitions.
 The mecanum drive’s versatility makes it a go-to choice for environments demanding precision and adaptability.
+
+![alt text](mecanumdrive.png)
 
 ---
 
