@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Design on ORIGO RESOURCES</title>
-    <link>http://localhost:53830/ORIGO2K25/tags/design/</link>
+    <link>http://localhost:55284/ORIGO2K25/tags/design/</link>
     <description>Recent content in Design on ORIGO RESOURCES</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 10 Jan 2025 18:08:19 +0530</lastBuildDate>
-    <atom:link href="http://localhost:53830/ORIGO2K25/tags/design/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:55284/ORIGO2K25/tags/design/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Computer Aided Design (CAD)</title>
-      <link>http://localhost:53830/ORIGO2K25/posts/cad/</link>
+      <link>http://localhost:55284/ORIGO2K25/posts/cad/</link>
       <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
-      <guid>http://localhost:53830/ORIGO2K25/posts/cad/</guid>
+      <guid>http://localhost:55284/ORIGO2K25/posts/cad/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;CAD Designing&lt;/p&gt;</description>
     </item>
     <item>
       <title>Printed Circuit Board (PCB)</title>
-      <link>http://localhost:53830/ORIGO2K25/posts/pcb/</link>
+      <link>http://localhost:55284/ORIGO2K25/posts/pcb/</link>
       <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
-      <guid>http://localhost:53830/ORIGO2K25/posts/pcb/</guid>
+      <guid>http://localhost:55284/ORIGO2K25/posts/pcb/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;PCB Designing&lt;/p&gt;</description>
     </item>
   </channel>
