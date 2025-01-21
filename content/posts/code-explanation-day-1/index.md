@@ -1,5 +1,5 @@
 ---
-title: Code Explanation Day 01
+title: Day 01 - Gesture Controlled Robot
 date: 2025-01-10T18:08:19+05:30
 lastmod: 2025-01-10T18:08:19+05:30
 author: ORIGO
@@ -26,11 +26,15 @@ Day 01: Gesture Controlled Robot with OpenCV and ESP
 
 <!--more-->
 
-# **Gesture-Controlled Robot**
+# **Day 01 - Gesture Controlled Robot**
 
 This Python script captures hand gestures using MediaPipe, classifies them using a custom-trained model, and sends the gesture index to an ESP device over a TCP socket connection.
 
 The robot is gesture-controlled, meaning it performs specific actions based on the hand gestures detected by a camera. It uses an ESP-based microcontroller to receive commands over Wi-Fi. The ESP processes these commands (gesture indices) and controls the robot's movements or actions accordingly.
+
+## CODE 
+
+[LINK TO CODE](https://drive.google.com/file/d/1D-6FmErkqYTu3gDX4GVx5edJt9dgfnpo/view?usp=sharing)
 
 ---
 
@@ -48,7 +52,7 @@ The robot is gesture-controlled, meaning it performs specific actions based on t
 ### NodeMCU
 
 1. Connect the NodeMCU to your laptop.
-2. Open `Gesture.ino` in the Gesture folder in Arduino IDE. Click the `Tools` button.
+2. Open `Gesture.ino` in the [Gesture folder](https://drive.google.com/file/d/1D-6FmErkqYTu3gDX4GVx5edJt9dgfnpo/view?usp=sharing) in Arduino IDE. Click the `Tools` button.
 ![](arduinoide_ss.png)
 3. In `Board`, choose "NodeMCU 1.0 (ESP-12E Module)".
 4. If `Port` is greyed out:
@@ -65,7 +69,7 @@ The robot is gesture-controlled, meaning it performs specific actions based on t
 
 ### Python server
 
-1. Download the .zip file for the code and extract it.
+1. Download the [.zip file](https://drive.google.com/file/d/1D-6FmErkqYTu3gDX4GVx5edJt9dgfnpo/view?usp=sharing) for the code and extract it.
 2. Open VS Code
 3. Click `File` in the top-left. Then click `Open Folder` and open the extracted folder.
 4. Double click on `detect_gesture.py` in VS Code.
