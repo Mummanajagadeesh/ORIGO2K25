@@ -1,5 +1,5 @@
 ---
-title: Code Explanation Day 02
+title: Day 02 - Person Following Robot
 date: 2025-01-10T18:08:19+05:30
 lastmod: 2025-01-10T18:08:19+05:30
 author: ORIGO
@@ -26,7 +26,7 @@ Day 02: Building a Person-Following Robot with YOLO and PID Control
 
 <!--more-->
 
-# CODE EXPLANATION - DAY 2
+# **DAY 2 - Person Following Robot**
 
 We are going to integrate YOLO into our robot so that it can detect a person and follow them around. 
 
@@ -43,6 +43,10 @@ So we need to:
 2. Get position of person using YOLO
 3. Use a PID Controller to get the required PWM signals needed to rotate the wheels so as to make the center of the video feed and the position of the person coincident.
 
+## CODE 
+
+[LINK TO CODE](https://drive.google.com/file/d/1xeWB9TR9jSzmF2UY5I5Wnl7XP-cAZOcT/view)
+
 ## STEPS TO IMPLEMENT:
 
 *Make sure Arduino IDE, Python, VS Code, and IPWebcam is installed as per the pre-workshop guide.
@@ -57,7 +61,7 @@ So we need to:
 ### NodeMCU
 
 1. Connect the NodeMCU to your laptop.
-2. Open `NodeMCU.ino` in NodeMCU folder in Arduino IDE. Click the `Tools` button.
+2. Open `NodeMCU.ino` in [NodeMCU folder](https://drive.google.com/file/d/1xeWB9TR9jSzmF2UY5I5Wnl7XP-cAZOcT/view) in Arduino IDE. Click the `Tools` button.
 ![](arduinoide_ss.png)
 3. In `Board`, choose "NodeMCU 1.0 (ESP-12E Module)".
 4. If `Port` is greyed out:
@@ -86,7 +90,7 @@ So we need to:
 
 ### Python server
 
-1. Download the .zip file for the code and extract it.
+1. Download the [.zip file](https://drive.google.com/file/d/1xeWB9TR9jSzmF2UY5I5Wnl7XP-cAZOcT/view) for the code and extract it.
 2. Open VS Code
 3. Click `File` in the top-left. Then click `Open Folder` and open the extracted folder.
 4. Double click on `person_detection.py` in VS Code.
