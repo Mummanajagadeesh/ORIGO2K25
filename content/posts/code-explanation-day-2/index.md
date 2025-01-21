@@ -100,6 +100,11 @@ So we need to:
     or <br>
     `python -m pip install opencv-python mediapipe simple_pid torch tensorflow pandas ultralytics`
     
+### PID Tuning
+
+- You need to adjust the Kp, Ki, Kd values so that the robot rotates such that the person becomes the center of the frame and the robot charges forward.
+- Start with slowly increase Kp, until the robot starts oscillation about the person's position.
+- Then slowly increase Ki and Kd to reduce the steady state error and oscillations.
 ---
 
 ## Code Explanation
