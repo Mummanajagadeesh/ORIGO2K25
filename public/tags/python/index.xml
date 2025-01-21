@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on ORIGO RESOURCES</title>
-    <link>http://localhost:1313/ORIGO2K25/tags/python/</link>
+    <link>http://localhost:55284/ORIGO2K25/tags/python/</link>
     <description>Recent content in Python on ORIGO RESOURCES</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 10 Jan 2025 18:08:19 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/ORIGO2K25/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:55284/ORIGO2K25/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Code Explanation Day 01</title>
-      <link>http://localhost:1313/ORIGO2K25/posts/code-explanation-day-1/</link>
+      <link>http://localhost:55284/ORIGO2K25/posts/code-explanation-day-1/</link>
       <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
-      <guid>http://localhost:1313/ORIGO2K25/posts/code-explanation-day-1/</guid>
+      <guid>http://localhost:55284/ORIGO2K25/posts/code-explanation-day-1/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Day 01: Gesture Controlled Robot with OpenCV and ESP&lt;/p&gt;</description>
     </item>
     <item>
       <title>Code Explanation Day 02</title>
-      <link>http://localhost:1313/ORIGO2K25/posts/code-explanation-day-2/</link>
+      <link>http://localhost:55284/ORIGO2K25/posts/code-explanation-day-2/</link>
       <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
-      <guid>http://localhost:1313/ORIGO2K25/posts/code-explanation-day-2/</guid>
+      <guid>http://localhost:55284/ORIGO2K25/posts/code-explanation-day-2/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Day 02: Building a Person-Following Robot with YOLO and PID Control&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python Programming</title>
-      <link>http://localhost:1313/ORIGO2K25/posts/python/</link>
+      <link>http://localhost:55284/ORIGO2K25/posts/python/</link>
       <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
-      <guid>http://localhost:1313/ORIGO2K25/posts/python/</guid>
+      <guid>http://localhost:55284/ORIGO2K25/posts/python/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Python For Beginners&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Wheels on ORIGO RESOURCES</title>
-    <link>http://localhost:1313/ORIGO2K25/tags/wheels/</link>
+    <link>http://localhost:55284/ORIGO2K25/tags/wheels/</link>
     <description>Recent content in Wheels on ORIGO RESOURCES</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 10 Jan 2025 18:08:19 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/ORIGO2K25/tags/wheels/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:55284/ORIGO2K25/tags/wheels/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Wheeeeeeels</title>
-      <link>http://localhost:1313/ORIGO2K25/posts/wheels/</link>
+      <link>http://localhost:55284/ORIGO2K25/posts/wheels/</link>
       <pubDate>Fri, 10 Jan 2025 18:08:19 +0530</pubDate>
-      <guid>http://localhost:1313/ORIGO2K25/posts/wheels/</guid>
+      <guid>http://localhost:55284/ORIGO2K25/posts/wheels/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Understanding Wheels and Drives in Robotics and Vehicles&lt;/p&gt;</description>
     </item>
   </channel>
