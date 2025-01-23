@@ -3,16 +3,16 @@
   x-data
   :class="$store.darkMode.class()"
   :data-theme="$store.darkMode.theme()">
-  <head><script src="/ORIGO2K25/livereload.js?mindelay=10&amp;v=2&amp;port=55284&amp;path=ORIGO2K25/livereload" data-no-instant defer></script>
+  <head><script src="/origo24/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=origo24/livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Explanation Day 02 | ORIGO RESOURCES</title>
+    <title>Day 02 - Person Following Robot | ORIGO RESOURCES</title>
 
     
-<link href="/ORIGO2K25/favicon.ico" rel="icon" type="image/x-icon" />
+<link href="/origo24/favicon.ico" rel="icon" type="image/x-icon" />
 
 
-<link rel="canonical" href="http://localhost:55284/ORIGO2K25/posts/code-explanation-day-2/" />
+<link rel="canonical" href="http://localhost:1313/origo24/posts/code-explanation-day-2/" />
 
 
 
@@ -25,12 +25,12 @@
 
 
 
-<meta name="generator" content="Hugo 0.140.2">
+<meta name="generator" content="Hugo 0.141.0">
 
 
-<meta property="og:url" content="http://localhost:55284/ORIGO2K25/posts/code-explanation-day-2/">
+<meta property="og:url" content="http://localhost:1313/origo24/posts/code-explanation-day-2/">
   <meta property="og:site_name" content="ORIGO RESOURCES">
-  <meta property="og:title" content="Code Explanation Day 02">
+  <meta property="og:title" content="Day 02 - Person Following Robot">
   <meta property="og:description" content="Day 02: Building a Person-Following Robot with YOLO and PID Control">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
@@ -43,20 +43,20 @@
     <meta property="article:tag" content="Basics">
     <meta property="article:tag" content="Handout">
     <meta property="article:tag" content="Rignitc">
-    <meta property="og:image" content="http://localhost:55284/ORIGO2K25/posts/code-explanation-day-2/cover.png">
+    <meta property="og:image" content="http://localhost:1313/origo24/posts/code-explanation-day-2/cover.png">
 
 
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:55284/ORIGO2K25/posts/code-explanation-day-2/cover.png">
-  <meta name="twitter:title" content="Code Explanation Day 02">
+  <meta name="twitter:image" content="http://localhost:1313/origo24/posts/code-explanation-day-2/cover.png">
+  <meta name="twitter:title" content="Day 02 - Person Following Robot">
   <meta name="twitter:description" content="Day 02: Building a Person-Following Robot with YOLO and PID Control">
 
 
 
 
-<link rel="stylesheet" href="/ORIGO2K25/css/output.css" />
+<link rel="stylesheet" href="/origo24/css/output.css" />
 
 
 
@@ -102,15 +102,15 @@
     <section class="flex items-center gap-4">
       <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
         <div class="h-10 rounded-full">
-          <img src="/ORIGO2K25/img/avatar.png" alt="ORIGO2K25" />
+          <img src="/origo24/img/avatar.png" alt="ORIGO24" />
         </div>
       </div>
 
       
       <div>
         
-        <a href="http://localhost:55284/ORIGO2K25/" class="text-lg font-semibold cursor-pointer">
-          ORIGO2K25
+        <a href="http://localhost:1313/origo24/" class="text-lg font-semibold cursor-pointer">
+          ORIGO24
         </a>
         
         
@@ -154,7 +154,7 @@
 
 
 <li>
-  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/posts" title="Archives">
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/origo24/posts" title="Archives">
     <ion-icon name="archive"></ion-icon>
     Archives
   </a>
@@ -164,7 +164,7 @@
 
 
 <li>
-  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/categories" title="All Categories">
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/origo24/categories" title="All Categories">
     <ion-icon name="grid"></ion-icon>
     All Categories
   </a>
@@ -174,7 +174,7 @@
 
 
 <li>
-  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/tags" title="All Tags">
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/origo24/tags" title="All Tags">
     <ion-icon name="pricetags"></ion-icon>
     All Tags
   </a>
@@ -270,21 +270,21 @@
 
       
       
-<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/posts" title="Archives">
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/origo24/posts" title="Archives">
   <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
 </a>
 
 
       
       
-<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/categories" title="All Categories">
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/origo24/categories" title="All Categories">
   <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
 </a>
 
 
       
       
-<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/tags" title="All Tags">
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/origo24/tags" title="All Tags">
   <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
 </a>
 
@@ -354,22 +354,22 @@
   <div class="lg:col-span-2">
     <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
       
-  <meta itemprop="name" content="Code Explanation Day 02">
+  <meta itemprop="name" content="Day 02 - Person Following Robot">
   <meta itemprop="description" content="Day 02: Building a Person-Following Robot with YOLO and PID Control">
   <meta itemprop="datePublished" content="2025-01-10T18:08:19+05:30">
   <meta itemprop="dateModified" content="2025-01-10T18:08:19+05:30">
-  <meta itemprop="wordCount" content="1654">
-  <meta itemprop="image" content="http://localhost:55284/ORIGO2K25/posts/code-explanation-day-2/cover.png">
+  <meta itemprop="wordCount" content="2032">
+  <meta itemprop="image" content="http://localhost:1313/origo24/posts/code-explanation-day-2/cover.png">
   <meta itemprop="keywords" content="Yolo,Code,Python,Basics,Handout,Rignitc">
 
       <header>
-        <h1 itemprop="headline">Code Explanation Day 02</h1>
+        <h1 itemprop="headline">Day 02 - Person Following Robot</h1>
         <p class="text-sm">
           
             Friday, Jan 10, 2025
           
 
-          | <span>8 minute read</span>
+          | <span>10 minute read</span>
 
           
           | <span>Updated at
@@ -404,19 +404,19 @@
   
   
     <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
-      href="https://x.com/intent/post?text=Code%20Explanation%20Day%2002&amp;url=http://localhost:55284/ORIGO2K25/posts/code-explanation-day-2/" target="_blank" rel="noopener noreferrer"
+      href="https://x.com/intent/post?text=Day%2002%20-%20Person%20Following%20Robot&amp;url=http://localhost:1313/origo24/posts/code-explanation-day-2/" target="_blank" rel="noopener noreferrer"
       title="Share on X">
       <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
     </a>
   
     <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
-      href="https://facebook.com/sharer/sharer.php?u=http://localhost:55284/ORIGO2K25/posts/code-explanation-day-2/" target="_blank" rel="noopener noreferrer"
+      href="https://facebook.com/sharer/sharer.php?u=http://localhost:1313/origo24/posts/code-explanation-day-2/" target="_blank" rel="noopener noreferrer"
       title="Share on Facebook">
       <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
     </a>
   
     <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
-      href="https://wa.me/?text=Code%20Explanation%20Day%2002%20http://localhost:55284/ORIGO2K25/posts/code-explanation-day-2/" target="_blank" rel="noopener noreferrer"
+      href="https://wa.me/?text=Day%2002%20-%20Person%20Following%20Robot%20http://localhost:1313/origo24/posts/code-explanation-day-2/" target="_blank" rel="noopener noreferrer"
       title="Share on WhatsApp">
       <ion-icon class="group-hover:text-primary-content" name="logo-whatsapp"></ion-icon>
     </a>
@@ -434,7 +434,7 @@
 
         <!-- raw HTML omitted -->
 <p>Day 02: Building a Person-Following Robot with YOLO and PID Control</p>
-<h1 id="code-explanation---day-2">CODE EXPLANATION - DAY 2</h1>
+<h1 id="day-2---person-following-robot"><strong>DAY 2 - Person Following Robot</strong></h1>
 <p>We are going to integrate YOLO into our robot so that it can detect a person and follow them around.</p>
 <p>We are going to accomplish this in this way:</p>
 <ul>
@@ -449,16 +449,95 @@
 <li>Get position of person using YOLO</li>
 <li>Use a PID Controller to get the required PWM signals needed to rotate the wheels so as to make the center of the video feed and the position of the person coincident.</li>
 </ol>
-<h2 id="running-the-code">Running the code</h2>
+<h2 id="code">CODE</h2>
+<p><a href="https://drive.google.com/file/d/1xeWB9TR9jSzmF2UY5I5Wnl7XP-cAZOcT/view" target="_blank">LINK TO CODE</a>
+</p>
+<h2 id="steps-to-implement">STEPS TO IMPLEMENT:</h2>
+<p>*Make sure Arduino IDE, Python, VS Code, and IPWebcam is installed as per the pre-workshop guide.</p>
+<h3 id="mobile-hotspot">Mobile Hotspot</h3>
 <ol>
-<li>Start Hotspot on your laptop and connect your phone to it. Make sure the network band is set to 2.4 Ghz.</li>
-<li>Add the WiFi credential to the NodeMCU .ino file and upload it.</li>
-<li>Start the NodeMCU and wait for it to connect to your hotspot.</li>
-<li>Note down the IP shown in the serial monitor and edit the <code>ESP_IP</code> in the <code>person_detection.py</code> file to this IP.</li>
-<li>Start video server in IPWebcam.</li>
-<li>Note down the IPv4 address shown and change the <code>VIDSTREAM</code> in <code>person_detection.py</code> file to this address + &lsquo;/video&rsquo;</li>
-<li>Start the .py file with <code>py person_detection.py</code></li>
+<li>Search for mobile hotspot on your laptop.
+<img src="mobilehotspot.png" alt=""></li>
+<li>Check the <code>Properties</code> section and make sure that the <code>Band</code> is 2.4 GHz. If not, click the <code>Edit</code> button and change it.</li>
+<li>Note the <code>Name</code> and <code>Password</code> of the hotspot.</li>
+<li>Switch the hotspot on.</li>
 </ol>
+<h3 id="nodemcu">NodeMCU</h3>
+<ol>
+<li>Connect the NodeMCU to your laptop.</li>
+<li>Open <code>NodeMCU.ino</code> in <a href="https://drive.google.com/file/d/1xeWB9TR9jSzmF2UY5I5Wnl7XP-cAZOcT/view" target="_blank">NodeMCU folder</a>
+ in Arduino IDE. Click the <code>Tools</code> button.
+<img src="arduinoide_ss.png" alt=""></li>
+<li>In <code>Board</code>, choose &ldquo;NodeMCU 1.0 (ESP-12E Module)&rdquo;.</li>
+<li>If <code>Port</code> is greyed out:
+<ul>
+<li>Make sure that you have connected NodeMCU to the laptop.</li>
+<li>Make sure you have installed the required drivers
+<ul>
+<li>Go to this G-drive <a href="https://drive.google.com/drive/folders/1mW2N0dRUXK9hYm13JKqF4--l8CSG38TW" target="_blank">link</a>
+, download the entire zip file, extract it &amp; then Install the recommended version for your OS</li>
+<li>After installing, restart the laptop.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Click the <code>Upload</code> button.
+<img src="uploadbtn.png" alt=""></li>
+</ol>
+<ul>
+<li>If there is any error like &ldquo;Timed out&hellip; Connecting&hellip;&rdquo;:
+<ul>
+<li>Try removing the NodeMCU slowly from the breadboard and then uploading.</li>
+</ul>
+</li>
+</ul>
+<ol start="6">
+<li>Once successfully uploaded, open the Serial monitor (button in the top-right)</li>
+<li>It should show &ldquo;Connecting to Wifi&hellip;&rdquo;. And then once connected, &ldquo;Connected to Wi-Fi. IP Address:&rdquo;. The IP that follow&rsquo;s is your <strong>ESP IP</strong> that should be used in the Python file.</li>
+</ol>
+<h3 id="ip-webcam">IP Webcam</h3>
+<ol>
+<li>Connect your phone to same mobile hotspot from your laptop.</li>
+<li>Open IPWebcam.</li>
+<li>Scroll down and click <code>Video Preferences</code>.</li>
+<li>Set the <code>Video Resolution</code> to 640x360</li>
+<li>Set the <code>Quality</code> to about 20.</li>
+<li>Set the <code>FPS Limit</code> to 5. (These settings are made so that it won&rsquo;t lag much when processing with YOLO)</li>
+<li>Click the 3 dot menu button on top-right and click <code>Start Server</code></li>
+<li>Note down the IPv4 URL given in the bottom of the video stream. This will be used in the Python file.</li>
+</ol>
+<h3 id="python-server">Python server</h3>
+<ol>
+<li>Download the <a href="https://drive.google.com/file/d/1xeWB9TR9jSzmF2UY5I5Wnl7XP-cAZOcT/view" target="_blank">.zip file</a>
+ for the code and extract it.</li>
+<li>Open VS Code</li>
+<li>Click <code>File</code> in the top-left. Then click <code>Open Folder</code> and open the extracted folder.</li>
+<li>Double click on <code>person_detection.py</code> in VS Code.</li>
+<li>Change <code>ESP_IP</code> to the NodeMCU IP we got from the Serial Monitor.</li>
+<li>Change <code>VIDSTREAM</code> to the IPV4 URL from IPWebcam + &lsquo;\video&rsquo;</li>
+<li>Run the python file with the Run button (Triangle button) in the top-right of VSCODE
+<ul>
+<li>If not seen, install the Python extension in VS CODE. Click <code>Ctrl+Shift+X</code>. Search for python and install the extension.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>If any error like package not found:
+<ul>
+<li>Run <!-- raw HTML omitted -->
+<code>py -m pip install opencv-python mediapipe simple_pid torch tensorflow pandas ultralytics</code> <!-- raw HTML omitted -->
+or <!-- raw HTML omitted -->
+<code>python -m pip install opencv-python mediapipe simple_pid torch tensorflow pandas ultralytics</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="pid-tuning">PID Tuning</h3>
+<ul>
+<li>You need to adjust the Kp, Ki, Kd values so that the robot rotates such that the person becomes the center of the frame and the robot charges forward.</li>
+<li>Start with slowly increase Kp, until the robot starts oscillation about the person&rsquo;s position.</li>
+<li>Then slowly increase Ki and Kd to reduce the steady state error and oscillations.</li>
+</ul>
+<hr>
 <h2 id="code-explanation">Code Explanation</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">import</span> cv2
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> json
@@ -634,7 +713,16 @@ We are converting the normalized coordinates into pixel coordinates of the bound
     
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#running-the-code">Running the code</a></li>
+    <li><a href="#code">CODE</a></li>
+    <li><a href="#steps-to-implement">STEPS TO IMPLEMENT:</a>
+      <ul>
+        <li><a href="#mobile-hotspot">Mobile Hotspot</a></li>
+        <li><a href="#nodemcu">NodeMCU</a></li>
+        <li><a href="#ip-webcam">IP Webcam</a></li>
+        <li><a href="#python-server">Python server</a></li>
+        <li><a href="#pid-tuning">PID Tuning</a></li>
+      </ul>
+    </li>
     <li><a href="#code-explanation">Code Explanation</a>
       <ul>
         <li></li>
@@ -834,12 +922,12 @@ We are converting the normalized coordinates into pixel coordinates of the bound
 
   
   
-  <script src="/ORIGO2K25/js/grid.js"></script>
+  <script src="/origo24/js/grid.js"></script>
 
 
 
 
-<script src="/ORIGO2K25/js/main.js"></script>
+<script src="/origo24/js/main.js"></script>
 
     
 
