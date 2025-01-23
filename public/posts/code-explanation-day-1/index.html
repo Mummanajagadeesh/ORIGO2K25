@@ -3,16 +3,16 @@
   x-data
   :class="$store.darkMode.class()"
   :data-theme="$store.darkMode.theme()">
-  <head><script src="/ORIGO2K25/livereload.js?mindelay=10&amp;v=2&amp;port=55284&amp;path=ORIGO2K25/livereload" data-no-instant defer></script>
+  <head><script src="/origo24/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=origo24/livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Explanation Day 01 | ORIGO RESOURCES</title>
+    <title>Day 01 - Gesture Controlled Robot | ORIGO RESOURCES</title>
 
     
-<link href="/ORIGO2K25/favicon.ico" rel="icon" type="image/x-icon" />
+<link href="/origo24/favicon.ico" rel="icon" type="image/x-icon" />
 
 
-<link rel="canonical" href="http://localhost:55284/ORIGO2K25/posts/code-explanation-day-1/" />
+<link rel="canonical" href="http://localhost:1313/origo24/posts/code-explanation-day-1/" />
 
 
 
@@ -25,12 +25,12 @@
 
 
 
-<meta name="generator" content="Hugo 0.140.2">
+<meta name="generator" content="Hugo 0.141.0">
 
 
-<meta property="og:url" content="http://localhost:55284/ORIGO2K25/posts/code-explanation-day-1/">
+<meta property="og:url" content="http://localhost:1313/origo24/posts/code-explanation-day-1/">
   <meta property="og:site_name" content="ORIGO RESOURCES">
-  <meta property="og:title" content="Code Explanation Day 01">
+  <meta property="og:title" content="Day 01 - Gesture Controlled Robot">
   <meta property="og:description" content="Day 01: Gesture Controlled Robot with OpenCV and ESP">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
@@ -43,20 +43,20 @@
     <meta property="article:tag" content="Basics">
     <meta property="article:tag" content="Handout">
     <meta property="article:tag" content="Rignitc">
-    <meta property="og:image" content="http://localhost:55284/ORIGO2K25/posts/code-explanation-day-1/cover.png">
+    <meta property="og:image" content="http://localhost:1313/origo24/posts/code-explanation-day-1/cover.png">
 
 
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:55284/ORIGO2K25/posts/code-explanation-day-1/cover.png">
-  <meta name="twitter:title" content="Code Explanation Day 01">
+  <meta name="twitter:image" content="http://localhost:1313/origo24/posts/code-explanation-day-1/cover.png">
+  <meta name="twitter:title" content="Day 01 - Gesture Controlled Robot">
   <meta name="twitter:description" content="Day 01: Gesture Controlled Robot with OpenCV and ESP">
 
 
 
 
-<link rel="stylesheet" href="/ORIGO2K25/css/output.css" />
+<link rel="stylesheet" href="/origo24/css/output.css" />
 
 
 
@@ -102,15 +102,15 @@
     <section class="flex items-center gap-4">
       <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
         <div class="h-10 rounded-full">
-          <img src="/ORIGO2K25/img/avatar.png" alt="ORIGO2K25" />
+          <img src="/origo24/img/avatar.png" alt="ORIGO24" />
         </div>
       </div>
 
       
       <div>
         
-        <a href="http://localhost:55284/ORIGO2K25/" class="text-lg font-semibold cursor-pointer">
-          ORIGO2K25
+        <a href="http://localhost:1313/origo24/" class="text-lg font-semibold cursor-pointer">
+          ORIGO24
         </a>
         
         
@@ -154,7 +154,7 @@
 
 
 <li>
-  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/posts" title="Archives">
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/origo24/posts" title="Archives">
     <ion-icon name="archive"></ion-icon>
     Archives
   </a>
@@ -164,7 +164,7 @@
 
 
 <li>
-  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/categories" title="All Categories">
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/origo24/categories" title="All Categories">
     <ion-icon name="grid"></ion-icon>
     All Categories
   </a>
@@ -174,7 +174,7 @@
 
 
 <li>
-  <a class="inline-flex items-center p-2 cursor-pointer" href="/ORIGO2K25/tags" title="All Tags">
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/origo24/tags" title="All Tags">
     <ion-icon name="pricetags"></ion-icon>
     All Tags
   </a>
@@ -270,21 +270,21 @@
 
       
       
-<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/posts" title="Archives">
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/origo24/posts" title="Archives">
   <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
 </a>
 
 
       
       
-<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/categories" title="All Categories">
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/origo24/categories" title="All Categories">
   <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
 </a>
 
 
       
       
-<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/ORIGO2K25/tags" title="All Tags">
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/origo24/tags" title="All Tags">
   <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
 </a>
 
@@ -354,22 +354,22 @@
   <div class="lg:col-span-2">
     <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
       
-  <meta itemprop="name" content="Code Explanation Day 01">
+  <meta itemprop="name" content="Day 01 - Gesture Controlled Robot">
   <meta itemprop="description" content="Day 01: Gesture Controlled Robot with OpenCV and ESP">
   <meta itemprop="datePublished" content="2025-01-10T18:08:19+05:30">
   <meta itemprop="dateModified" content="2025-01-10T18:08:19+05:30">
-  <meta itemprop="wordCount" content="693">
-  <meta itemprop="image" content="http://localhost:55284/ORIGO2K25/posts/code-explanation-day-1/cover.png">
+  <meta itemprop="wordCount" content="968">
+  <meta itemprop="image" content="http://localhost:1313/origo24/posts/code-explanation-day-1/cover.png">
   <meta itemprop="keywords" content="Opencv,Code,Python,Basics,Handout,Rignitc">
 
       <header>
-        <h1 itemprop="headline">Code Explanation Day 01</h1>
+        <h1 itemprop="headline">Day 01 - Gesture Controlled Robot</h1>
         <p class="text-sm">
           
             Friday, Jan 10, 2025
           
 
-          | <span>4 minute read</span>
+          | <span>5 minute read</span>
 
           
           | <span>Updated at
@@ -404,19 +404,19 @@
   
   
     <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
-      href="https://x.com/intent/post?text=Code%20Explanation%20Day%2001&amp;url=http://localhost:55284/ORIGO2K25/posts/code-explanation-day-1/" target="_blank" rel="noopener noreferrer"
+      href="https://x.com/intent/post?text=Day%2001%20-%20Gesture%20Controlled%20Robot&amp;url=http://localhost:1313/origo24/posts/code-explanation-day-1/" target="_blank" rel="noopener noreferrer"
       title="Share on X">
       <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
     </a>
   
     <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
-      href="https://facebook.com/sharer/sharer.php?u=http://localhost:55284/ORIGO2K25/posts/code-explanation-day-1/" target="_blank" rel="noopener noreferrer"
+      href="https://facebook.com/sharer/sharer.php?u=http://localhost:1313/origo24/posts/code-explanation-day-1/" target="_blank" rel="noopener noreferrer"
       title="Share on Facebook">
       <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
     </a>
   
     <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
-      href="https://wa.me/?text=Code%20Explanation%20Day%2001%20http://localhost:55284/ORIGO2K25/posts/code-explanation-day-1/" target="_blank" rel="noopener noreferrer"
+      href="https://wa.me/?text=Day%2001%20-%20Gesture%20Controlled%20Robot%20http://localhost:1313/origo24/posts/code-explanation-day-1/" target="_blank" rel="noopener noreferrer"
       title="Share on WhatsApp">
       <ion-icon class="group-hover:text-primary-content" name="logo-whatsapp"></ion-icon>
     </a>
@@ -434,9 +434,87 @@
 
         <!-- raw HTML omitted -->
 <p>Day 01: Gesture Controlled Robot with OpenCV and ESP</p>
-<h1 id="gesture-controlled-robot"><strong>Gesture-Controlled Robot</strong></h1>
+<h1 id="day-01---gesture-controlled-robot"><strong>Day 01 - Gesture Controlled Robot</strong></h1>
 <p>This Python script captures hand gestures using MediaPipe, classifies them using a custom-trained model, and sends the gesture index to an ESP device over a TCP socket connection.</p>
 <p>The robot is gesture-controlled, meaning it performs specific actions based on the hand gestures detected by a camera. It uses an ESP-based microcontroller to receive commands over Wi-Fi. The ESP processes these commands (gesture indices) and controls the robot&rsquo;s movements or actions accordingly.</p>
+<h2 id="code">CODE</h2>
+<p><a href="https://drive.google.com/file/d/1D-6FmErkqYTu3gDX4GVx5edJt9dgfnpo/view?usp=sharing" target="_blank">LINK TO CODE</a>
+</p>
+<hr>
+<h2 id="steps-to-implement">STEPS TO IMPLEMENT:</h2>
+<p>*Make sure Arduino IDE, Python, VS Code, and IPWebcam is installed as per the pre-workshop guide.</p>
+<h3 id="mobile-hotspot">Mobile Hotspot</h3>
+<ol>
+<li>Search for mobile hotspot on your laptop.
+<img src="mobilehotspot.png" alt=""></li>
+<li>Check the <code>Properties</code> section and make sure that the <code>Band</code> is 2.4 GHz. If not, click the <code>Edit</code> button and change it.</li>
+<li>Note the <code>Name</code> and <code>Password</code> of the hotspot.</li>
+<li>Switch the hotspot on.</li>
+</ol>
+<h3 id="nodemcu">NodeMCU</h3>
+<ol>
+<li>Connect the NodeMCU to your laptop.</li>
+<li>Open <code>Gesture.ino</code> in the <a href="https://drive.google.com/file/d/1D-6FmErkqYTu3gDX4GVx5edJt9dgfnpo/view?usp=sharing" target="_blank">Gesture folder</a>
+ in Arduino IDE. Click the <code>Tools</code> button.
+<img src="arduinoide_ss.png" alt=""></li>
+<li>In <code>Board</code>, choose &ldquo;NodeMCU 1.0 (ESP-12E Module)&rdquo;.</li>
+<li>If <code>Port</code> is greyed out:
+<ul>
+<li>Make sure that you have connected NodeMCU to the laptop.</li>
+<li>Make sure you have installed the required drivers
+<ul>
+<li>Go to this G-drive <a href="https://drive.google.com/drive/folders/1mW2N0dRUXK9hYm13JKqF4--l8CSG38TW" target="_blank">link</a>
+, download the entire zip file, extract it &amp; then Install the recommended version for your OS</li>
+<li>After installing, restart the laptop.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Click the <code>Upload</code> button.
+<img src="uploadbtn.png" alt=""></li>
+</ol>
+<ul>
+<li>If there is any error like &ldquo;Timed out&hellip; Connecting&hellip;&rdquo;:
+<ul>
+<li>Try removing the NodeMCU slowly from the breadboard and then uploading.</li>
+</ul>
+</li>
+</ul>
+<ol start="6">
+<li>Once successfully uploaded, open the Serial monitor (button in the top-right)</li>
+<li>It should show &ldquo;Connecting to Wifi&hellip;&rdquo;. And then once connected, &ldquo;Connected to Wi-Fi. IP Address:&rdquo;. The IP that follow&rsquo;s is your <strong>ESP IP</strong> that should be used in the Python file.</li>
+</ol>
+<h3 id="python-server">Python server</h3>
+<ol>
+<li>Download the <a href="https://drive.google.com/file/d/1D-6FmErkqYTu3gDX4GVx5edJt9dgfnpo/view?usp=sharing" target="_blank">.zip file</a>
+ for the code and extract it.</li>
+<li>Open VS Code</li>
+<li>Click <code>File</code> in the top-left. Then click <code>Open Folder</code> and open the extracted folder.</li>
+<li>Double click on <code>detect_gesture.py</code> in VS Code.</li>
+<li>Change <code>ESP_IP</code> to the NodeMCU IP we got from the Serial Monitor.</li>
+<li>Run the python file with the Run button (Triangle button) in the top-right of VSCODE
+<ul>
+<li>If not seen, install the Python extension in VS CODE. Click <code>Ctrl+Shift+X</code>. Search for python and install the extension.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>If any error like package not found:
+<ul>
+<li>Run in terminal<!-- raw HTML omitted -->
+<code>py -m pip install opencv-python mediapipe simple_pid torch tensorflow pandas ultralytics</code> <!-- raw HTML omitted -->
+or <!-- raw HTML omitted -->
+<code>python -m pip install opencv-python mediapipe simple_pid torch tensorflow pandas ultralytics</code></li>
+<li>If you are not able to install mediapipe, make sure that you are using Python 3.11. Refer to the pre-workshop guide on how to download Python 3.11.</li>
+</ul>
+</li>
+<li>If you encounter <code>DLL Error</code> (Dynamic LinkedIn Library – initialisation routine failed)
+<ul>
+<li>Run in terminal<!-- raw HTML omitted -->
+<code>py -m pip install msvc-runtime</code></li>
+</ul>
+</li>
+</ul>
 <hr>
 <h2 id="how-it-works"><strong>How It Works</strong></h2>
 <ol>
@@ -604,62 +682,6 @@
 <li>Destroys all OpenCV windows.</li>
 </ul>
 <hr>
-<h2 id="instructions-for-running-the-code"><strong>Instructions for Running the Code</strong></h2>
-<ol>
-<li>
-<p><strong>Turn On Hotspot:</strong></p>
-<ul>
-<li>Enable your device&rsquo;s hotspot.</li>
-<li>Set the SSID and PASSWORD.</li>
-</ul>
-</li>
-<li>
-<p><strong>Set Hotspot Bandwidth:</strong></p>
-<ul>
-<li>Use the 2.4GHz band for NodeMCU communication.</li>
-</ul>
-</li>
-<li>
-<p><strong>Update the Arduino Code:</strong></p>
-<ul>
-<li>Open the Arduino code in the Gesture folder.</li>
-<li>Replace placeholder SSID and PASSWORD with your credentials.</li>
-</ul>
-</li>
-<li>
-<p><strong>Navigate to the Correct Folder:</strong></p>
-<ul>
-<li>Ensure you&rsquo;re inside the <code>Gesture_control</code> folder for accessing the <code>KeyPointClassifier</code>.</li>
-</ul>
-</li>
-<li>
-<p><strong>Run the Python Code:</strong></p>
-<ul>
-<li>Execute the Python script for gesture detection.</li>
-</ul>
-</li>
-<li>
-<p><strong>Perform Hand Gestures:</strong></p>
-<ul>
-<li>Supported gestures:
-<ul>
-<li>Thumbs up</li>
-<li>Open hand</li>
-<li>Peace sign</li>
-<li>OK sign</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>Control the Robot:</strong></p>
-<ul>
-<li>The robot responds to your gestures as per the predefined mappings.</li>
-</ul>
-</li>
-</ol>
-<hr>
-<pre tabindex="0"><code></code></pre>
       </section>
 
       
@@ -674,6 +696,14 @@
     
       <nav id="TableOfContents">
   <ul>
+    <li><a href="#code">CODE</a></li>
+    <li><a href="#steps-to-implement">STEPS TO IMPLEMENT:</a>
+      <ul>
+        <li><a href="#mobile-hotspot">Mobile Hotspot</a></li>
+        <li><a href="#nodemcu">NodeMCU</a></li>
+        <li><a href="#python-server">Python server</a></li>
+      </ul>
+    </li>
     <li><a href="#how-it-works"><strong>How It Works</strong></a></li>
     <li><a href="#libraries-and-tools"><strong>Libraries and Tools</strong></a>
       <ul>
@@ -692,7 +722,6 @@
       </ul>
     </li>
     <li><a href="#cleanup"><strong>Cleanup</strong></a></li>
-    <li><a href="#instructions-for-running-the-code"><strong>Instructions for Running the Code</strong></a></li>
   </ul>
 </nav>
     
@@ -886,12 +915,12 @@
 
   
   
-  <script src="/ORIGO2K25/js/grid.js"></script>
+  <script src="/origo24/js/grid.js"></script>
 
 
 
 
-<script src="/ORIGO2K25/js/main.js"></script>
+<script src="/origo24/js/main.js"></script>
 
     
 
