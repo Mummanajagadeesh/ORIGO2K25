@@ -1,5 +1,5 @@
 ---
-title: Code Explanation Day 02
+title: Day 02 - Person Following Robot
 date: 2025-01-10T18:08:19+05:30
 lastmod: 2025-01-10T18:08:19+05:30
 author: ORIGO
@@ -26,7 +26,7 @@ Day 02: Building a Person-Following Robot with YOLO and PID Control
 
 <!--more-->
 
-# CODE EXPLANATION - DAY 2
+# **DAY 2 - Person Following Robot**
 
 We are going to integrate YOLO into our robot so that it can detect a person and follow them around. 
 
@@ -43,14 +43,73 @@ So we need to:
 2. Get position of person using YOLO
 3. Use a PID Controller to get the required PWM signals needed to rotate the wheels so as to make the center of the video feed and the position of the person coincident.
 
-## Running the code
-1. Start Hotspot on your laptop and connect your phone to it. Make sure the network band is set to 2.4 Ghz.
-2. Add the WiFi credential to the NodeMCU .ino file and upload it.
-3. Start the NodeMCU and wait for it to connect to your hotspot.
-4. Note down the IP shown in the serial monitor and edit the `ESP_IP` in the `person_detection.py` file to this IP.
-5. Start video server in IPWebcam.
-6. Note down the IPv4 address shown and change the `VIDSTREAM` in `person_detection.py` file to this address + '/video'
-7. Start the .py file with `py person_detection.py`
+## CODE 
+
+[LINK TO CODE](https://drive.google.com/file/d/1xeWB9TR9jSzmF2UY5I5Wnl7XP-cAZOcT/view)
+
+## STEPS TO IMPLEMENT:
+
+*Make sure Arduino IDE, Python, VS Code, and IPWebcam is installed as per the pre-workshop guide.
+
+### Mobile Hotspot
+1. Search for mobile hotspot on your laptop.
+![](mobilehotspot.png)
+2. Check the `Properties` section and make sure that the `Band` is 2.4 GHz. If not, click the `Edit` button and change it. 
+3. Note the `Name` and `Password` of the hotspot.
+3. Switch the hotspot on.
+
+### NodeMCU
+
+1. Connect the NodeMCU to your laptop.
+2. Open `NodeMCU.ino` in [NodeMCU folder](https://drive.google.com/file/d/1xeWB9TR9jSzmF2UY5I5Wnl7XP-cAZOcT/view) in Arduino IDE. Click the `Tools` button.
+![](arduinoide_ss.png)
+3. In `Board`, choose "NodeMCU 1.0 (ESP-12E Module)".
+4. If `Port` is greyed out:
+    - Make sure that you have connected NodeMCU to the laptop.
+    - Make sure you have installed the required drivers
+        - Go to this G-drive [link](https://drive.google.com/drive/folders/1mW2N0dRUXK9hYm13JKqF4--l8CSG38TW), download the entire zip file, extract it & then Install the recommended version for your OS
+        - After installing, restart the laptop.
+5.  Click the `Upload` button.
+![](uploadbtn.png)
+- If there is any error like "Timed out... Connecting...":
+    - Try removing the NodeMCU slowly from the breadboard and then uploading. 
+6. Once successfully uploaded, open the Serial monitor (button in the top-right)
+7. It should show "Connecting to Wifi...". And then once connected, "Connected to Wi-Fi. IP Address:". The IP that follow's is your **ESP IP** that should be used in the Python file.
+
+### IP Webcam
+
+1. Connect your phone to same mobile hotspot from your laptop.
+2. Open IPWebcam.
+3. Scroll down and click `Video Preferences`.
+4. Set the `Video Resolution` to 640x360
+5. Set the `Quality` to about 20.
+6. Set the `FPS Limit` to 5. (These settings are made so that it won't lag much when processing with YOLO)
+7. Click the 3 dot menu button on top-right and click `Start Server`
+8. Note down the IPv4 URL given in the bottom of the video stream. This will be used in the Python file.
+
+
+### Python server
+
+1. Download the [.zip file](https://drive.google.com/file/d/1xeWB9TR9jSzmF2UY5I5Wnl7XP-cAZOcT/view) for the code and extract it.
+2. Open VS Code
+3. Click `File` in the top-left. Then click `Open Folder` and open the extracted folder.
+4. Double click on `person_detection.py` in VS Code.
+5. Change `ESP_IP` to the NodeMCU IP we got from the Serial Monitor.
+6. Change `VIDSTREAM` to the IPV4 URL from IPWebcam + '\video'
+7. Run the python file with the Run button (Triangle button) in the top-right of VSCODE
+    - If not seen, install the Python extension in VS CODE. Click `Ctrl+Shift+X`. Search for python and install the extension.
+- If any error like package not found:
+    - Run <br>
+    `py -m pip install opencv-python mediapipe simple_pid torch tensorflow pandas ultralytics` <br>
+    or <br>
+    `python -m pip install opencv-python mediapipe simple_pid torch tensorflow pandas ultralytics`
+    
+### PID Tuning
+
+- You need to adjust the Kp, Ki, Kd values so that the robot rotates such that the person becomes the center of the frame and the robot charges forward.
+- Start with slowly increase Kp, until the robot starts oscillation about the person's position.
+- Then slowly increase Ki and Kd to reduce the steady state error and oscillations.
+---
 
 ## Code Explanation
  

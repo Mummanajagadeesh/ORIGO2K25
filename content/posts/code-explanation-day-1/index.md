@@ -1,5 +1,5 @@
 ---
-title: Code Explanation Day 01
+title: Day 01 - Gesture Controlled Robot
 date: 2025-01-10T18:08:19+05:30
 lastmod: 2025-01-10T18:08:19+05:30
 author: ORIGO
@@ -26,13 +26,68 @@ Day 01: Gesture Controlled Robot with OpenCV and ESP
 
 <!--more-->
 
-# **Gesture-Controlled Robot**
+# **Day 01 - Gesture Controlled Robot**
 
 This Python script captures hand gestures using MediaPipe, classifies them using a custom-trained model, and sends the gesture index to an ESP device over a TCP socket connection.
 
 The robot is gesture-controlled, meaning it performs specific actions based on the hand gestures detected by a camera. It uses an ESP-based microcontroller to receive commands over Wi-Fi. The ESP processes these commands (gesture indices) and controls the robot's movements or actions accordingly.
 
+## CODE 
+
+[LINK TO CODE](https://drive.google.com/file/d/1D-6FmErkqYTu3gDX4GVx5edJt9dgfnpo/view?usp=sharing)
+
 ---
+
+## STEPS TO IMPLEMENT:
+
+*Make sure Arduino IDE, Python, VS Code, and IPWebcam is installed as per the pre-workshop guide.
+
+### Mobile Hotspot
+1. Search for mobile hotspot on your laptop.
+![](mobilehotspot.png)
+2. Check the `Properties` section and make sure that the `Band` is 2.4 GHz. If not, click the `Edit` button and change it. 
+3. Note the `Name` and `Password` of the hotspot.
+3. Switch the hotspot on.
+
+### NodeMCU
+
+1. Connect the NodeMCU to your laptop.
+2. Open `Gesture.ino` in the [Gesture folder](https://drive.google.com/file/d/1D-6FmErkqYTu3gDX4GVx5edJt9dgfnpo/view?usp=sharing) in Arduino IDE. Click the `Tools` button.
+![](arduinoide_ss.png)
+3. In `Board`, choose "NodeMCU 1.0 (ESP-12E Module)".
+4. If `Port` is greyed out:
+    - Make sure that you have connected NodeMCU to the laptop.
+    - Make sure you have installed the required drivers
+        - Go to this G-drive [link](https://drive.google.com/drive/folders/1mW2N0dRUXK9hYm13JKqF4--l8CSG38TW), download the entire zip file, extract it & then Install the recommended version for your OS
+        - After installing, restart the laptop.
+5.  Click the `Upload` button.
+![](uploadbtn.png)
+- If there is any error like "Timed out... Connecting...":
+    - Try removing the NodeMCU slowly from the breadboard and then uploading. 
+6. Once successfully uploaded, open the Serial monitor (button in the top-right)
+7. It should show "Connecting to Wifi...". And then once connected, "Connected to Wi-Fi. IP Address:". The IP that follow's is your **ESP IP** that should be used in the Python file.
+
+### Python server
+
+1. Download the [.zip file](https://drive.google.com/file/d/1D-6FmErkqYTu3gDX4GVx5edJt9dgfnpo/view?usp=sharing) for the code and extract it.
+2. Open VS Code
+3. Click `File` in the top-left. Then click `Open Folder` and open the extracted folder.
+4. Double click on `detect_gesture.py` in VS Code.
+5. Change `ESP_IP` to the NodeMCU IP we got from the Serial Monitor.
+7. Run the python file with the Run button (Triangle button) in the top-right of VSCODE
+    - If not seen, install the Python extension in VS CODE. Click `Ctrl+Shift+X`. Search for python and install the extension.
+- If any error like package not found:
+    - Run in terminal<br>
+    `py -m pip install opencv-python mediapipe simple_pid torch tensorflow pandas ultralytics` <br>
+    or <br>
+    `python -m pip install opencv-python mediapipe simple_pid torch tensorflow pandas ultralytics`
+    - If you are not able to install mediapipe, make sure that you are using Python 3.11. Refer to the pre-workshop guide on how to download Python 3.11.
+- If you encounter `DLL Error` (Dynamic LinkedIn Library – initialisation routine failed)
+   - Run in terminal<br>
+   `py -m pip install msvc-runtime`
+
+---
+ 
 
 ## **How It Works**
 
@@ -219,35 +274,3 @@ print("Connection closed.")
 - Destroys all OpenCV windows.
 
 ---
-
-## **Instructions for Running the Code**
-
-1. **Turn On Hotspot:**
-   - Enable your device's hotspot.
-   - Set the SSID and PASSWORD.
-
-2. **Set Hotspot Bandwidth:**
-   - Use the 2.4GHz band for NodeMCU communication.
-
-3. **Update the Arduino Code:**
-   - Open the Arduino code in the Gesture folder.
-   - Replace placeholder SSID and PASSWORD with your credentials.
-
-4. **Navigate to the Correct Folder:**
-   - Ensure you're inside the `Gesture_control` folder for accessing the `KeyPointClassifier`.
-
-5. **Run the Python Code:**
-   - Execute the Python script for gesture detection.
-
-6. **Perform Hand Gestures:**
-   - Supported gestures:
-     - Thumbs up
-     - Open hand
-     - Peace sign
-     - OK sign
-
-7. **Control the Robot:**
-   - The robot responds to your gestures as per the predefined mappings.
-
---- 
-```
